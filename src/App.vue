@@ -1,23 +1,5 @@
 <template>
   <v-app>
-
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      elevation="1"
-      app
-      color="white"
-    >
-      <v-toolbar-title class="headline"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>タスク管理アプリ</v-toolbar-title>
-      <v-spacer/>
-      <v-toolbar-title>
-        <span>asd</span>
-      </v-toolbar-title>
-    </v-app-bar>
-    
-    <v-container class="mt-12 px-0 py-0">
-      <router-view />
-    </v-container>
-
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -50,6 +32,24 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+    <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      elevation="1"
+      app
+      color="white"
+    >
+      <v-toolbar-title class="headline"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>タスク管理アプリ</v-toolbar-title>
+      <v-spacer/>
+      <v-toolbar-title>
+        <span>/yourname/</span>
+      </v-toolbar-title>
+    </v-app-bar>
+    
+    <v-container class="mt-12 px-0 py-0">
+      <router-view />
+    </v-container>
+
   </v-app>
 </template>
 

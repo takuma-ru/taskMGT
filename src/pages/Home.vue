@@ -4,15 +4,18 @@
       <v-row justify="center" align="center">
         <v-sheet>
           <v-card width="400px">
-            <v-card-title><v-icon class="mr-2">mdi-google</v-icon>googleアカウントでログイン</v-card-title>
+            <v-card-title>
+              <span v-if="!isAuth">SIGNIN</span>
+              <span v-else>Account Information</span>
+              </v-card-title>
             <v-card-text>
-              <v-avatar v-if="isAuth" size="36">
+              <v-avatar v-if="isAuth" size="36" class="mr-1 mb-1">
                 <v-img
                   :src="user.photoURL"
                 >
                 </v-img>
               </v-avatar>
-              <span>
+              <span class="black--text">
                 {{user.displayName}}
               </span><br>
             </v-card-text>
@@ -24,7 +27,7 @@
                 block
                 @click="signIn"
               >
-                Login
+                Signin with google
               </v-btn>
               <v-btn
                 v-else
