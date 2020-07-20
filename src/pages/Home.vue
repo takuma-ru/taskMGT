@@ -5,23 +5,23 @@
         <v-sheet>
           <v-card width="400px">
             <v-card-title>
-              <span v-if="!isAuth">SIGNIN</span>
+              <span v-if="!isauth">SIGNIN</span>
               <span v-else>Account Information</span>
               </v-card-title>
             <v-card-text>
-              <v-avatar v-if="isAuth" size="36" class="mr-1 mb-1">
+              <v-avatar v-if="isauth" size="36" class="mr-1 mb-1">
                 <v-img
-                  :src="user.photoURL"
+                  :src="userdata.photoURL"
                 >
                 </v-img>
               </v-avatar>
               <span class="black--text">
-                {{user.displayName}}
+                {{userdata.displayName}}
               </span><br>
             </v-card-text>
             <v-card-actions>
               <v-btn
-                v-if="!isAuth"
+                v-if="!isauth"
                 :disabled="isload"
                 outlined
                 block
@@ -52,40 +52,24 @@ import { mapState,mapMutations,mapActions,mapGetters } from 'vuex'
 
 export default {
   data: () => ({
-    isAuth: false,
     isload: false,
-    user: {photoURL: '',},
   }),
-  
-  mounted: function () {
-    firebase.auth().onAuthStateChanged((user) => {
-        this.isAuth = !!user
-        this.user = user;
-        this.isload = false;
-        console.log("sucsses!")
-    })
-  },
 
   computed: {
-    ...mapState([
-      "login",
-    ]),
-    getuser(){
-      return this.$store.getters.login
-    }
+    isauth(){
+      return this.$store.getters.isauth
+    },
+    userdata(){
+      return this.$store.getters.userdata
+    },
   },
 
   methods: {
-    signIn: function () {
-      this.isload = true;
-      console.log("signin...");
-      const provider = new firebase.auth.GoogleAuthProvider()
-      firebase.auth().signInWithRedirect(provider)
+    signIn() {
+      this.$store.dispatch('signIn')
     },
-    signOut: function () {
-      this.isload = true;
-      console.log("signout...");
-      firebase.auth().signOut()
+    signOut() {
+      this.$store.dispatch('signOut')
     },
   },
 }

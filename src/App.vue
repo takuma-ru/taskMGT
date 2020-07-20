@@ -42,7 +42,12 @@
       <v-toolbar-title class="headline"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>タスク管理アプリ</v-toolbar-title>
       <v-spacer/>
       <v-toolbar-title>
-        <span>/yourname/</span>
+        <v-btn
+          text
+          :ripple="none"
+        >
+          {{userdata.displayName}}
+        </v-btn>
       </v-toolbar-title>
     </v-app-bar>
     
@@ -86,5 +91,15 @@ export default {
       { title: 'About', icon: 'mdi-question_answer' },
     ],
   }),
+
+  computed: {
+    isauth(){
+      return this.$store.getters.isauth
+    },
+    userdata(){
+      return this.$store.getters.userdata
+    },
+  },
+
 };
 </script>
