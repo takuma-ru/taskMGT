@@ -26,9 +26,13 @@ export default new Vuex.Store({
   },
   actions: {
     async signIn({ commit }) {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({
+        hd: 'g.ichinoseki.ac.jp'
+      });
       await firebase
         .auth()
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .signInWithPopup(provider)
         .then(res => commit('setSignInState', res.user))
         .catch(error => {
           if (error.code === 'auth/popup-closed-by-user') {
