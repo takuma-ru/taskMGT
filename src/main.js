@@ -3,11 +3,11 @@ import App from './App.vue'
 import store from './store/'
 import router from './router'
 import vuetify from './plugins/vuetify';
-import firebase from './plugins/firebase'
+import Firebase from './plugins/firebase'
 
 Vue.config.productionTip = false
 
-firebase
+Firebase;
 
 new Vue({
   store,

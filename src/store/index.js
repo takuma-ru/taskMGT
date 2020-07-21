@@ -23,6 +23,13 @@ export default new Vuex.Store({
       state.userdata = user
       console.log("setSignInState...");
     },
+    onAuthStateChanged(state, user){
+      firebase.auth().onAuthStateChanged((user) => {
+        state.isAuth = !!user;
+        state.user = user;
+        console.log("sucsses!")
+      })
+    },
   },
   actions: {
     async signIn({ commit }) {

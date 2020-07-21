@@ -15,7 +15,8 @@
           </v-btn>
         </v-col>
         <v-col>
-          このアプリの説明
+          <p>このアプリの説明</p>
+          <p><v-icon class="mb-1" color="black">mdi-alert-circle-outline</v-icon>現在"g.ichinoseki.ac.jp"のドメインのみログインが可能になっております。"gmail.com"などではログインできません。</p>
         </v-col>
       </v-row>
     </v-col>
