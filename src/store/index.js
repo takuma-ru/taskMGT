@@ -28,7 +28,7 @@ export default new Vuex.Store({
     async signIn({ commit }) {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({
-        hd: 'g.ichinoseki.ac.jp'
+        hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
       });
       await firebase
         .auth()
