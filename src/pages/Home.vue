@@ -1,46 +1,22 @@
 <template>
   <v-container>
     <v-col>
-      <v-row justify="center" align="center">
-        <v-sheet>
-          <v-card width="400px">
-            <v-card-title>
-              <span v-if="!isauth">SIGNIN</span>
-              <span v-else>Account Information</span>
-              </v-card-title>
-            <v-card-text>
-              <v-avatar v-if="isauth" size="36" class="mr-1 mb-1">
-                <v-img
-                  :src="userdata.photoURL"
-                >
-                </v-img>
-              </v-avatar>
-              <span class="black--text">
-                {{userdata.displayName}}
-              </span><br>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn
-                v-if="!isauth"
-                :disabled="isload"
-                outlined
-                block
-                @click="signIn"
-              >
-                Signin with google
-              </v-btn>
-              <v-btn
-                v-else
-                :disabled="isload"
-                outlined
-                block
-                @click="signOut"
-              >
-                Logout
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-sheet>
+      <v-row v-if="isauth" justify="center" align="center">
+        <h1>ようこそ「{{userdata.displayName}}」さん</h1>
+      </v-row>
+      <v-row v-if="!isauth" justify="center" align="center">
+        <h1>ログインすると利用できます</h1>
+        <v-col cols="12" align="center">
+          <v-btn
+            outlined
+            @click="signIn"
+          >
+            googleアカウントでログイン  
+          </v-btn>
+        </v-col>
+        <v-col>
+          このアプリの説明
+        </v-col>
       </v-row>
     </v-col>
   </v-container>
@@ -48,7 +24,6 @@
 
 <script>
 import firebase from 'firebase'
-import { mapState,mapMutations,mapActions,mapGetters } from 'vuex'
 
 export default {
   data: () => ({
@@ -67,9 +42,6 @@ export default {
   methods: {
     signIn() {
       this.$store.dispatch('signIn')
-    },
-    signOut() {
-      this.$store.dispatch('signOut')
     },
   },
 }
