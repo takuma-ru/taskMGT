@@ -140,6 +140,8 @@
 </style>
 
 <script>
+import firebase from './plugins/firebase'
+
 export default {
   name: 'App',
   data: () => ({
@@ -149,10 +151,15 @@ export default {
       { title: 'タスクボード', icon: 'mdi-view-dashboard-outline', link: '/dashboard' },
       { title: 'チーム', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
+    isload: false,
     mini: true,
   }),
 
   components: {
+  },
+
+  created: function() {
+    this.onAuth();
   },
 
   computed: {
@@ -170,6 +177,9 @@ export default {
     },
     signOut() {
       this.$store.dispatch('signOut')
+    },
+    onAuth() {
+      this.$store.dispatch('onAuth')
     },
   },
 

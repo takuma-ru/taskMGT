@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import firebase from 'firebase'
+import firebase from '../plugins/firebase'
 
 Vue.use(Vuex)
 
@@ -18,47 +18,36 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setSignInState(state, user) {
-      state.isauth = !!user
-      state.userdata = user
-      console.log("setSignInState...");
+    onAuthStateChanged(state, user) {
+      state.userdata = user; //firebaseが返したユーザー情報
     },
-    onAuthStateChanged(state, user){
-      firebase.auth().onAuthStateChanged((user) => {
-        state.isAuth = !!user;
-        state.user = user;
-        console.log("sucsses!")
-      })
-    },
+    onUserStatusChanged(state, status) {
+      state.isauth = status; //ログインしてるかどうか true or false
+    }
   },
   actions: {
+    async init({ commit }) {
+      firebase.initializeApp(firebase.firebaseConfig);
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    },
     async signIn({ commit }) {
-      var provider = new firebase.auth.GoogleAuthProvider();
+      console.log("signin...")
+      const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({
         hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
-      });
-      await firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(res => commit('setSignInState', res.user))
-        .catch(error => {
-          if (error.code === 'auth/popup-closed-by-user') {
-            // Do nothing.
-          } else {
-            // any
-          }
-        })
+      })
+      firebase.auth().signInWithPopup(provider)
     },
     async signOut({ commit }) {
-      await firebase
-        .auth()
-        .signOut()
-        .then(res => {
-          commit('setSignInState', false)
-        })
+      console.log("signout...")
+      firebase.auth().signOut()
     },
-    async checkAuth({ commit }) {
-      await auth().then(user => commit('setSignInState', user))
+    async onAuth({ commit }) {
+      firebase.auth().onAuthStateChanged(user => {
+        user = user ? user : {};
+        commit('onAuthStateChanged', user);
+        commit('onUserStatusChanged', user.uid ? true : false);
+      });
     },
   },
   modules: {
