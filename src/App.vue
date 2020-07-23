@@ -160,6 +160,7 @@ export default {
 
   created: function() {
     this.onAuth();
+    this.Get();
   },
 
   computed: {
@@ -168,6 +169,9 @@ export default {
     },
     userdata(){
       return this.$store.getters.userdata
+    },
+    check(){
+      return this.$store.getters.check
     },
   },
 
@@ -180,6 +184,9 @@ export default {
     },
     onAuth() {
       this.$store.dispatch('onAuth')
+    },
+    Get() {
+      this.$store.dispatch('dbGet')
     },
   },
 
