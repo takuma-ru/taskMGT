@@ -45,6 +45,11 @@
       <v-app-bar-nav-icon v-if="!drawer" @click="drawer = !drawer, mini= false" />
       <v-toolbar-title class="headline px-0"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>Task</v-toolbar-title>
       <v-spacer/>
+      <v-btn
+        @click="Get()"
+      >
+        get
+      </v-btn>
       <v-toolbar-title>
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
@@ -159,8 +164,7 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
-    this.Get();
+    this.onAuth()
   },
 
   computed: {
@@ -185,9 +189,9 @@ export default {
     onAuth() {
       this.$store.dispatch('onAuth')
     },
-    Get() {
+    /*Get() {
       this.$store.dispatch('dbGet', {uid: this.userdata.uid})
-    },
+    },*/
   },
 
 };

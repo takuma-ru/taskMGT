@@ -9,8 +9,8 @@
           <h1>ようこそ「{{userdata.displayName}}」さん</h1><br>
         </v-col>
         <v-col align="center">
-          <!--<p>{{userdata}}</p>-->
-          <!--<p>{{dbdata}}</p>-->
+          <p>{{userdata.uid}}</p>
+          <p>{{dbdata}}</p>
         </v-col>
         <v-col cols="12" align="center">
           <v-col cols="4" align="center">
@@ -53,10 +53,6 @@
 <style scoped>
   .item {
     display: inline-block;
-    margin: 0px;
-    border: 0px solid #7f7f7f;
-    border-radius: 10px;
-    background-color: #ffffff;
   }
   .item:hover {
     cursor: grab;
@@ -78,6 +74,7 @@ export default {
     },
     isload: false,
   }),
+  
   computed: {
     isauth(){
       return this.$store.getters.isauth
