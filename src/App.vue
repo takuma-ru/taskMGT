@@ -40,7 +40,7 @@
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       elevation="1"
       app
-      style="background-color: #ffffff00"
+      style="background-color: #ffffffc8"
     >
       <v-app-bar-nav-icon v-if="!drawer" @click="drawer = !drawer, mini= false" />
       <v-toolbar-title class="headline px-0"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>Task</v-toolbar-title>

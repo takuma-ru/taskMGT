@@ -1,22 +1,34 @@
 import firestore from '../plugins/firestore'
-import auth from '../store_modules/auth'
 
 export default {
   state: {
+    dbdata: [],
   },
   getters: {
+    dbdata(state) {
+      return state.dbdata
+    },
   },
   mutations: {
+    dbMuta(state, data) {
+      state.dbdata.push(data)
+    }
   },
   actions: {
     dbGet({ commit }) {
-      console.log("dbGet..."+ auth)
-      firestore.collection("test").get().then(function(querySnapshot) {
+      console.log("dbGet...")
+      firestore.collection("test").doc("test_user").collection("Complete").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
+            commit('dbMuta', {
+                id: doc.id,
+                title: doc.data().title,
+                text: doc.data().text,
+                date_start: doc.data().date_start,
+                date_end: doc.data().date_end,
+              });
         });
-    });
-    }
-  },
+      })
+    },
+  }
 }
