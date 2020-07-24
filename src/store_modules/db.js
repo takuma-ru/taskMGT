@@ -15,8 +15,9 @@ export default {
     }
   },
   actions: {
-    dbGet({ commit }) {
-      console.log("dbGet...")
+    dbGet({ commit }, {uid}) {
+      console.log("dbGet... : " + uid)
+      //firestore.collection("tasks").doc(uid).collection("Complete").get().then(function(querySnapshot) {
       firestore.collection("test").doc("test_user").collection("Complete").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             console.log(doc.id, " => ", doc.data());

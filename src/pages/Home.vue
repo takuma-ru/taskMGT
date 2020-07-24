@@ -12,6 +12,24 @@
           <!--<p>{{userdata}}</p>-->
           <!--<p>{{dbdata}}</p>-->
         </v-col>
+        <v-col cols="12" align="center">
+          <v-col cols="4" align="center">
+              <v-card>
+                <v-card-title>あなたのタスク</v-card-title>
+                <draggable :options="options">
+                  <card01
+                    v-for="item in dbdata"
+                    :key="item.id"
+                    :title="item.title"
+                    :text="item.text"
+                    :date_start="item.date_start.seconds"
+                    :date_end="item.date_end.seconds"
+                    class="item"
+                  ></card01>
+                </draggable>
+              </v-card>
+          </v-col>
+        </v-col>
       </v-row>
       <v-row v-if="!isauth && !check" justify="center" align="center">
         <h1>ログインすると利用できます</h1>
@@ -28,33 +46,36 @@
           <p><v-icon class="mb-1" color="black">mdi-alert-circle-outline</v-icon>現在"g.ichinoseki.ac.jp"のドメインのみログインが可能になっております。"gmail.com"などではログインできません。</p>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12" align="center">
-        <v-col cols="4" align="center">
-            <v-card>
-              <v-card-title>あなたのタスク</v-card-title>
-              <card01
-                v-for="item in dbdata"
-                :key="item.id"
-                :title="item.title"
-                :text="item.text"
-                :date_start="item.date_start.seconds"
-                :date_end="item.date_end.seconds"
-              ></card01>
-            </v-card>
-        </v-col>
-        </v-col>
-      </v-row>
     </v-col>
   </v-container>
 </template>
 
+<style scoped>
+  .item {
+    display: inline-block;
+    margin: 0px;
+    border: 0px solid #7f7f7f;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  .item:hover {
+    cursor: grab;
+  }
+  .item:active {
+    cursor: grabbing;
+  }
+</style>
+
 <script>
 import firebase from 'firebase'
+import draggable from 'vuedraggable'
 import card01 from '../component/task_card_1'
 
 export default {
   data: () => ({
+    options: {
+        animation: 200
+    },
     isload: false,
   }),
   computed: {
@@ -74,6 +95,7 @@ export default {
 
   components: {
     card01,
+    draggable,
   },
 
   methods: {

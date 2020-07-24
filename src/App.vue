@@ -55,7 +55,7 @@
               v-on="on"
             >
               <span>{{isauth ? userdata.displayName : 'ログインしていません'}}</span>
-              <v-icon>mdi-chevron-down</v-icon>
+              <v-icon class="ml-1">mdi-chevron-down</v-icon>
             </v-btn>
           </template>
 
@@ -66,7 +66,7 @@
                 </v-card-title>
               <v-card-text>
                 <div v-if="isauth">
-                  <v-avatar size="32" class="mr-1 mb-1">
+                  <v-avatar size="32" class="mr-2 mb-1">
                     <v-img
                       :src="userdata.photoURL"
                     >
@@ -79,7 +79,7 @@
                     small
                     icon
                   >
-                  <v-icon>mdi-cog-outline</v-icon>
+                  <v-icon class="mb-1">mdi-cog-outline</v-icon>
                   </v-btn>
                   <br>
                   <span>{{userdata.email}}</span>
@@ -186,7 +186,7 @@ export default {
       this.$store.dispatch('onAuth')
     },
     Get() {
-      this.$store.dispatch('dbGet')
+      this.$store.dispatch('dbGet', {uid: this.userdata.uid})
     },
   },
 
