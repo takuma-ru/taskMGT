@@ -65,9 +65,11 @@ export default new Vuex.Store({
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
         console.log("dbGet... : " + user.uid)
-        //firestore.collection("tasks").doc(uid).collection("Complete").get().then(function(querySnapshot) {
-        firestore.collection("tasks").doc(user.uid).collection("Complete").get().then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
+        firestore.collection("tasks").doc(user.uid).collection("Complete").get()
+        .then((querySnapshot) => {
+          if(!querySnapshot.empty) {
+            //console.log(querySnapshot.empty)
+            querySnapshot.forEach((doc) => {
               console.log(doc.id, " => ", doc.data());
               commit('dbMuta', {
                 id: doc.id,
@@ -75,8 +77,13 @@ export default new Vuex.Store({
                 text: doc.data().text,
                 date_start: doc.data().date_start,
                 date_end: doc.data().date_end,
-              });
-          });
+              })
+              console.log("GetSuccess")
+            })
+          }else{
+            console.log("Not found :_(")
+            firestore.collection('tasks').doc(user.uid).set({id: user.uid})
+          }
         })
       });
     },

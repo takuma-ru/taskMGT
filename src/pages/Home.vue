@@ -9,11 +9,11 @@
           <h1>ようこそ「{{userdata.displayName}}」さん</h1><br>
         </v-col>
         <v-col align="center">
-          <p>{{userdata.uid}}</p>
-          <p>{{dbdata}}</p>
+          <!--<p>{{userdata}}</p>-->
+          <!--<p>{{dbdata}}</p>-->
         </v-col>
         <v-col cols="12" align="center">
-          <v-col cols="4" align="center">
+          <v-col sm="12" md="4" align="center">
               <v-card>
                 <v-card-title>あなたのタスク</v-card-title>
                 <draggable :options="options">
@@ -74,7 +74,7 @@ export default {
     },
     isload: false,
   }),
-  
+
   computed: {
     isauth(){
       return this.$store.getters.isauth
