@@ -24,6 +24,7 @@
                     :text="item.text"
                     :date_start="item.date_start.seconds"
                     :date_end="item.date_end.seconds"
+                    :progress="40"
                     class="item"
                   ></card01>
                 </draggable>
