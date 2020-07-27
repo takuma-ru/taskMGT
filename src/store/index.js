@@ -12,12 +12,20 @@ export default new Vuex.Store({
     isauth: false,
     userdata: {},
     check: false,
-    dbdata: [],
+    complete: [],
+    inProgress: [],
+    task: [],
   },
 
   getters: {
-    dbdata(state) {
-      return state.dbdata
+    complete(state) {
+      return state.complete
+    },
+    inProgress(state) {
+      return state.inProgress
+    },
+    task(state) {
+      return state.task
     },
     isauth(state) {
       return state.isauth
@@ -37,8 +45,14 @@ export default new Vuex.Store({
     onUserStatusChanged(state, status) {
       state.isauth = status; //ログインしてるかどうか true or false
     },
-    dbMuta(state, data) {
-      state.dbdata.push(data)
+    Muta_C(state, data) {
+      state.complete.push(data)
+    },
+    Muta_P(state, data) {
+      state.inProgress.push(data)
+    },
+    Muta_T(state, data) {
+      state.task.push(data)
     },
   },
 
@@ -71,7 +85,7 @@ export default new Vuex.Store({
             //console.log(querySnapshot.empty)
             querySnapshot.forEach((doc) => {
               console.log(doc.id, " => ", doc.data());
-              commit('dbMuta', {
+              commit('Muta_C', {
                 id: doc.id,
                 title: doc.data().title,
                 text: doc.data().text,

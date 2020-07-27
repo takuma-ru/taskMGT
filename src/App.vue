@@ -7,7 +7,7 @@
       app
       style="background-color: #ffffffc8"
     >
-      <v-list-item @click="mini = !mini" :ripple="false">
+      <v-list-item  @click="isphone ? drawer = false : mini = !mini" :ripple="false">
         <v-list-item-icon>
           <v-icon>{{mini ? 'mdi-chevron-right' : 'mdi-chevron-left'}}</v-icon>
         </v-list-item-icon>
@@ -145,12 +145,13 @@ import firebase from './plugins/firebase'
 export default {
   name: 'App',
   data: () => ({
-    drawer: true,
+    drawer: false,
     items: [
       { title: 'ホーム', icon: 'mdi-home-variant-outline', link: '/' },
       { title: 'タスクボード', icon: 'mdi-view-dashboard-outline', link: '/dashboard' },
       { title: 'チーム', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
+    isphone: false,
     isload: false,
     mini: true,
   }),
@@ -160,6 +161,15 @@ export default {
 
   created: function() {
     this.onAuth()
+    if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+      this.isphone = true
+      this.drawer = false
+      console.log("true")
+    } else {
+      this.isphone = false
+      this.drawer = true
+      console.log("false")
+    }
   },
 
   computed: {
@@ -184,9 +194,6 @@ export default {
     onAuth() {
       this.$store.dispatch('onAuth')
     },
-    /*Get() {
-      this.$store.dispatch('dbGet', {uid: this.userdata.uid})
-    },*/
   },
 
 };

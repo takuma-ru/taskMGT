@@ -6,7 +6,7 @@
     >
     <v-card
       :class="`elevation-${hover ? 9 : 1}`"
-      class="transition-swing rounded-br-xl"
+      class="transition-swing rounded-br-xl card"
       @click="dialog = true"
       outlined
     >
@@ -23,17 +23,17 @@
       v-model="dialog"
       max-width="600px"
     >
-      <v-card>
+      <v-card class="card">
         <v-progress-linear
           :value="progress"
-          height="30px"
-          color="cyan accent-3"
+          height="35px"
+          :color="color"
         >
-          <span>進行度:&nbsp;{{progress}}&#037;</span>
+          <span class="black--text">進行度:&nbsp;{{progress}}&#037;</span>
         </v-progress-linear>
-        <v-card-title class="headline">
+        <v-card-title class="headline px-3">
           {{title}}
-          <span class="ml-2 body-2 red--text">未完了のタスク</span>
+          <p class="ml-2 mb-0 body-2" style="color: #FF7786;">未完了のタスク</p>
           <v-spacer/>
           <v-btn
             icon
@@ -46,21 +46,71 @@
         <v-divider class="mx-2"/>
 
         <v-card-text class="py-4 black--text">
-          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</p><br>
-          <p class="my-0"><v-icon class="mr-2">mdi-account-outline</v-icon>{{userdata.displayName}}</p>
+          <span><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
+          <v-btn
+            icon
+            @click="/**/"
+            class="mb-1 ml-3"
+          >
+            <v-icon>mdi-pencil-outline</v-icon>
+          </v-btn>
+          <br>
+          {{text}}
         </v-card-text>
 
         <v-divider class="mx-2"/>
 
         <v-card-text class="py-4 black--text">
-          {{text}}
+          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</p><br>
+          <p class="my-0">
+            <v-icon class="mr-2">mdi-account-outline</v-icon>
+            <v-chip color="white">
+              <v-avatar size="24" class="mr-2">
+                <v-img :src="userdata.photoURL"></v-img>
+              </v-avatar>
+              {{userdata.displayName}}
+            </v-chip>
+            <v-btn
+              icon
+              small
+              class="ml-2"
+              color="black"
+              style="background-color: white;"
+            >
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </p>
+        </v-card-text>
+
+        <v-divider class="mx-2"/>
+
+        <v-card-text class="py-4 black--text">
+          <span><v-icon class="mb-1 mr-1">mdi-file-tree</v-icon>サブタスク</span>
+          <v-btn
+            outlined
+            small
+            color="black"
+            @click="/**/"
+            class="mb-1 ml-3"
+          >
+            <v-icon>mdi-plus</v-icon>追加
+          </v-btn>
+          <br>
+          <v-checkbox
+            v-model="ex4"
+            label="red"
+            color="red"
+            value="red"
+            hide-details
+          ></v-checkbox>
         </v-card-text>
 
         <v-divider class="mx-2"/>
 
         <v-card-actions>
           <v-btn
-            color="red"
+            elevation="1"
+            color="#FF7786"
             text
             @click="dialog = false"
           >
@@ -68,6 +118,7 @@
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
+            elevation="1"
             color="primary"
             outlined
             @click="dialog = false"
@@ -81,7 +132,9 @@
 </template>
 
 <style>
-
+.card{
+  background-image: url("../assets/card-back.svg");
+}
 </style>
 
 <script>
@@ -102,6 +155,18 @@ export default {
     userdata(){
       return this.$store.getters.userdata
     },
+    color(){
+      var r = Math.round(255/(100/this.progress))
+      var g = Math.round(255/(100/this.progress))
+      var b = Math.round(255/(100/this.progress))
+      console.log(r, g, b)
+
+      r = r.toString(16)
+      g = g.toString(16)
+      b = b.toString(16)
+      console.log(r, g, b)
+      return '#' + r + g + 'ff'
+    }
   },
 
   methods: {

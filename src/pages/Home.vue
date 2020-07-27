@@ -18,16 +18,35 @@
                 <v-card-title>あなたのタスク</v-card-title>
                 <draggable :options="options">
                   <card01
-                    v-for="item in dbdata"
+                    v-for="item in complete"
                     :key="item.id"
                     :title="item.title"
                     :text="item.text"
                     :date_start="item.date_start.seconds"
                     :date_end="item.date_end.seconds"
-                    :progress="40"
+                    :progress="50"
                     class="item"
                   ></card01>
                 </draggable>
+                <v-container>
+                  <v-hover
+                    v-slot:default="{ hover }"
+                    open-delay="0"
+                  >
+                    <v-card
+                      outlined
+                      :class="`elevation-${hover ? 9 : 1}`"
+                      class="transition-swing rounded-br-xl"
+                      @click="/**/"
+                    >
+                      <v-col>
+                        <v-row justify="center" align="center">
+                            <v-icon large>mdi-plus</v-icon>
+                        </v-row>
+                      </v-col>
+                    </v-card>
+                  </v-hover>
+                </v-container>
               </v-card>
           </v-col>
         </v-col>
@@ -86,8 +105,14 @@ export default {
     check(){
       return this.$store.getters.check
     },
-    dbdata(){
-      return this.$store.getters.dbdata
+    complete(){
+      return this.$store.getters.complete
+    },
+    inProgress() {
+      return this.$store.getters.inProgress
+    },
+    task() {
+      return this.$store.getters.task
     },
   },
 
