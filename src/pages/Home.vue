@@ -18,13 +18,14 @@
                 <v-card-title>あなたのタスク</v-card-title>
                 <draggable :options="options">
                   <card01
-                    v-for="item in complete"
+                    v-for="item in task"
                     :key="item.id"
                     :title="item.title"
                     :text="item.text"
                     :date_start="item.date_start.seconds"
                     :date_end="item.date_end.seconds"
                     :progress="50"
+                    :type="1"
                     class="item"
                   ></card01>
                 </draggable>
@@ -37,7 +38,7 @@
                       outlined
                       :class="`elevation-${hover ? 9 : 1}`"
                       class="transition-swing rounded-br-xl"
-                      @click="/**/"
+                      @click="/*add_task*/"
                     >
                       <v-col>
                         <v-row justify="center" align="center">
@@ -89,10 +90,17 @@ import card01 from '../component/task_card_1'
 
 export default {
   data: () => ({
-    options: {
-        animation: 200
+    data: {
+      end: '',
+      start: '',
+      text: '',
+      title: '',
     },
     isload: false,
+    num: 1,
+    options: {
+      animation: 200
+    },
   }),
 
   computed: {
@@ -125,6 +133,14 @@ export default {
     signIn() {
       this.$store.dispatch('signIn')
     },
+    add_task(){
+      this.$store.dispatch('add_task', {
+        end: this.data.end,
+        start: this.data.start,
+        text: this.data.text,
+        title: this.data.title,
+      })
+    }
   },
 }
 </script>

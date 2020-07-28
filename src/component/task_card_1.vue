@@ -1,3 +1,8 @@
+<!--
+  Task:1
+  InProgress:2
+  Complete:3
+-->
 <template>
   <v-container>
     <v-hover
@@ -5,12 +10,12 @@
       open-delay="0"
     >
     <v-card
-      :class="`elevation-${hover ? 9 : 1}`"
+      :class="`elevation-${hover ? 9 : 1} card${type}`"
       class="transition-swing rounded-br-xl card"
       @click="dialog = true"
       outlined
     >
-      <v-card-title>{{title}}<span class="ml-2 body-2 red--text">進行中のタスク</span></v-card-title>
+      <v-card-title>{{title}}<span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span></v-card-title>
       <v-card-text>
         <v-card elevation="0">
           <span><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</span><br>
@@ -23,7 +28,7 @@
       v-model="dialog"
       max-width="600px"
     >
-      <v-card class="card">
+      <v-card :class="`card${type}`">
         <v-progress-linear
           :value="progress"
           height="35px"
@@ -33,8 +38,8 @@
         </v-progress-linear>
         <v-card-title class="headline px-3">
           {{title}}
-          <p class="ml-2 mb-0 body-2" style="color: #FF7786;">未完了のタスク</p>
           <v-spacer/>
+          <p class="mr-5 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
           <v-btn
             icon
             @click="/**/"
@@ -75,7 +80,7 @@
               small
               class="ml-2"
               color="black"
-              style="background-color: white;"
+              style="background-color: white; height: 32px; width: 32px;"
             >
               <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -132,8 +137,14 @@
 </template>
 
 <style>
-.card{
+.card1{
+  background-image: url("../assets/card-back3.svg");
+}
+.card2{
   background-image: url("../assets/card-back.svg");
+}
+.card3{
+  background-image: url("../assets/card-back2.svg");
 }
 </style>
 
@@ -148,7 +159,8 @@ export default {
     'text',
     'date_start',
     'date_end',
-    'progress'
+    'progress',
+    'type'
   ],
 
   computed: {
@@ -170,7 +182,7 @@ export default {
   },
 
   methods: {
-    DtoS(time){
+    DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"
       return date_s

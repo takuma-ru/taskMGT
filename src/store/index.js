@@ -73,32 +73,73 @@ export default new Vuex.Store({
       console.log("signout...")
       firebase.auth().signOut()
     },
+    add_task({ commit }, {end, start, text, title}){
+      var data = {
+        date_end: end,
+        date_start: start,
+        text: text,
+        title: title,
+      }
+      firebase.auth().onAuthStateChanged(user => {
+        firestore.collection("tasks").doc(user.uid).collection("Task").add(data)
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          firestore.collection("tasks").doc(user.uid).collection("Task").get()
+          .then((querySnapshot) => {
+            if(!querySnapshot.empty) {
+              //console.log(querySnapshot.empty)
+              querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                commit('Muta_T', {
+                  id: doc.id,
+                  title: doc.data().title,
+                  text: doc.data().text,
+                  date_start: doc.data().date_start,
+                  date_end: doc.data().date_end,
+                })
+                console.log("GetSuccess")
+              })
+            }else{
+              console.log("Not found :_(")
+              firestore.collection('tasks').doc(user.uid).set({id: user.uid})
+            }
+          })
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+      })
+    },
     async onAuth({ commit }) {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
         console.log("dbGet... : " + user.uid)
-        firestore.collection("tasks").doc(user.uid).collection("Complete").get()
-        .then((querySnapshot) => {
-          if(!querySnapshot.empty) {
-            //console.log(querySnapshot.empty)
-            querySnapshot.forEach((doc) => {
-              console.log(doc.id, " => ", doc.data());
-              commit('Muta_C', {
-                id: doc.id,
-                title: doc.data().title,
-                text: doc.data().text,
-                date_start: doc.data().date_start,
-                date_end: doc.data().date_end,
+        const coll = ["Complete", "InProgress", "Task"]
+        const muta = ['Muta_C', 'Muta_P', 'Muta_T']
+        for (let i = 0; i < 3; i++) {
+          firestore.collection("tasks").doc(user.uid).collection(coll[i]).get()
+          .then((querySnapshot) => {
+            if(!querySnapshot.empty) {
+              //console.log(querySnapshot.empty)
+              querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                commit(muta[i], {
+                  id: doc.id,
+                  title: doc.data().title,
+                  text: doc.data().text,
+                  date_start: doc.data().date_start,
+                  date_end: doc.data().date_end,
+                })
+                console.log("GetSuccess")
               })
-              console.log("GetSuccess")
-            })
-          }else{
-            console.log("Not found :_(")
-            firestore.collection('tasks').doc(user.uid).set({id: user.uid})
-          }
-        })
+            }else{
+              console.log("Not found :_(")
+              firestore.collection('tasks').doc(user.uid).set({id: user.uid})
+            }
+          })
+        }
       });
     },
   },
