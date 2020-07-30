@@ -13,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="card-back3.svg">
+   sodipodi:docname="card-back4.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="33.201306"
-     inkscape:cy="558.70233"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="-364.48084"
+     inkscape:cy="871.47927"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -80,7 +80,7 @@
        sodipodi:cx="-8.1297931e-14"
        sodipodi:sides="3"
        id="path867-6-3-7"
-       style="opacity:0.997;fill:#f07e77;fill-opacity:0.25490198;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#4052d2;fill-opacity:0.25490198;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        sodipodi:type="star" />
     <path
        inkscape:transform-center-x="-23.227225"
@@ -98,11 +98,11 @@
        sodipodi:cx="-8.1297931e-14"
        sodipodi:sides="3"
        id="path867-8-8-9"
-       style="opacity:0.997;fill:#f077ad;fill-opacity:0.39215687;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#409bd2;fill-opacity:0.39215687;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        sodipodi:type="star" />
     <path
        sodipodi:type="star"
-       style="opacity:0.997;fill:#f077e9;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#40d2c2;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        id="path867-2-7"
        sodipodi:sides="3"
        sodipodi:cx="-8.1297931e-14"
@@ -120,7 +120,7 @@
        inkscape:transform-center-x="-17.44431" />
     <path
        sodipodi:type="star"
-       style="opacity:0.997;fill:#f07e77;fill-opacity:0.25490198;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#4052d2;fill-opacity:0.25490198;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        id="path839"
        sodipodi:sides="3"
        sodipodi:cx="-8.1297931e-14"
@@ -138,7 +138,7 @@
        inkscape:transform-center-x="28.701928" />
     <path
        sodipodi:type="star"
-       style="opacity:0.997;fill:#f077ad;fill-opacity:0.39215687;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#409bd2;fill-opacity:0.39215687;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        id="path841"
        sodipodi:sides="3"
        sodipodi:cx="-8.1297931e-14"
@@ -170,15 +170,15 @@
        sodipodi:cx="-8.1297931e-14"
        sodipodi:sides="3"
        id="path843"
-       style="opacity:0.997;fill:#f077e9;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       style="opacity:0.997;fill:#40d2c2;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        sodipodi:type="star" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:0.75464684;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
-       id="rect16"
-       width="209.99997"
+       y="-1.5258789e-05"
+       x="3.0517578e-05"
        height="297.00003"
-       x="-5.2518897e-07"
-       y="1.5981922e-06" />
+       width="209.99997"
+       id="rect16"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:0.65799254;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
   </g>
   <g
      style="display:none"

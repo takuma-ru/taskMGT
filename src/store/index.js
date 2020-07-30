@@ -9,6 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    adding: false,
     isauth: false,
     userdata: {},
     check: false,
@@ -35,15 +36,30 @@ export default new Vuex.Store({
     },
     check(state) {
       return state.check
+    },
+    adding(state){
+      return state.adding
     }
   },
 
   mutations: {
+    addChange(state, bool){
+      state.adding = bool
+    },
     onAuthStateChanged(state, user) {
       state.userdata = user; //firebaseが返したユーザー情報
     },
     onUserStatusChanged(state, status) {
       state.isauth = status; //ログインしてるかどうか true or false
+    },
+    init_C(state){
+      state.complete = []
+    },
+    init_P(state){
+      state.inProgress = []
+    },
+    init_T(state){
+      state.task = []
     },
     Muta_C(state, data) {
       state.complete.push(data)
@@ -74,9 +90,10 @@ export default new Vuex.Store({
       firebase.auth().signOut()
     },
     add_task({ commit }, {end, start, text, title}){
+      commit('addChange',true)
       var data = {
-        date_end: end,
-        date_start: start,
+        date_end: firebase.firestore.Timestamp.fromDate(new Date(end)),
+        date_start: firebase.firestore.Timestamp.fromDate(new Date(start)),
         text: text,
         title: title,
       }
@@ -84,10 +101,12 @@ export default new Vuex.Store({
         firestore.collection("tasks").doc(user.uid).collection("Task").add(data)
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
+          commit('addChange',false)
           firestore.collection("tasks").doc(user.uid).collection("Task").get()
           .then((querySnapshot) => {
             if(!querySnapshot.empty) {
               //console.log(querySnapshot.empty)
+              commit('init_T')
               querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());
                 commit('Muta_T', {
@@ -107,6 +126,7 @@ export default new Vuex.Store({
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
+            commit('addChange',false)
         });
       })
     },
@@ -122,6 +142,13 @@ export default new Vuex.Store({
           firestore.collection("tasks").doc(user.uid).collection(coll[i]).get()
           .then((querySnapshot) => {
             if(!querySnapshot.empty) {
+              if(i == 0){
+                commit('init_C')
+              }else if(i == 1){
+                commit('init_P')
+              }else{
+                commit('init_T')
+              }
               //console.log(querySnapshot.empty)
               querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());

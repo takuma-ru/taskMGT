@@ -24,7 +24,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="56.819112"
+     inkscape:cx="-352.29267"
      inkscape:cy="594.07246"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -172,6 +172,13 @@
        id="path843"
        style="opacity:0.997;fill:#77ffff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linejoin:bevel;paint-order:markers fill stroke"
        sodipodi:type="star" />
+    <rect
+       y="-1.5258789e-05"
+       x="3.0517578e-05"
+       height="297.00003"
+       width="209.99997"
+       id="rect16"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:0.49814126;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
   </g>
   <g
      style="display:none"

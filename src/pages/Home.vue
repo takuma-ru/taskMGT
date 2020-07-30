@@ -29,25 +29,7 @@
                     class="item"
                   ></card01>
                 </draggable>
-                <v-container>
-                  <v-hover
-                    v-slot:default="{ hover }"
-                    open-delay="0"
-                  >
-                    <v-card
-                      outlined
-                      :class="`elevation-${hover ? 9 : 1}`"
-                      class="transition-swing rounded-br-xl"
-                      @click="/*add_task*/"
-                    >
-                      <v-col>
-                        <v-row justify="center" align="center">
-                            <v-icon large>mdi-plus</v-icon>
-                        </v-row>
-                      </v-col>
-                    </v-card>
-                  </v-hover>
-                </v-container>
+                <card02></card02>
               </v-card>
           </v-col>
         </v-col>
@@ -87,6 +69,7 @@
 import firebase from 'firebase'
 import draggable from 'vuedraggable'
 import card01 from '../component/task_card_1'
+import card02 from '../component/task_card_2'
 
 export default {
   data: () => ({
@@ -126,6 +109,7 @@ export default {
 
   components: {
     card01,
+    card02,
     draggable,
   },
 
@@ -133,14 +117,6 @@ export default {
     signIn() {
       this.$store.dispatch('signIn')
     },
-    add_task(){
-      this.$store.dispatch('add_task', {
-        end: this.data.end,
-        start: this.data.start,
-        text: this.data.text,
-        title: this.data.title,
-      })
-    }
   },
 }
 </script>

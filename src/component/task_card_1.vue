@@ -11,10 +11,15 @@
     >
     <v-card
       :class="`elevation-${hover ? 9 : 1} card${type}`"
-      class="transition-swing rounded-br-xl card"
+      class="transition-swing rounded-br-xl"
       @click="dialog = true"
       outlined
     >
+      <v-progress-linear
+        :value="progress"
+        height="5px"
+        :color="color"
+      />
       <v-card-title>{{title}}<span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span></v-card-title>
       <v-card-text>
         <v-card elevation="0">
@@ -138,7 +143,7 @@
 
 <style>
 .card1{
-  background-image: url("../assets/card-back3.svg");
+  background-image: url("../assets/card-back4.svg");
 }
 .card2{
   background-image: url("../assets/card-back.svg");
@@ -184,7 +189,7 @@ export default {
   methods: {
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
-      var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"
+      var date_s = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
       return date_s
     }
   }
