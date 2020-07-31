@@ -20,6 +20,7 @@
                   <card01
                     v-for="item in task"
                     :key="item.id"
+                    :id="item.id"
                     :title="item.title"
                     :text="item.text"
                     :date_start="item.date_start.seconds"

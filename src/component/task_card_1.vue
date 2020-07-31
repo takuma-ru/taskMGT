@@ -43,14 +43,72 @@
         </v-progress-linear>
         <v-card-title class="headline px-3">
           {{title}}
-          <v-spacer/>
-          <p class="mr-5 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
           <v-btn
             icon
+            class="mb-1 ml-3"
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
+          <v-spacer/>
+          <p class="mr-5 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
+          <v-btn
+            icon
+            class="mb-1 ml-2"
+            @click="dialog2 = true"
+          >
+            <v-icon>mdi-delete-outline</v-icon>
+          </v-btn>
+          <v-dialog
+            v-model="dialog2"
+            persistent
+            width="300"
+          >
+            <v-card>
+              <v-img :src="require('../assets/background.svg')" max-height="140px" position="left: 0">
+              <v-card-text>
+                このタスクを削除しますか？<br>
+                ※削除すると元に戻すことはできません
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  elevation="1"
+                  outlined
+                  @click="dialog2 = false"
+                >
+                いいえ
+                </v-btn>
+                <v-spacer/>
+                <v-btn
+                  elevation="1"
+                  outlined
+                  @click="delTask(id, type); deleting = true; dialog2 = false"
+                >
+                削除する
+                </v-btn>
+              </v-card-actions>
+              </v-img>
+            </v-card>
+          </v-dialog>
+          <v-dialog
+            v-model="deleting"
+            persistent
+            width="300"
+          >
+            <v-card>
+              <v-img :src="require('../assets/background.svg')" height="90px" position="left: 0">
+              <v-card-text>
+                <p class="mb-0">削除中...</p>
+                <v-progress-linear
+                  indeterminate
+                  color="black"
+                  class="mb-0"
+                ></v-progress-linear>
+                <p class="mb-0 mt-3">ウィンドウを閉じないでください</p>
+              </v-card-text>
+              </v-img>
+            </v-card>
+          </v-dialog>
         </v-card-title>
 
         <v-divider class="mx-2"/>
@@ -59,8 +117,8 @@
           <span><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
           <v-btn
             icon
-            @click="/**/"
             class="mb-1 ml-3"
+            @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
@@ -157,9 +215,11 @@
 export default {
   data: () => ({
     dialog: false,
+    dialog2: false,
   }),
 
   props:[
+    'id',
     'title',
     'text',
     'date_start',
@@ -171,6 +231,9 @@ export default {
   computed: {
     userdata(){
       return this.$store.getters.userdata
+    },
+    deleting(){
+      return this.$store.deleting
     },
     color(){
       var r = Math.round(255/(100/this.progress))
@@ -191,6 +254,23 @@ export default {
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
       return date_s
+    },
+    delTask(id, type){
+      var coll
+      switch(type){
+        case 1:
+          coll = 'Task'
+          break;
+        case 2:
+          coll = 'InProgress'
+          break;
+        case 3:
+          coll = 'Complete'
+          break;
+      }
+      console.log("delete: ", id, type, coll)
+      this.$store.dispatch('del_task', {coll: coll, docid: id,})
+      this.$store.dispatch('onAuth')
     }
   }
 }

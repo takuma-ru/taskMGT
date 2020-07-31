@@ -29,7 +29,7 @@
       max-width="600px"
     >
       <v-card class="card">
-        <v-card-title class="headline px-3">
+        <v-card-title class="headline px-3 pb-0">
           <v-text-field
             v-model="title"
             label="タイトル"
@@ -42,7 +42,7 @@
 
         <v-divider class="mx-2"/>
 
-        <v-card-text class="py-4 black--text">
+        <v-card-text class="pt-3 pb-0 black--text">
           <p><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</p>
           <v-textarea
             v-model="text"
@@ -154,7 +154,6 @@
           </v-btn>
           <v-dialog
             v-model="adding"
-            hide-overlay
             persistent
             width="300"
           >
@@ -243,10 +242,11 @@ export default {
           text: this.text,
           title: this.title,
         })
+        this.dialog = false
       }else{
         console.error("Cannot add.")
       }
-    }
+    },
   }
 }
 </script>

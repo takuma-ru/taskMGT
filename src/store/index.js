@@ -10,6 +10,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     adding: false,
+    deleting: false,
     isauth: false,
     userdata: {},
     check: false,
@@ -46,6 +47,9 @@ export default new Vuex.Store({
     addChange(state, bool){
       state.adding = bool
     },
+    delChange(state, bool){
+      state.deleting = bool
+    },
     onAuthStateChanged(state, user) {
       state.userdata = user; //firebaseが返したユーザー情報
     },
@@ -70,6 +74,7 @@ export default new Vuex.Store({
     Muta_T(state, data) {
       state.task.push(data)
     },
+    GetData(){}
   },
 
   actions: {
@@ -127,6 +132,18 @@ export default new Vuex.Store({
         .catch(function(error) {
             console.error("Error adding document: ", error);
             commit('addChange',false)
+        });
+      })
+    },
+    del_task({ commit }, {coll, docid}){
+      commit('delChange', true)
+      firebase.auth().onAuthStateChanged(user => {
+        firestore.collection("tasks").doc(user.uid).collection(coll).doc(docid).delete()
+        .then(function() {
+            console.log("Document successfully deleted!");
+            commit('delChange', false)
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
         });
       })
     },
