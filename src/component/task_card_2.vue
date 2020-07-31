@@ -231,6 +231,12 @@ export default {
       console.log("StoD", date)
       return date
     },
+    init(){
+      this.title = ''
+      this.text = ''
+      this.sd = new Date().toISOString().substr(0, 10)
+      this.ed = new Date().toISOString().substr(0, 10)
+    },
     addTask(){
       this.StoD(this.sd)
       this.StoD(this.ed)
@@ -243,6 +249,7 @@ export default {
           title: this.title,
         })
         this.dialog = false
+        this.init()
       }else{
         console.error("Cannot add.")
       }

@@ -46,8 +46,9 @@
           </v-btn>
         </v-col>
         <v-col align="center">
-          <p>このアプリの説明</p>
+          <p>このアプリの説明・注意事項</p>
           <p><v-icon class="mb-1" color="black">mdi-alert-circle-outline</v-icon>現在"g.ichinoseki.ac.jp"のドメインのみログインが可能になっております。"gmail.com"などではログインできません。</p>
+          <p>またこのサービスは現在「開発中」です。ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータを削除する場合がございます。ご了承の上利用してください。</p>
         </v-col>
       </v-row>
     </v-col>

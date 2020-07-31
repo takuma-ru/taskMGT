@@ -153,7 +153,7 @@ export default {
     ],
     isphone: false,
     isload: false,
-    mini: true,
+    mini: false,
   }),
 
   components: {

@@ -20,7 +20,19 @@
         height="5px"
         :color="color"
       />
-      <v-card-title>{{title}}<span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span></v-card-title>
+      <v-card-title>
+        {{title}}
+        <span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span>
+        <v-spacer/>
+          <v-btn
+            icon
+            class="mb-1 ml-1"
+            color="#FF7786"
+            @click="dialog2 = true"
+          >
+            <v-icon>mdi-delete-outline</v-icon>
+          </v-btn>
+      </v-card-title>
       <v-card-text>
         <v-card elevation="0">
           <span><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</span><br>
@@ -41,20 +53,22 @@
         >
           <span class="black--text">進行度:&nbsp;{{progress}}&#037;</span>
         </v-progress-linear>
-        <v-card-title class="headline px-3">
+        <v-card-title class="headline px-6">
           {{title}}
           <v-btn
             icon
             class="mb-1 ml-3"
+            color="#7786FF"
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
           <v-spacer/>
-          <p class="mr-5 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
+          <p class="mr-3 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
           <v-btn
             icon
-            class="mb-1 ml-2"
+            class="mb-1 ml-1"
+            color="#FF7786"
             @click="dialog2 = true"
           >
             <v-icon>mdi-delete-outline</v-icon>
@@ -73,7 +87,7 @@
               <v-card-actions>
                 <v-btn
                   elevation="1"
-                  outlined
+                  text
                   @click="dialog2 = false"
                 >
                 いいえ
@@ -82,9 +96,10 @@
                 <v-btn
                   elevation="1"
                   outlined
+                  color="#FF7786"
                   @click="delTask(id, type); deleting = true; dialog2 = false"
                 >
-                削除する
+                <v-icon>mdi-delete-outline</v-icon>削除する
                 </v-btn>
               </v-card-actions>
               </v-img>
@@ -118,6 +133,7 @@
           <v-btn
             icon
             class="mb-1 ml-3"
+            color="#7786FF"
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
@@ -157,7 +173,7 @@
           <v-btn
             outlined
             small
-            color="black"
+            color="#7786FF"
             @click="/**/"
             class="mb-1 ml-3"
           >
@@ -182,16 +198,16 @@
             text
             @click="dialog = false"
           >
-            閉じる
+            <v-icon>mdi-menu-left-outline</v-icon>閉じる
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
             elevation="1"
-            color="primary"
+            color="#7786FF"
             outlined
             @click="dialog = false"
           >
-            完了！
+            <v-icon>mdi-check</v-icon>完了！
           </v-btn>
         </v-card-actions>
       </v-card>
