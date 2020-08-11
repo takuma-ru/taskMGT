@@ -5,14 +5,36 @@
       :clipped="$vuetify.breakpoint.lgAndUp"
       :mini-variant.sync="mini"
       app
-      style="background-color: #ffffffc8"
+      :src="require('./assets/drawer-back.svg')"
     >
+    <!--
+      :src="require('./assets/card-back.svg')"
+      style="background-color: #ffffffc8"
+    -->
       <v-list-item  @click="isphone ? drawer = false : mini = !mini" :ripple="false">
         <v-list-item-icon>
           <v-icon>{{mini ? 'mdi-chevron-right' : 'mdi-chevron-left'}}</v-icon>
         </v-list-item-icon>
         <v-list-item-content class="py-0">
           <v-list-item-title>閉じる</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider class="ml-3 mr-3"></v-divider>
+
+      <v-list-item class="px-2">
+        <v-list-item-avatar>
+          <v-img
+            :src="userdata.photoURL"
+          >
+          </v-img>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>
+            <p class="mt-1 mb-0 body-1 black--text">
+              {{userdata.displayName}}
+            </p>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -37,11 +59,16 @@
     </v-navigation-drawer>
 
     <v-app-bar
+      v-if="false"
       :clipped-left="$vuetify.breakpoint.lgAndUp"
-      elevation="1"
+      elevation="0"
+      :src="require('./assets/card-back.svg')"
       app
-      style="background-color: #ffffffc8"
-    >
+      style="background-color: #ffffff00"
+    ><!--style="background-color: #ffffffc8"-->
+      <template v-slot:img="{ props }">
+        <v-img v-bind="props" position="left"></v-img>
+      </template>
       <v-app-bar-nav-icon v-if="!drawer" @click="drawer = !drawer, mini= false" />
       <v-toolbar-title class="headline px-0"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>Task</v-toolbar-title>
       <v-spacer/>
@@ -112,25 +139,24 @@
           </v-list>
         </v-menu>
       </v-toolbar-title>
+      <v-divider style="position: absolute; bottom: 0px; left: 0px; width: 100vw;" />
     </v-app-bar>
     
-    <v-container class="mt-12 px-0 py-0">
-      <router-view />
-    </v-container>
+    <v-main>
+      <v-container class="mt-0 px-0 py-0">
+        <router-view />
+      </v-container>
+    </v-main>
 
   </v-app>
 </template>
 
 <style>
-.v-application--wrap{
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.v-main__wrap {
+  flex: 1 1 auto;
   max-width: 100%;
   position: relative;
-  background-image: url("../src/assets/background.svg");
+  background-image: url("../src/assets/background-2.svg");
   background-position: center left;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -148,7 +174,7 @@ export default {
     drawer: false,
     items: [
       { title: 'ホーム', icon: 'mdi-home-variant-outline', link: '/' },
-      { title: 'タスクボード', icon: 'mdi-view-dashboard-outline', link: '/dashboard' },
+      { title: 'タスクボード', icon: 'mdi-view-dashboard-outline', link: '/taskboard' },
       { title: 'チーム', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
     isphone: false,

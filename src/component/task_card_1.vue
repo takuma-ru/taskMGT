@@ -20,18 +20,29 @@
         height="5px"
         :color="color"
       />
-      <v-card-title>
-        {{title}}
+      <v-row align="center" class="py-0 px-3">
+        <v-col cols="8" class="ml-3 px-0 py-0 shrink">
+        <v-chip-group
+          active-class="white--text"
+        >
+          <v-chip dark small color="blue">
+            新機能
+          </v-chip>
+        </v-chip-group>
+        </v-col>
+        <v-col cols="3" class="ml-2 px-0 py-0" align="end">
+          <v-avatar size="24">
+            <v-img
+              :src="userdata.photoURL"
+            >
+            </v-img>
+          </v-avatar>
+        </v-col>
+      </v-row>
+      <v-card-title class="pt-0">
+        <span>{{title}}</span>
         <span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span>
         <v-spacer/>
-          <v-btn
-            icon
-            class="mb-1 ml-1"
-            color="#FF7786"
-            @click="dialog2 = true"
-          >
-            <v-icon>mdi-delete-outline</v-icon>
-          </v-btn>
       </v-card-title>
       <v-card-text>
         <v-card elevation="0">
@@ -54,7 +65,7 @@
           <span class="black--text">進行度:&nbsp;{{progress}}&#037;</span>
         </v-progress-linear>
         <v-card-title class="headline px-6">
-          {{title}}
+          <span @dblclick="Log()">{{title}}</span>
           <v-btn
             icon
             class="mb-1 ml-3"
@@ -81,21 +92,21 @@
             <v-card>
               <v-img :src="require('../assets/background.svg')" max-height="140px" position="left: 0">
               <v-card-text>
-                このタスクを削除しますか？<br>
+                <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
                 ※削除すると元に戻すことはできません
               </v-card-text>
               <v-card-actions>
                 <v-btn
                   elevation="1"
-                  text
+                  outlined
                   @click="dialog2 = false"
                 >
-                いいえ
+                <v-icon>mdi-close</v-icon>いいえ
                 </v-btn>
                 <v-spacer/>
                 <v-btn
+                  dark
                   elevation="1"
-                  outlined
                   color="#FF7786"
                   @click="delTask(id, type); deleting = true; dialog2 = false"
                 >
@@ -173,7 +184,7 @@
           <v-btn
             outlined
             small
-            color="#7786FF"
+            color="black"
             @click="/**/"
             class="mb-1 ml-3"
           >
@@ -182,11 +193,14 @@
           <br>
           <v-checkbox
             v-model="ex4"
-            label="red"
-            color="red"
-            value="red"
+            :color="colorType"
             hide-details
-          ></v-checkbox>
+            :ripple="null"
+          >
+            <template v-slot:label>
+              <p class="mb-0" :style="`color: ${colorType}`">サブタスク</p>
+            </template>
+          </v-checkbox>
         </v-card-text>
 
         <v-divider class="mx-2"/>
@@ -195,19 +209,19 @@
           <v-btn
             elevation="1"
             color="#FF7786"
-            text
+            outlined
             @click="dialog = false"
           >
             <v-icon>mdi-menu-left-outline</v-icon>閉じる
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
+            dark
             elevation="1"
             color="#7786FF"
-            outlined
             @click="dialog = false"
           >
-            <v-icon>mdi-check</v-icon>完了！
+            <v-icon class="mr-1">mdi-check</v-icon>完了！
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -225,6 +239,9 @@
 .card3{
   background-image: url("../assets/card-back2.svg");
 }
+.marker_red_futo {
+  background: linear-gradient(transparent 85%, #ff6666 0%);
+}
 </style>
 
 <script>
@@ -232,6 +249,7 @@ export default {
   data: () => ({
     dialog: false,
     dialog2: false,
+    ex4: null,
   }),
 
   props:[
@@ -251,21 +269,39 @@ export default {
     deleting(){
       return this.$store.deleting
     },
+    colorType(){
+      var color
+      switch(this.type){
+        case 1:
+          color = '#004D40'
+          break;
+        case 2:
+          color = '#1A237E'
+          break;
+        case 3:
+          color = '#FF6F00'
+          break;
+      }
+      return color
+    },
     color(){
       var r = Math.round(255/(100/this.progress))
       var g = Math.round(255/(100/this.progress))
       var b = Math.round(255/(100/this.progress))
-      console.log(r, g, b)
+      //console.log(r, g, b)
 
       r = r.toString(16)
       g = g.toString(16)
       b = b.toString(16)
-      console.log(r, g, b)
+      //console.log(r, g, b)
       return '#' + r + g + 'ff'
     }
   },
 
   methods: {
+    Log(){
+      console.log("bdclick")
+    },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
@@ -287,7 +323,7 @@ export default {
       console.log("delete: ", id, type, coll)
       this.$store.dispatch('del_task', {coll: coll, docid: id,})
       this.$store.dispatch('onAuth')
-    }
+    },
   }
 }
 </script>

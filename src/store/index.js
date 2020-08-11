@@ -105,7 +105,7 @@ export default new Vuex.Store({
       firebase.auth().onAuthStateChanged(user => {
         firestore.collection("tasks").doc(user.uid).collection("Task").add(data)
         .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
+          console.log("Document written with ID:", docRef.id);
           commit('addChange',false)
           firestore.collection("tasks").doc(user.uid).collection("Task").get()
           .then((querySnapshot) => {
@@ -113,7 +113,7 @@ export default new Vuex.Store({
               //console.log(querySnapshot.empty)
               commit('init_T')
               querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                console.log(doc.id, "=>", doc.data());
                 commit('Muta_T', {
                   id: doc.id,
                   title: doc.data().title,
@@ -152,10 +152,10 @@ export default new Vuex.Store({
         user = user ? user : {};
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
-        console.log("dbGet... : " + user.uid)
         const coll = ["Complete", "InProgress", "Task"]
         const muta = ['Muta_C', 'Muta_P', 'Muta_T']
         for (let i = 0; i < 3; i++) {
+          console.log("Getting data... :", user.uid)
           firestore.collection("tasks").doc(user.uid).collection(coll[i]).get()
           .then((querySnapshot) => {
             if(!querySnapshot.empty) {
@@ -176,7 +176,7 @@ export default new Vuex.Store({
                   date_start: doc.data().date_start,
                   date_end: doc.data().date_end,
                 })
-                console.log("GetSuccess")
+                console.log("GetSuccess :", coll[i])
               })
             }else{
               console.log("Not found :_(")

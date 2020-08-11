@@ -26,7 +26,7 @@
     <v-dialog
       v-model="dialog"
       persistent
-      max-width="600px"
+      max-width="610px"
     >
       <v-card class="card">
         <v-card-title class="headline px-3 pb-0">
@@ -138,19 +138,19 @@
           <v-btn
             elevation="1"
             color="#FF7786"
-            text
+            outlined
             @click="dialog = false"
           >
-            やっぱりやめる
+            <v-icon class="mr-1 mb-1">mdi-menu-left-outline</v-icon>やめる
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
+            dark
             elevation="1"
-            color="primary"
-            outlined
+            color="#7786FF"
             @click="addTask"
           >
-            追加する
+            <v-icon class="mr-1">mdi-plus</v-icon>追加する
           </v-btn>
           <v-dialog
             v-model="adding"
