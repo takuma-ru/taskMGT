@@ -10,7 +10,7 @@
       open-delay="0"
     >
     <v-card
-      :class="`elevation-${hover ? 9 : 1} card${type}`"
+      :class="`elevation-${hover ? 5 : 0} card${type}`"
       class="transition-swing rounded-br-xl"
       @click="dialog = true"
       outlined
@@ -39,16 +39,21 @@
           </v-avatar>
         </v-col>
       </v-row>
-      <v-card-title class="pt-0">
+      <v-card-title class="pt-0 pb-3">
         <span>{{title}}</span>
         <span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span>
         <v-spacer/>
       </v-card-title>
-      <v-card-text>
-        <v-card elevation="0">
-          <span><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</span><br>
+      <v-card-actions class="pt-0">
+        <v-card
+          elevation="0"
+          color="#FF7786"
+          dark
+          class="py-1"
+        >
+          <span class="px-2"><v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>&nbsp;{{DtoS(date_end)}}&nbsp;まで</span><br>
         </v-card>
-      </v-card-text>
+      </v-card-actions>
     </v-card>
     </v-hover>
 
@@ -64,7 +69,8 @@
         >
           <span class="black--text">進行度:&nbsp;{{progress}}&#037;</span>
         </v-progress-linear>
-        <v-card-title class="headline px-6">
+        <v-col>
+        <v-card-title class="headline px-4">
           <span @dblclick="Log()">{{title}}</span>
           <v-btn
             icon
@@ -76,14 +82,29 @@
           </v-btn>
           <v-spacer/>
           <p class="mr-3 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
-          <v-btn
-            icon
-            class="mb-1 ml-1"
-            color="#FF7786"
-            @click="dialog2 = true"
-          >
-            <v-icon>mdi-delete-outline</v-icon>
-          </v-btn>
+          <v-menu offset-y bottom left>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+              icon
+              v-bind="attrs"
+              v-on="on"
+              >
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item class="px-0">
+                <v-btn
+                  block
+                  text
+                  color="#FF7786"
+                  @click="dialog2 = true"
+                >
+                  <v-icon>mdi-delete-outline</v-icon>削除
+                </v-btn>
+              </v-list-item>
+            </v-list>
+          </v-menu>
           <v-dialog
             v-model="dialog2"
             persistent
@@ -224,6 +245,7 @@
             <v-icon class="mr-1">mdi-check</v-icon>完了！
           </v-btn>
         </v-card-actions>
+        </v-col>
       </v-card>
     </v-dialog>
   </v-container>
