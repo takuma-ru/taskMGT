@@ -8,70 +8,33 @@
         <v-col cols="12" align="center">
           <h1>ようこそ「{{userdata.displayName}}」さん</h1><br>
         </v-col>
-        <v-col align="center">
-          <!--<p>{{userdata}}</p>-->
-          <!--<p>{{dbdata}}</p>-->
-        </v-col>
+        <!--<v-col align="center">
+          <p>{{userdata}}</p>
+          <p>{{$store.getters.task}}</p>
+        </v-col>-->
         <v-col cols="12" align="center">
           <v-row>
-            <v-col xs="12" sm="12" md="4" align="center">
-                <v-card outlined>
-                  <v-card-title>未進行のタスク</v-card-title>
-                  <draggable :options="options">
-                    <card01
-                      v-for="item in task"
-                      :key="item.id"
-                      :id="item.id"
-                      :title="item.title"
-                      :text="item.text"
-                      :date_start="item.date_start.seconds"
-                      :date_end="item.date_end.seconds"
-                      :progress="50"
-                      :type="1"
-                      class="item"
-                    ></card01>
-                  </draggable>
-                  <card02></card02>
-                </v-card>
-            </v-col>
             <v-col lg="4" md="4" sm="12" cols="12" align="center">
                 <v-card outlined>
-                  <v-card-title>進行中のタスク</v-card-title>
-                  <draggable :options="options">
+                  <v-card-title class="py-2">
+                    進行中のタスク
+                    <v-spacer />
+                    <card02 />
+                  </v-card-title>
+                  <draggable
+                    :list="inProgress"
+                    :options="options"
+                    @end="dragEnd"
+                  >
                     <card01
                       v-for="item in inProgress"
                       :key="item.id"
-                      :id="item.id"
-                      :title="item.title"
-                      :text="item.text"
-                      :date_start="item.date_start.seconds"
-                      :date_end="item.date_end.seconds"
+                      :data="item"
                       :progress="50"
                       :type="2"
                       class="item"
                     ></card01>
                   </draggable>
-                  <card02></card02>
-                </v-card>
-            </v-col>
-            <v-col xs="12" sm="12" md="4" align="center">
-                <v-card outlined>
-                  <v-card-title>完了済みのタスク</v-card-title>
-                  <draggable :options="options">
-                    <card01
-                      v-for="item in complete"
-                      :key="item.id"
-                      :id="item.id"
-                      :title="item.title"
-                      :text="item.text"
-                      :date_start="item.date_start.seconds"
-                      :date_end="item.date_end.seconds"
-                      :progress="50"
-                      :type="3"
-                      class="item"
-                    ></card01>
-                  </draggable>
-                  <card02></card02>
                 </v-card>
             </v-col>
           </v-row>
@@ -126,6 +89,7 @@ export default {
     isload: false,
     num: 1,
     options: {
+      group:'ITEMS',
       animation: 200
     },
   }),
@@ -161,6 +125,9 @@ export default {
     signIn() {
       this.$store.dispatch('signIn')
     },
+    dragEnd(data){
+      console.log("dragend :", data)
+    }
   },
 }
 </script>

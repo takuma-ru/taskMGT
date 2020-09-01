@@ -22,18 +22,39 @@
 
       <v-divider class="ml-3 mr-3"></v-divider>
 
-      <v-list-item class="px-2">
+      <v-list-item v-if="isauth" class="px-2">
         <v-list-item-avatar>
-          <v-img
-            :src="userdata.photoURL"
-          >
-          </v-img>
+          <v-img :src="userdata.photoURL" />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>
-            <p class="mt-1 mb-0 body-1 black--text">
+            <v-list-item-subtitle>
+              ログイン済み
+            </v-list-item-subtitle>
+            <p class="mb-0 black--text">
               {{userdata.displayName}}
             </p>
+          </v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-icon class="mr-2">
+          <v-btn icon>
+            <v-icon>mdi-logout</v-icon>
+          </v-btn>
+        </v-list-item-icon>
+      </v-list-item>
+      <v-list-item v-else class="px-2">
+        <v-list-item-avatar>
+          <v-img style="background-color: grey" />
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>
+            <v-list-item-subtitle>
+              未ログイン
+            </v-list-item-subtitle>
+            <p class="mb-0 black--text">
+              ログインして下さい
+            </p>
+            <v-icon>mdi-logout</v-icon>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

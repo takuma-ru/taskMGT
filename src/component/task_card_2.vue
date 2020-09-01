@@ -4,14 +4,21 @@
   Complete:3
 -->
 <template>
+<div>
   <v-container>
-    <v-hover
+    <v-btn
+      icon
+      @click="dialog = true"
+    >
+       <v-icon large>mdi-plus</v-icon>
+    </v-btn>
+    <!--<v-hover
       v-slot:default="{ hover }"
       open-delay="0"
     >
       <v-card
         outlined
-        :class="`elevation-${hover ? 9 : 1}`"
+        :class="`elevation-${hover ? 5 : 0}`"
         class="transition-swing rounded-br-xl"
         @click="dialog = true"
       >
@@ -21,7 +28,7 @@
           </v-row>
         </v-col>
       </v-card>
-    </v-hover>
+    </v-hover>-->
 
     <v-dialog
       v-model="dialog"
@@ -175,6 +182,7 @@
       </v-card>
     </v-dialog>
   </v-container>
+</div>
 </template>
 
 <style>

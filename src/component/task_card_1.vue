@@ -10,8 +10,8 @@
       open-delay="0"
     >
     <v-card
-      :class="`elevation-${hover ? 5 : 0} card${type}`"
-      class="transition-swing rounded-br-xl"
+      :class="`elevation-${hover ? 8 : 1} card${type}`"
+      class="transition-swing rounded-lg"
       @click="dialog = true"
       outlined
     >
@@ -40,19 +40,19 @@
         </v-col>
       </v-row>
       <v-card-title class="pt-0 pb-3">
-        <span>{{title}}</span>
+        <span>{{data.title}}</span>
         <span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span>
         <v-spacer/>
       </v-card-title>
       <v-card-actions class="pt-0">
-        <v-card
+        <!--<v-card
           elevation="0"
           color="#FF7786"
           dark
           class="py-1"
-        >
-          <span class="px-2"><v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>&nbsp;{{DtoS(date_end)}}&nbsp;まで</span><br>
-        </v-card>
+        >-->
+          <span class="px-2"><v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで</span><br>
+        <!--</v-card>-->
       </v-card-actions>
     </v-card>
     </v-hover>
@@ -71,7 +71,7 @@
         </v-progress-linear>
         <v-col>
         <v-card-title class="headline px-4">
-          <span @dblclick="Log()">{{title}}</span>
+          <span @dblclick="Log()">{{data.title}}</span>
           <v-btn
             icon
             class="mb-1 ml-3"
@@ -129,7 +129,7 @@
                   dark
                   elevation="1"
                   color="#FF7786"
-                  @click="delTask(id, type); deleting = true; dialog2 = false"
+                  @click="delTask(data.id, type); deleting = true; dialog2 = false"
                 >
                 <v-icon>mdi-delete-outline</v-icon>削除する
                 </v-btn>
@@ -171,13 +171,13 @@
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
           <br>
-          {{text}}
+          {{data.text}}
         </v-card-text>
 
         <v-divider class="mx-2"/>
 
         <v-card-text class="py-4 black--text">
-          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(date_start)}}&nbsp;から&nbsp;{{DtoS(date_end)}}&nbsp;まで</p><br>
+          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(data.date_start.seconds)}}&nbsp;から&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで</p><br>
           <p class="my-0">
             <v-icon class="mr-2">mdi-account-outline</v-icon>
             <v-chip color="white">
@@ -275,11 +275,7 @@ export default {
   }),
 
   props:[
-    'id',
-    'title',
-    'text',
-    'date_start',
-    'date_end',
+    'data',
     'progress',
     'type'
   ],
