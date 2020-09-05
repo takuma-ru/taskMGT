@@ -14,18 +14,10 @@ export default new Vuex.Store({
     isauth: false,
     userdata: {},
     check: false,
-    complete: [],
-    inProgress: [],
     task: [],
   },
 
   getters: {
-    complete(state) {
-      return state.complete
-    },
-    inProgress(state) {
-      return state.inProgress
-    },
     task(state) {
       return state.task
     },
@@ -56,22 +48,10 @@ export default new Vuex.Store({
     onUserStatusChanged(state, status) {
       state.isauth = status; //ログインしてるかどうか true or false
     },
-    init_C(state){
-      state.complete = []
-    },
-    init_P(state){
-      state.inProgress = []
-    },
-    init_T(state){
+    init(state){
       state.task = []
     },
-    Muta_C(state, data) {
-      state.complete.push(data)
-    },
-    Muta_P(state, data) {
-      state.inProgress.push(data)
-    },
-    Muta_T(state, data) {
+    Muta(state, data) {
       state.task.push(data)
     },
     GetData(){}
@@ -82,6 +62,7 @@ export default new Vuex.Store({
       firebase.initializeApp(firebase.firebaseConfig);
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     },
+
     async signIn({ commit }) {
       console.log("signin...")
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -90,17 +71,20 @@ export default new Vuex.Store({
       })
       firebase.auth().signInWithPopup(provider)
     },
+
     async signOut({ commit }) {
       console.log("signout...")
       firebase.auth().signOut()
     },
-    add_task({ commit }, {end, start, text, title}){
+
+    add_task({ commit }, {end, start, text, title, group}){
       commit('addChange',true)
       var data = {
         date_end: firebase.firestore.Timestamp.fromDate(new Date(end)),
         date_start: firebase.firestore.Timestamp.fromDate(new Date(start)),
         text: text,
         title: title,
+        group: group,
       }
       firebase.auth().onAuthStateChanged(user => {
         firestore.collection("tasks").doc(user.uid).collection("Task").add(data)
@@ -111,15 +95,16 @@ export default new Vuex.Store({
           .then((querySnapshot) => {
             if(!querySnapshot.empty) {
               //console.log(querySnapshot.empty)
-              commit('init_T')
+              commit('init')
               querySnapshot.forEach((doc) => {
-                console.log(doc.id, "=>", doc.data());
-                commit('Muta_T', {
+                //console.log(doc.id, "=>", doc.data());
+                commit('Muta', {
                   id: doc.id,
                   title: doc.data().title,
                   text: doc.data().text,
                   date_start: doc.data().date_start,
                   date_end: doc.data().date_end,
+                  group: doc.data().group,
                 })
                 console.log("GetSuccess")
               })
@@ -135,6 +120,7 @@ export default new Vuex.Store({
         });
       })
     },
+
     del_task({ commit }, {coll, docid}){
       commit('delChange', true)
       firebase.auth().onAuthStateChanged(user => {
@@ -147,36 +133,30 @@ export default new Vuex.Store({
         });
       })
     },
+
     async onAuth({ commit }) {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
-        const coll = ["Complete", "InProgress", "Task"]
-        const muta = ['Muta_C', 'Muta_P', 'Muta_T']
         for (let i = 0; i < 3; i++) {
           console.log("Getting data... :", user.uid)
-          firestore.collection("tasks").doc(user.uid).collection(coll[i]).get()
+          firestore.collection("tasks").doc(user.uid).collection("Task").get()
           .then((querySnapshot) => {
             if(!querySnapshot.empty) {
-              if(i == 0){
-                commit('init_C')
-              }else if(i == 1){
-                commit('init_P')
-              }else{
-                commit('init_T')
-              }
+                commit('init')
               //console.log(querySnapshot.empty)
               querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                commit(muta[i], {
+                //console.log(doc.id, " => ", doc.data());
+                commit('Muta', {
                   id: doc.id,
                   title: doc.data().title,
                   text: doc.data().text,
                   date_start: doc.data().date_start,
                   date_end: doc.data().date_end,
+                  group: doc.data().group,
                 })
-                console.log("GetSuccess :", coll[i])
+                console.log("GetSuccess :", "Task")
               })
             }else{
               console.log("Not found :_(")

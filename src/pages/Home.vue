@@ -14,28 +14,29 @@
         </v-col>-->
         <v-col cols="12" align="center">
           <v-row>
-            <v-col lg="4" md="4" sm="12" cols="12" align="center">
+            <v-col v-for="(item, i) in namelist" :key="i" xs="12" sm="12" md="4" align="center">
                 <v-card outlined>
                   <v-card-title class="py-2">
-                    進行中のタスク
+                    {{item}}のタスク
                     <v-spacer />
                     <card02 />
                   </v-card-title>
-                  <draggable
-                    :list="inProgress"
+                  <draggable 
+                    :list="item"
                     :options="options"
-                    @end="dragEnd"
                   >
-                    <card01
-                      v-for="item in inProgress"
-                      :key="item.id"
-                      :data="item"
-                      :progress="50"
-                      :type="2"
-                      class="item"
-                    ></card01>
-                  </draggable>
-                </v-card>
+                    <div v-for="item_2 in task" :key="item_2">
+                      <card01
+                        v-if="item_2.group == item"
+                        :key="item_2.id"
+                        :data="item_2"
+                        :progress="50"
+                        :type="1"
+                        class="item"
+                      ></card01>
+                    </div>
+                </draggable>
+              </v-card>
             </v-col>
           </v-row>
         </v-col>
@@ -85,7 +86,11 @@ export default {
       start: '',
       text: '',
       title: '',
+      group: '',
     },
+    namelist: [
+      "未進行", "進行中", "完了済み"
+    ],
     isload: false,
     num: 1,
     options: {
@@ -103,12 +108,6 @@ export default {
     },
     check(){
       return this.$store.getters.check
-    },
-    complete(){
-      return this.$store.getters.complete
-    },
-    inProgress() {
-      return this.$store.getters.inProgress
     },
     task() {
       return this.$store.getters.task

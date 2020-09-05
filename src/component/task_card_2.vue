@@ -199,6 +199,7 @@ export default {
     text: null,
     date_start: null,
     date_end: null,
+    group: '未進行',
     menu1: false,
     menu2: false,
     progress: null,
@@ -255,6 +256,7 @@ export default {
           start: this.sd,
           text: this.text,
           title: this.title,
+          group: this.group,
         })
         this.dialog = false
         this.init()

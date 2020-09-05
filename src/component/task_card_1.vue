@@ -7,7 +7,7 @@
   <v-container>
     <v-hover
       v-slot:default="{ hover }"
-      open-delay="0"
+      open-delay="150"
     >
     <v-card
       :class="`elevation-${hover ? 8 : 1} card${type}`"
@@ -41,7 +41,6 @@
       </v-row>
       <v-card-title class="pt-0 pb-3">
         <span>{{data.title}}</span>
-        <span class="ml-2 body-2 red--text">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</span>
         <v-spacer/>
       </v-card-title>
       <v-card-actions class="pt-0">
@@ -81,7 +80,6 @@
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
           <v-spacer/>
-          <p class="mr-3 mb-0 body-2" style="color: #FF7786;">{{type == 1 ? "未進行": type == 2 ? "進行中..." : "完了済み！"}}</p>
           <v-menu offset-y bottom left>
             <template v-slot:activator="{ on, attrs }">
               <v-btn

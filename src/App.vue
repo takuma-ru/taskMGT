@@ -3,7 +3,7 @@
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
-      :mini-variant.sync="mini"
+      :mini-variant="mini"
       app
       :src="require('./assets/drawer-back.svg')"
     >
@@ -37,7 +37,10 @@
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-icon class="mr-2">
-          <v-btn icon>
+          <v-btn
+            icon
+            @click="signOut"
+          >
             <v-icon>mdi-logout</v-icon>
           </v-btn>
         </v-list-item-icon>
@@ -52,11 +55,18 @@
               未ログイン
             </v-list-item-subtitle>
             <p class="mb-0 black--text">
-              ログインして下さい
+              -
             </p>
-            <v-icon>mdi-logout</v-icon>
           </v-list-item-title>
         </v-list-item-content>
+        <v-list-item-icon class="mr-2">
+          <v-btn
+            icon
+            @click="signIn"
+          >
+            <v-icon>mdi-login</v-icon>
+          </v-btn>
+        </v-list-item-icon>
       </v-list-item>
 
       <v-divider class="ml-3 mr-3"></v-divider>
@@ -78,90 +88,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar
-      v-if="false"
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      elevation="0"
-      :src="require('./assets/card-back.svg')"
-      app
-      style="background-color: #ffffff00"
-    ><!--style="background-color: #ffffffc8"-->
-      <template v-slot:img="{ props }">
-        <v-img v-bind="props" position="left"></v-img>
-      </template>
-      <v-app-bar-nav-icon v-if="!drawer" @click="drawer = !drawer, mini= false" />
-      <v-toolbar-title class="headline px-0"><v-icon color="black" class="mb-1 mr-2">mdi-format-list-checks</v-icon>Task</v-toolbar-title>
-      <v-spacer/>
-      <v-toolbar-title>
-        <v-menu offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              text
-              :ripple="false"
-              v-bind="attrs"
-              v-on="on"
-            >
-              <span>{{isauth ? userdata.displayName : 'ログインしていません'}}</span>
-              <v-icon class="ml-1">mdi-chevron-down</v-icon>
-            </v-btn>
-          </template>
-
-          <v-list class="px-0 py-0">
-            <v-card width="300px">
-              <v-card-title>
-                  <span class="font-weight--bold">アカウント情報</span>
-                </v-card-title>
-              <v-card-text>
-                <div v-if="isauth">
-                  <v-avatar size="32" class="mr-2 mb-1">
-                    <v-img
-                      :src="userdata.photoURL"
-                    >
-                    </v-img>
-                  </v-avatar>
-                  <span class="body-1 black--text">
-                    {{userdata.displayName}}
-                  </span>
-                  <v-btn
-                    small
-                    icon
-                  >
-                  <v-icon class="mb-1">mdi-cog-outline</v-icon>
-                  </v-btn>
-                  <br>
-                  <span>{{userdata.email}}</span>
-                </div>
-                <div v-else>
-                  <span>ログインしていません</span>
-                </div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn
-                  v-if="!isauth"
-                  :disabled="isload"
-                  outlined
-                  block
-                  @click="signIn"
-                >
-                  Signin with google
-                </v-btn>
-                <v-btn
-                  v-else
-                  :disabled="isload"
-                  outlined
-                  block
-                  @click="signOut"
-                >
-                  Logout
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-list>
-        </v-menu>
-      </v-toolbar-title>
-      <v-divider style="position: absolute; bottom: 0px; left: 0px; width: 100vw;" />
-    </v-app-bar>
     
     <v-main>
       <v-container class="mt-0 px-0 py-0">
@@ -197,6 +123,7 @@ export default {
       { title: 'ホーム', icon: 'mdi-home-variant-outline', link: '/' },
       { title: 'タスクボード', icon: 'mdi-view-dashboard-outline', link: '/taskboard' },
       { title: 'チーム', icon: 'mdi-account-multiple-outline', link: '/team' },
+      { title: 'test', icon: 'mdi-ab-testing', link: '/test' },
     ],
     isphone: false,
     isload: false,
