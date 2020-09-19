@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-114.33843"
-     inkscape:cy="622.3996"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="44.444112"
+     inkscape:cy="954.36443"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -37,7 +37,7 @@
      inkscape:bbox-nodes="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-bbox-midpoints="true"
@@ -67,13 +67,19 @@
        x="0"
        y="0" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#d8f2f3;fill-opacity:0.83271378;fill-rule:evenodd;stroke:none;stroke-width:1.03528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#d8ffff;fill-opacity:0.94423795;fill-rule:evenodd;stroke:none;stroke-width:1.03528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect843"
        width="70.122711"
        height="295.83017"
-       x="-68.9562"
-       y="-11.902804"
-       transform="rotate(-15)" />
+       x="-22.358032"
+       y="-10.08017" />
+    <rect
+       y="-10.080184"
+       x="-29.181425"
+       height="295.83017"
+       width="70.122711"
+       id="rect843-5"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b0ffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.03528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
   </g>
   <g
      style="display:none"
@@ -156,12 +162,11 @@
      id="layer3"
      inkscape:groupmode="layer">
     <rect
-       transform="rotate(-15)"
-       y="-19.816877"
-       x="-73.957542"
+       y="-10.080179"
+       x="-43.613979"
        height="295.83017"
        width="70.122711"
        id="rect841"
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#81daff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.03528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#aff0ff;fill-opacity:0.84758359;fill-rule:evenodd;stroke:none;stroke-width:1.03528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
   </g>
 </svg>

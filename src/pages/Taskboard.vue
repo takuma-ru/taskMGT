@@ -10,7 +10,7 @@
         <v-col v-for="(item, i) in namelist" :key="i" xs="12" sm="12" md="4" align="center">
             <v-card outlined>
               <v-card-title class="py-2">
-                {{item}}のタスク
+                {{item}}
                 <v-spacer />
                 <card02 />
               </v-card-title>
@@ -64,9 +64,6 @@ export default {
       title: '',
       group: '',
     },
-    namelist: [
-      "未進行", "進行中", "完了済み"
-    ],
     isload: false,
     num: 1,
     options: {
@@ -85,9 +82,12 @@ export default {
     check(){
       return this.$store.getters.check
     },
-    task() {
+    task(){
       return this.$store.getters.task
     },
+    namelist(){
+      return this.$store.getters.namelist
+    }
   },
 
   components: {

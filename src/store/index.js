@@ -15,6 +15,7 @@ export default new Vuex.Store({
     userdata: {},
     check: false,
     task: [],
+    namelist: ["未進行", "進行中", "完了済み", /*"バグ修正中", "確認中"*/],
   },
 
   getters: {
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     adding(state){
       return state.adding
+    },
+    namelist(state){
+      return state.namelist
     }
   },
 

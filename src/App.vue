@@ -91,7 +91,25 @@
     
     <v-main>
       <v-container class="mt-0 px-0 py-0">
+        <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
+          <h1>ログインすると利用できます</h1>
+          <v-col cols="12" align="center">
+            <v-btn
+              outlined
+              @click="signIn"
+            >
+              googleアカウントでログイン  
+            </v-btn>
+          </v-col>
+          <v-col align="center">
+            <p>このアプリの説明・注意事項</p>
+            <p><v-icon class="mb-1" color="black">mdi-alert-circle-outline</v-icon>現在"g.ichinoseki.ac.jp"のドメインのみログインが可能になっております。"gmail.com"などではログインできません。</p>
+            <p>またこのサービスは現在「開発中」です。ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータを削除する場合がございます。ご了承の上利用してください。</p>
+          </v-col>
+        </v-row>
+
         <router-view />
+
       </v-container>
     </v-main>
 
@@ -103,7 +121,8 @@
   flex: 1 1 auto;
   max-width: 100%;
   position: relative;
-  background-image: url("../src/assets/background-2.svg");
+  background-color: #fffffaff;
+  /*background-image: url("../src/assets/background-2.svg");*/
   background-position: center left;
   background-repeat: no-repeat;
   background-attachment: fixed;

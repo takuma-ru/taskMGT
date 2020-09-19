@@ -12,17 +12,16 @@
           <p>{{userdata}}</p>
           <p>{{$store.getters.task}}</p>
         </v-col>-->
-        <v-col cols="12" align="center">
-          <v-row>
-            <v-col v-for="(item, i) in namelist" :key="i" xs="12" sm="12" md="4" align="center">
+          <div style="display: flex; overflow: auto; width: 100%;">
+            <div v-for="(item, i) in namelist" :key="i" class="px-3 py-3" style="width: 350px">
                 <v-card outlined>
                   <v-card-title class="py-2">
-                    {{item}}のタスク
+                    {{item}}
                     <v-spacer />
                     <card02 />
                   </v-card-title>
                   <draggable 
-                    :list="item"
+                    :list="task"
                     :options="options"
                   >
                     <div v-for="item_2 in task" :key="item_2">
@@ -37,25 +36,22 @@
                     </div>
                 </draggable>
               </v-card>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-      <v-row v-if="!isauth && !check" justify="center" align="center">
-        <h1>ログインすると利用できます</h1>
-        <v-col cols="12" align="center">
-          <v-btn
-            outlined
-            @click="signIn"
-          >
-            googleアカウントでログイン  
-          </v-btn>
-        </v-col>
-        <v-col align="center">
-          <p>このアプリの説明・注意事項</p>
-          <p><v-icon class="mb-1" color="black">mdi-alert-circle-outline</v-icon>現在"g.ichinoseki.ac.jp"のドメインのみログインが可能になっております。"gmail.com"などではログインできません。</p>
-          <p>またこのサービスは現在「開発中」です。ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータを削除する場合がございます。ご了承の上利用してください。</p>
-        </v-col>
+            </div>
+            <div class="px-3 py-3" style="width: 350px">
+              <v-card
+                color=""
+                outlined
+              >
+                <v-card-title class="py-2">
+                  <v-container>
+                    <v-col class="px-0 py-0" align="center">
+                      <v-icon large>mdi-plus</v-icon>
+                    </v-col>
+                  </v-container>
+                </v-card-title>
+              </v-card>
+            </div>
+          </div>
       </v-row>
     </v-col>
   </v-container>
@@ -88,9 +84,6 @@ export default {
       title: '',
       group: '',
     },
-    namelist: [
-      "未進行", "進行中", "完了済み"
-    ],
     isload: false,
     num: 1,
     options: {
@@ -112,6 +105,9 @@ export default {
     task() {
       return this.$store.getters.task
     },
+    namelist(){
+      return this.$store.getters.namelist
+    }
   },
 
   components: {

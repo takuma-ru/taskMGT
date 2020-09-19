@@ -11,7 +11,7 @@
     >
     <v-card
       :class="`elevation-${hover ? 8 : 1} card${type}`"
-      class="transition-swing rounded-lg"
+      class="transition-swing rounded-1"
       @click="dialog = true"
       outlined
     >
@@ -20,7 +20,7 @@
         height="5px"
         :color="color"
       />
-      <v-row align="center" class="py-0 px-3">
+      <v-row align="center" class="py-0 mx-0">
         <v-col cols="8" class="ml-3 px-0 py-0 shrink">
         <v-chip-group
           active-class="white--text"
@@ -30,7 +30,7 @@
           </v-chip>
         </v-chip-group>
         </v-col>
-        <v-col cols="3" class="ml-2 px-0 py-0" align="end">
+        <v-col cols="3" class="ml-2 px-1 py-0" align="end">
           <v-avatar size="24">
             <v-img
               :src="userdata.photoURL"
