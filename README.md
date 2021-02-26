@@ -1,5 +1,5 @@
 # タスク管理Webアプリ(製作中)
-https://taskmgt-fd097.web.app/*/
+https://taskmgt-fd097.web.app
 
 ## Description
 現段階では個人での利用のみを想定。<br>
