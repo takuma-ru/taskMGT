@@ -324,20 +324,8 @@ export default {
       return date_s
     },
     delTask(id, type){
-      var coll
-      switch(type){
-        case 1:
-          coll = 'Task'
-          break;
-        case 2:
-          coll = 'InProgress'
-          break;
-        case 3:
-          coll = 'Complete'
-          break;
-      }
-      console.log("delete: ", id, type, coll)
-      this.$store.dispatch('del_task', {coll: coll, docid: id,})
+      console.log("delete: ", id, type)
+      this.$store.dispatch('del_task', {docid: id,})
       this.$store.dispatch('onAuth')
     },
   }

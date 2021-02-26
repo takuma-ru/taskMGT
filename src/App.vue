@@ -121,7 +121,7 @@
   flex: 1 1 auto;
   max-width: 100%;
   position: relative;
-  background-color: #fffffaff;
+  background-color: rgb(253, 253, 250);
   /*background-image: url("../src/assets/background-2.svg");*/
   background-position: center left;
   background-repeat: no-repeat;

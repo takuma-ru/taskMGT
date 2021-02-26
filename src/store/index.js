@@ -125,10 +125,10 @@ export default new Vuex.Store({
       })
     },
 
-    del_task({ commit }, {coll, docid}){
+    del_task({ commit }, {docid}){
       commit('delChange', true)
       firebase.auth().onAuthStateChanged(user => {
-        firestore.collection("tasks").doc(user.uid).collection(coll).doc(docid).delete()
+        firestore.collection("tasks").doc(user.uid).collection("Task").doc(docid).delete()
         .then(function() {
             console.log("Document successfully deleted!");
             commit('delChange', false)
