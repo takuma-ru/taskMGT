@@ -19,3 +19,6 @@ https://taskmgt-fd097.web.app/*/
 or
 1. `vue ui`
 2. task > serve > run task 
+
+## Deploy
+`firebase deploy`
