@@ -88,7 +88,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    
+
     <v-main>
       <v-container class="mt-0 px-0 py-0">
         <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
@@ -98,7 +98,7 @@
               outlined
               @click="signIn"
             >
-              googleアカウントでログイン  
+              googleアカウントでログイン
             </v-btn>
           </v-col>
           <v-col align="center">
@@ -121,7 +121,7 @@
   flex: 1 1 auto;
   max-width: 100%;
   position: relative;
-  background-color: rgb(253, 253, 250);
+  background-color: #f5f8f8;
   /*background-image: url("../src/assets/background-2.svg");*/
   background-position: center left;
   background-repeat: no-repeat;

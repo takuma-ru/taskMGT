@@ -8,23 +8,25 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',       
+    path: '/',
     component: Home,
     name: 'Home',
   },
   {
-    path: '/taskboard',       
+    path: '/taskboard',
     component: Taskboard,
     name: 'Taskboard',
   },
   {
-    path: '/team',       
+    path: '/team',
     component: Team,
     name: 'Team',
   },
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
