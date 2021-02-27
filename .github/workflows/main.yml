@@ -8,7 +8,7 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -23,7 +23,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         cd ./functions
-        git clone https://github.com/takuma-ru/taskMGT.git
+        git clone https://userid:$GIT_PASS@github.com/takuma-ru/taskMGT.git
         cd yyyyy
         npm install
         npm run build
@@ -46,7 +46,7 @@ jobs:
       - name: Build each site
         run: |
           cd ./functions
-          git clone https://github.com/takuma-ru/taskMGT.git
+          git clone https://userid:$GIT_PASS@github.com/takuma-ru/taskMGT.git
           cd yyyyy
           npm install
           npm run build
