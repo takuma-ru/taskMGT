@@ -1,66 +1,20 @@
-name: Node CI
-
-on: 
+name: deploy_firebase_hosting
+on:
   push:
-    branches: 
+    branches:
       - main
-
 jobs:
-  build:
-
+  deploy_firebase_hosting:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@main
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@main
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        mkdir ./functions
-        cd ./functions
-        git clone https://userid:$GIT_PASS@github.com/takuma-ru/taskMGT.git
-        cd taskMGT
-        npm install
-        npm run build
-      env:
-        GIT_PASS: ${{ secrets.GIT_PASS }}
-
-  deploy:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    name: Deploy
-    needs: build
-    steps:
-      - name: Checkout Repo
+      - name: Checkout the repository
         uses: actions/checkout@main
-      - name: Build each site
-        run: |
-          mkdir ./functions
-          cd ./functions
-          git clone https://userid:$GIT_PASS@github.com/takuma-ru/taskMGT.git
-          cd taskMGT
-          npm install
-          npm run build
-        env:
-          GIT_PASS: ${{ secrets.GIT_PASS }}
-      - name: Ready to deploy
-        run: |
-          npm install -g firebase-tools
-          cd functions
-          npm install
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
       - name: Deploy to Firebase
-        run: |
-          firebase deploy --token $FIREBASE_TOKEN
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npm run deploy --token=${{ FIREBASE_TOKEN }}
