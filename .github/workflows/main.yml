@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@main
-      - name: Install Dependencies # ← コマンド識別名
-        run: npm install　# ← 実際のコマンド
+      - name: Install Dependencies
+        run: npm install
       - name: Build
         run: npm run build
       - name: Deploy to Firebase
