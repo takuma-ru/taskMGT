@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@main
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn run build
 
       - name: Deploy to Firebase
         run: firebase deploy --token=$FIREBASE_TOKEN
