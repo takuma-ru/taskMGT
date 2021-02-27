@@ -18,6 +18,6 @@ jobs:
 
       - name: Deploy to Firebase
         run: |
-              npm install -g　firebase-tools
-              export PATH="$(npm bin -g):$PATH"
-              npm run deploy --token=${{ secrets.FIREBASE_TOKEN }}
+              yarn global add firebase-tools
+              export PATH="$(yarn global bin):$PATH"
+              yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
