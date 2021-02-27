@@ -17,13 +17,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn run build
 
       - name: Deploy to Firebase
         run: |
               yarn global add firebase-tools
               export PATH="$(yarn global bin):$PATH"
-              npm run deploy --token=${{ secrets.FIREBASE_TOKEN }}
+              yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
