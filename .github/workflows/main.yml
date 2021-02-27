@@ -9,15 +9,21 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@main
-
+      
+      - name: setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+          registry-url: 'https://registry.npmjs.org'
+          
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build
-        run: yarn run build
+        run: npm run build
 
       - name: Deploy to Firebase
         run: |
               yarn global add firebase-tools
               export PATH="$(yarn global bin):$PATH"
-              yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
+              npm run deploy --token=${{ secrets.FIREBASE_TOKEN }}
