@@ -1,0 +1,23 @@
+name: deploy_firebase_hosting
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy_firebase_hosting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@main
+	# ポイント１
+	# ↓↓↓ node_modulesはgit管理していないと思いますので、ここで、nodeモジュールを取得するコマンドをjobとして設定します。
+      - name: Install Dependencies # ← コマンド識別名
+        run: npm install　# ← 実際のコマンド
+	# ポイント２
+	# ↓↓↓ ビルドファイルを作成するためのコマンド
+      - name: Build
+        run: npm run build
+	# ポイント３
+	# ↓↓↓ Firebaseのデプロイコマンドここに先ほど控えたトークンを貼り付けます
+      - name: Deploy to Firebase
+        run: firebase deploy --token=$FIREBASE_TOKEN
