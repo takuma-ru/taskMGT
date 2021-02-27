@@ -9,9 +9,12 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@main
+
       - name: Install Dependencies
         run: npm install
+
       - name: Build
         run: npm run build
+
       - name: Deploy to Firebase
         run: firebase deploy --token=$FIREBASE_TOKEN
