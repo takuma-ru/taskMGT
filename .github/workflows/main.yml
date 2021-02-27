@@ -20,4 +20,4 @@ jobs:
         run: |
               yarn global add firebase-tools
               export PATH="$(yarn global bin):$PATH"
-              yarn deploy --token=$1//0eFtIrpZYidRuCgYIARAAGA4SNwF-L9IrCGIFUctQVm9Q4KfvuCTXwlShf_qaVKtti9-BTN_xf3bvB2hxJ9jeIn4YQTJsdBwVr7s
+              yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
