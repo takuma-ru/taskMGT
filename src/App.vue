@@ -1,96 +1,27 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      :clipped="$vuetify.breakpoint.lgAndUp"
-      :mini-variant="mini"
-      app
-      :src="require('./assets/drawer-back.svg')"
-    >
-    <!--
-      :src="require('./assets/card-back.svg')"
-      style="background-color: #ffffffc8"
-    -->
-      <v-list-item  @click="isphone ? drawer = false : mini = !mini" :ripple="false">
-        <v-list-item-icon>
-          <v-icon>{{mini ? 'mdi-chevron-right' : 'mdi-chevron-left'}}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content class="py-0">
-          <v-list-item-title>閉じる</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider class="ml-3 mr-3"></v-divider>
-
-      <v-list-item v-if="isauth" class="px-2">
-        <v-list-item-avatar>
-          <v-img :src="userdata.photoURL" />
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>
-            <v-list-item-subtitle>
-              ログイン済み
-            </v-list-item-subtitle>
-            <p class="mb-0 black--text">
-              {{userdata.displayName}}
-            </p>
-          </v-list-item-title>
-        </v-list-item-content>
-        <v-list-item-icon class="mr-2">
-          <v-btn
-            icon
-            @click="signOut"
-          >
-            <v-icon>mdi-logout</v-icon>
-          </v-btn>
-        </v-list-item-icon>
-      </v-list-item>
-      <v-list-item v-else class="px-2">
-        <v-list-item-avatar>
-          <v-img style="background-color: grey" />
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>
-            <v-list-item-subtitle>
-              未ログイン
-            </v-list-item-subtitle>
-            <p class="mb-0 black--text">
-              -
-            </p>
-          </v-list-item-title>
-        </v-list-item-content>
-        <v-list-item-icon class="mr-2">
-          <v-btn
-            icon
-            @click="signIn"
-          >
-            <v-icon>mdi-login</v-icon>
-          </v-btn>
-        </v-list-item-icon>
-      </v-list-item>
-
-      <v-divider class="ml-3 mr-3"></v-divider>
-
-      <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          :to="item.link"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-main>
-      <v-container class="mt-0 px-0 py-0">
+      <v-container class="py-4 px-4 main_contents">
+
+        <v-app-bar flat color="transparent">
+          <v-btn
+            icon
+            large
+            @click.stop="drawer = !drawer"
+          >
+            <v-icon large>mdi-menu</v-icon>
+          </v-btn>
+
+          <v-spacer />
+
+          <v-chip :dark="false" @click="">
+            <v-avatar size="38" class="mr-2">
+              <v-img :src="userdata.photoURL"></v-img>
+            </v-avatar>
+            {{userdata.displayName}}
+          </v-chip>
+        </v-app-bar>
+
         <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
           <h1>ログインすると利用できます</h1>
           <v-col cols="12" align="center">
@@ -110,29 +41,27 @@
 
         <router-view />
 
+        <v-footer
+          id="footer"
+          fixed
+          padless
+        >
+          <v-col
+            class="text-center white--text"
+            cols="12"
+          >
+            <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}
+          </v-col>
+        </v-footer>
+
       </v-container>
     </v-main>
 
   </v-app>
 </template>
-
-<style>
-.v-main__wrap {
-  flex: 1 1 auto;
-  max-width: 100%;
-  position: relative;
-  background-color: #f5f8f8;
-  /*background-image: url("../src/assets/background-2.svg");*/
-  background-position: center left;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 100vh;
-}
-</style>
-
 <script>
 import firebase from './plugins/firebase'
+import Drawer from './component/navigation_drawer'
 
 export default {
   name: 'App',
@@ -150,6 +79,7 @@ export default {
   }),
 
   components: {
+    Drawer,
   },
 
   created: function() {
@@ -191,3 +121,32 @@ export default {
 
 };
 </script>
+
+<style>
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .v-main__wrap {
+    flex: 1 1 auto;
+    max-width: 100%;
+    position: relative;
+    background-color: #f5f8f8;
+    background-image: url("../src/assets/background.svg");
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .main_contents {
+    min-height: 95vh;
+    min-width: 100vw;
+  }
+
+  #footer {
+    height: 5vh;
+    background-color: #795548;
+  }
+</style>

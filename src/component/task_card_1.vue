@@ -21,14 +21,14 @@
         :color="color"
       />
       <v-row align="center" class="py-0 mx-0">
-        <v-col cols="8" class="ml-3 px-0 py-0 shrink">
-        <v-chip-group
-          active-class="white--text"
-        >
-          <v-chip dark small color="blue">
-            新機能
-          </v-chip>
-        </v-chip-group>
+        <v-col cols="8" class="ml-3 my-3 px-0 py-0">
+          <v-chip-group
+            active-class="white--text"
+          >
+            <v-chip dark small color="blue">
+              新機能
+            </v-chip>
+          </v-chip-group>
         </v-col>
         <v-col cols="3" class="ml-2 px-1 py-0" align="end">
           <v-avatar size="24">

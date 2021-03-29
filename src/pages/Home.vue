@@ -12,15 +12,16 @@
           <p>{{userdata}}</p>
           <p>{{$store.getters.task}}</p>
         </v-col>-->
-          <div style="display: flex; overflow: auto; width: 100%;">
+        <v-col>
+          <div id="task_list">
             <div v-for="(item, i) in namelist" :key="i" class="px-3 py-3" style="width: 350px">
-                <v-card outlined>
+                <v-card outlined flat color="transparent">
                   <v-card-title class="py-2">
                     {{item}}
                     <v-spacer />
                     <card02 />
                   </v-card-title>
-                  <draggable 
+                  <draggable
                     :list="task"
                     :options="options"
                   >
@@ -37,21 +38,8 @@
                 </draggable>
               </v-card>
             </div>
-            <div class="px-3 py-3" style="width: 350px">
-              <v-card
-                color=""
-                outlined
-              >
-                <v-card-title class="py-2">
-                  <v-container>
-                    <v-col class="px-0 py-0" align="center">
-                      <v-icon large>mdi-plus</v-icon>
-                    </v-col>
-                  </v-container>
-                </v-card-title>
-              </v-card>
-            </div>
           </div>
+        </v-col>
       </v-row>
     </v-col>
   </v-container>
@@ -67,10 +55,19 @@
   .item:active {
     cursor: grabbing;
   }
+
+  #task_list {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    display: flex;
+    overflow: auto;
+    width: auto;
+  }
 </style>
 
 <script>
-import firebase from 'firebase'
 import draggable from 'vuedraggable'
 import card01 from '../component/task_card_1'
 import card02 from '../component/task_card_2'
