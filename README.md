@@ -23,4 +23,4 @@ or
 
 ## Deploy
 firebase `firebase deploy`<br>
-https://taskmgt-fd097.web.app<br>
+https://taskmgt-fd097.firebaseapp.com/<br>
