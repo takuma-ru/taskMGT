@@ -14,7 +14,7 @@
                 <v-spacer />
                 <card02 />
               </v-card-title>
-              <draggable 
+              <draggable
                 :list="item"
                 :options="options"
               >

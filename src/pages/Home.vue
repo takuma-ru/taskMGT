@@ -6,10 +6,11 @@
       </v-row>
       <v-row v-if="isauth && !check" justify="center" align="center">
         <v-col cols="12" align="center">
-          <h1>ようこそ「{{userdata.displayName}}」さん</h1><br>
+          <h1>Hi!&nbsp;{{userdata.providerData[0].displayName}}</h1><br>
         </v-col>
         <!--<v-col align="center">
           <p>{{userdata}}</p>
+          <p>{{userdata.providerData[0].displayName}}</p>
           <p>{{$store.getters.task}}</p>
         </v-col>-->
         <v-col>
@@ -17,10 +18,13 @@
             <div v-for="(item, i) in namelist" :key="i" class="px-3 py-3" style="width: 350px">
                 <v-card outlined flat color="transparent">
                   <v-card-title class="py-2">
-                    {{item}}
+                    <strong>{{item}}</strong>
                     <v-spacer />
                     <card02 />
                   </v-card-title>
+
+                  <v-divider class="mx-2"/>
+
                   <draggable
                     :list="task"
                     :options="options"

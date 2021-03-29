@@ -71,7 +71,7 @@ export default new Vuex.Store({
       console.log("signin...")
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({
-        hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
+        //hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
       })
       firebase.auth().signInWithPopup(provider)
     },

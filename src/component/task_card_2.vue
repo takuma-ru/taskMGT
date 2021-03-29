@@ -112,31 +112,6 @@
               <v-btn text color="primary" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
             </v-date-picker>
           </v-menu>
-          <p class="my-0">
-            <v-icon class="mr-2">mdi-account-outline</v-icon>
-            <v-chip color="white">
-              <v-avatar size="24" class="mr-2">
-                <v-img :src="userdata.photoURL"></v-img>
-              </v-avatar>
-              {{userdata.displayName}}
-            </v-chip>
-          </p>
-        </v-card-text>
-
-        <v-divider class="mx-2"/>
-
-        <v-card-text class="py-4 black--text">
-          <span><v-icon class="mb-1 mr-1">mdi-file-tree</v-icon>サブタスク</span>
-          <v-btn
-            outlined
-            small
-            color="black"
-            @click="/**/"
-            class="mb-1 ml-3"
-          >
-            <v-icon>mdi-plus</v-icon>追加
-          </v-btn>
-          <br>
         </v-card-text>
 
         <v-divider class="mx-2"/>
@@ -199,7 +174,7 @@ export default {
     text: null,
     date_start: null,
     date_end: null,
-    group: '未進行',
+    group: '目標',
     menu1: false,
     menu2: false,
     progress: null,

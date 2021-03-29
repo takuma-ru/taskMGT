@@ -15,31 +15,7 @@
       @click="dialog = true"
       outlined
     >
-      <v-progress-linear
-        :value="progress"
-        height="5px"
-        :color="color"
-      />
-      <v-row align="center" class="py-0 mx-0">
-        <v-col cols="8" class="ml-3 my-3 px-0 py-0">
-          <v-chip-group
-            active-class="white--text"
-          >
-            <v-chip dark small color="blue">
-              新機能
-            </v-chip>
-          </v-chip-group>
-        </v-col>
-        <v-col cols="3" class="ml-2 px-1 py-0" align="end">
-          <v-avatar size="24">
-            <v-img
-              :src="userdata.photoURL"
-            >
-            </v-img>
-          </v-avatar>
-        </v-col>
-      </v-row>
-      <v-card-title class="pt-0 pb-3">
+      <v-card-title class="pt-3 pb-3">
         <span>{{data.title}}</span>
         <v-spacer/>
       </v-card-title>
@@ -61,13 +37,6 @@
       max-width="600px"
     >
       <v-card :class="`card${type}`">
-        <v-progress-linear
-          :value="progress"
-          height="35px"
-          :color="color"
-        >
-          <span class="black--text">進行度:&nbsp;{{progress}}&#037;</span>
-        </v-progress-linear>
         <v-col>
         <v-card-title class="headline px-4">
           <span @dblclick="Log()">{{data.title}}</span>
@@ -175,51 +144,17 @@
         <v-divider class="mx-2"/>
 
         <v-card-text class="py-4 black--text">
-          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>{{DtoS(data.date_start.seconds)}}&nbsp;から&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで</p><br>
-          <p class="my-0">
-            <v-icon class="mr-2">mdi-account-outline</v-icon>
-            <v-chip color="white">
-              <v-avatar size="24" class="mr-2">
-                <v-img :src="userdata.photoURL"></v-img>
-              </v-avatar>
-              {{userdata.displayName}}
-            </v-chip>
-            <v-btn
-              icon
-              small
-              class="ml-2"
-              color="black"
-              style="background-color: white; height: 32px; width: 32px;"
-            >
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </p>
-        </v-card-text>
-
-        <v-divider class="mx-2"/>
-
-        <v-card-text class="py-4 black--text">
-          <span><v-icon class="mb-1 mr-1">mdi-file-tree</v-icon>サブタスク</span>
+          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
           <v-btn
-            outlined
-            small
-            color="black"
-            @click="/**/"
+            icon
             class="mb-1 ml-3"
+            color="#7786FF"
+            @click="/**/"
           >
-            <v-icon>mdi-plus</v-icon>追加
+            <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
           <br>
-          <v-checkbox
-            v-model="ex4"
-            :color="colorType"
-            hide-details
-            :ripple="null"
-          >
-            <template v-slot:label>
-              <p class="mb-0" :style="`color: ${colorType}`">サブタスク</p>
-            </template>
-          </v-checkbox>
+          {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;</p>
         </v-card-text>
 
         <v-divider class="mx-2"/>
