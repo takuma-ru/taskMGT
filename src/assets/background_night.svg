@@ -8,7 +8,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="background.svg"
+   sodipodi:docname="background_night.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    id="svg8"
    version="1.1"
@@ -18,30 +18,30 @@
   <defs
      id="defs2">
     <linearGradient
-       inkscape:collect="always"
-       id="linearGradient841">
+       id="linearGradient841"
+       inkscape:collect="always">
       <stop
-         style="stop-color:#beecff;stop-opacity:1"
+         id="stop837"
          offset="0"
-         id="stop837" />
+         style="stop-color:#0f1428;stop-opacity:1" />
       <stop
-         id="stop847"
-         offset="0.50240636"
-         style="stop-color:#b4dcff;stop-opacity:1" />
+         style="stop-color:#141d3c;stop-opacity:1"
+         offset="0.50264549"
+         id="stop845" />
       <stop
-         style="stop-color:#a0d2ff;stop-opacity:1"
+         id="stop839"
          offset="1"
-         id="stop839" />
+         style="stop-color:#0f324b;stop-opacity:1" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient841"
-       id="linearGradient843"
-       x1="254"
-       y1="285.75"
+       gradientUnits="userSpaceOnUse"
+       y2="285.75"
        x2="254"
-       y2="0"
-       gradientUnits="userSpaceOnUse" />
+       y1="0"
+       x1="254"
+       id="linearGradient843"
+       xlink:href="#linearGradient841"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      inkscape:snap-text-baseline="true"
@@ -69,8 +69,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="668.77185"
-     inkscape:cx="643.07473"
+     inkscape:cy="649.64608"
+     inkscape:cx="1033.0754"
      inkscape:zoom="0.49497476"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
@@ -108,9 +108,9 @@
        height="25.702381"
        width="111.88095"
        id="rect844"
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect844-5"
        width="111.88094"
        height="25.702379"
@@ -118,7 +118,7 @@
        y="37.041668"
        ry="12.85119" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect844-0"
        width="111.88094"
        height="25.702379"
@@ -132,15 +132,15 @@
        height="25.702379"
        width="111.88094"
        id="rect844-5-2"
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <path
        sodipodi:nodetypes="sccsss"
        d="M 464.9107,7.9847088 H 508 c 0,25.7023792 0,0 0,25.7023792 l -43.0893,0 c -7.11956,0 -12.85119,-5.731631 -12.85119,-12.85119 0,-7.119559 5.73163,-12.8511892 12.85119,-12.8511892 z"
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect844-8" />
     <path
        id="rect844-8-8"
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f0f0;fill-opacity:0.70260221;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#b5bfc0;fill-opacity:0.49442402;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        d="M 43.089299,138.71727 H 0 c 0,-25.70239 0,0 0,-25.70239 h 43.089299 c 7.11956,0 12.85119,5.73164 12.85119,12.85119 0,7.11956 -5.73163,12.8512 -12.85119,12.8512 z"
        sodipodi:nodetypes="sccsss" />
   </g>

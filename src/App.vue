@@ -1,8 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-4 px-4 main_contents">
-        <v-app-bar flat color="transparent">
+      <v-container class="py-0 px-3 main_contents">
+        <v-app-bar
+          flat
+          color="transparent"
+          height="64"
+          class="px-0 py-0"
+        >
           <v-btn
             icon
             large
@@ -14,11 +19,11 @@
           <v-spacer />
 
           <div>
-            <v-list-item v-if="isauth" class="px-2">
+            <v-list-item v-if="isauth" class="px-0">
               <v-list-item-avatar>
                 <v-img :src="userdata.photoURL" />
               </v-list-item-avatar>
-              <v-list-item-content>
+              <v-list-item-content class="py-0">
                 <v-list-item-title>
                   <v-list-item-subtitle>
                     ログイン済み
@@ -28,7 +33,7 @@
                   </p>
                 </v-list-item-title>
               </v-list-item-content>
-              <v-list-item-icon class="mr-2">
+              <v-list-item-icon class="">
                 <v-btn
                   icon
                   @click="signOut"
@@ -38,7 +43,7 @@
               </v-list-item-icon>
             </v-list-item>
 
-            <v-list-item v-else class="px-2">
+            <v-list-item v-else class="px-0">
               <v-list-item-avatar>
                 <v-img style="background-color: grey" />
               </v-list-item-avatar>
@@ -187,7 +192,7 @@ export default {
 
   #footer {
     height: 5vh;
-    background-color: #795548;
+    background-color: #d8bda6ff;
     bottom: 0%;
   }
 </style>

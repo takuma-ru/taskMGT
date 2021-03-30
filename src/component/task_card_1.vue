@@ -49,29 +49,15 @@
             <v-icon>mdi-pencil-outline</v-icon>
           </v-btn>
           <v-spacer/>
-          <v-menu offset-y bottom left>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-              icon
-              v-bind="attrs"
-              v-on="on"
-              >
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item class="px-0">
-                <v-btn
-                  block
-                  text
-                  color="#FF7786"
-                  @click="dialog2 = true"
-                >
-                  <v-icon>mdi-delete-outline</v-icon>削除
-                </v-btn>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+
+          <v-btn
+            text
+            color="#FF7786"
+            @click="dialog2 = true"
+          >
+            <v-icon>mdi-delete-outline</v-icon><strong class="ml-1">削除</strong>
+          </v-btn>
+
           <v-dialog
             v-model="dialog2"
             persistent
@@ -148,7 +134,7 @@
           <v-btn
             icon
             class="mb-1 ml-3"
-            color="#7786FF"
+            color=""
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
@@ -161,9 +147,9 @@
 
         <v-card-actions>
           <v-btn
-            elevation="1"
-            color="#FF7786"
             outlined
+            depressed
+            color="#FF7786"
             @click="dialog = false"
           >
             <v-icon>mdi-menu-left-outline</v-icon>閉じる
@@ -171,7 +157,7 @@
           <v-spacer></v-spacer>
           <v-btn
             dark
-            elevation="1"
+            depressed
             color="#7786FF"
             @click="dialog = false"
           >
@@ -186,13 +172,13 @@
 
 <style>
 .card1{
-  background-image: url("../assets/card-back4.svg");
-}
-.card2{
   background-image: url("../assets/card-back.svg");
 }
-.card3{
+.card2{
   background-image: url("../assets/card-back2.svg");
+}
+.card3{
+  background-image: url("../assets/card-back3.svg");
 }
 .marker_red_futo {
   background: linear-gradient(transparent 85%, #ff6666 0%);

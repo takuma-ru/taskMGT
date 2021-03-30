@@ -8,6 +8,7 @@
   <v-container>
     <v-btn
       icon
+      color="black"
       @click="dialog = true"
     >
        <v-icon large>mdi-plus</v-icon>

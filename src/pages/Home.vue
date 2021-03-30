@@ -1,51 +1,48 @@
 <template>
-  <v-container>
-    <v-col>
-      <v-row v-if="check" justify="center" align="center">
-        <h1>読み込み中...</h1>
-      </v-row>
-      <v-row v-if="isauth && !check" justify="center" align="center">
-        <v-col cols="12" align="center">
-          <h1>Hi!&nbsp;{{userdata.providerData[0].displayName}}</h1><br>
-        </v-col>
-        <!--<v-col align="center">
-          <p>{{userdata}}</p>
-          <p>{{userdata.providerData[0].displayName}}</p>
-          <p>{{$store.getters.task}}</p>
-        </v-col>-->
-        <v-col>
-          <div id="task_list">
-            <div v-for="(item, i) in namelist" :key="i" class="px-3 py-3" style="width: 350px">
-                <v-card outlined flat color="transparent">
-                  <v-card-title class="py-2">
-                    <strong>{{item}}</strong>
-                    <v-spacer />
-                    <card02 />
-                  </v-card-title>
+  <v-container class="main_view">
+    <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%">
+      <v-col cols="12" align="center">
+        <h1>Hi!&nbsp;{{userdata.providerData[0].displayName}}</h1><br>
+      </v-col>
+        <p>{{$store.getters.task}}</p>
+      <!--<v-col align="center">
+        <p>{{userdata}}</p>
+        <p>{{userdata.providerData[0].displayName}}</p>
+      </v-col>-->
+    </v-row>
+    <v-row align="end" justify="end">
+      <v-col cols="3">
+        <div id="task_list">
+          <div v-for="(item, i) in namelist" :key="i" class="" style="width: 100%">
+            <v-card outlined flat color="transparent">
+              <v-card-title class="py-2">
+                <strong>{{item}}</strong>
+                <v-spacer />
+                <card02 />
+              </v-card-title>
 
-                  <v-divider class="mx-2"/>
+              <v-divider class="mx-2"/>
 
-                  <draggable
-                    :list="task"
-                    :options="options"
-                  >
-                    <div v-for="item_2 in task" :key="item_2">
-                      <card01
-                        v-if="item_2.group == item"
-                        :key="item_2.id"
-                        :data="item_2"
-                        :progress="50"
-                        :type="1"
-                        class="item"
-                      ></card01>
-                    </div>
-                </draggable>
-              </v-card>
-            </div>
+              <draggable
+                :list="task"
+                :options="options"
+              >
+                <div v-for="item_2 in task" :key="item_2">
+                  <card01
+                    v-if="item_2.group == item"
+                    :key="item_2.id"
+                    :data="item_2"
+                    :progress="50"
+                    :type="1"
+                    class="item"
+                  ></card01>
+                </div>
+              </draggable>
+            </v-card>
           </div>
-        </v-col>
-      </v-row>
-    </v-col>
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -60,14 +57,12 @@
     cursor: grabbing;
   }
 
+  .main_view {
+    min-height: calc(95vh - 64px);
+  }
+
   #task_list {
-    position: absolute;
-    top: 50%;
-    right: 0%;
-    transform: translateY(-50%);
-    display: flex;
-    overflow: auto;
-    width: auto;
+    height: 100%;
   }
 </style>
 
