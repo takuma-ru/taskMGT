@@ -11,8 +11,8 @@
             <v-card outlined>
               <v-card-title class="py-2">
                 {{item}}
-                <v-spacer />
-                <card02 />
+
+                {{task.length}}
               </v-card-title>
               <draggable
                 :list="item"
@@ -21,10 +21,8 @@
                 <div v-for="item_2 in task" :key="item_2">
                   <card01
                     v-if="item_2.group == item"
-                    :key="item_2.id"
                     :data="item_2"
-                    :progress="50"
-                    :type="1"
+                    :type="item_2.group == '目標' ? 1 : 2"
                     class="item"
                   ></card01>
                 </div>

@@ -69,29 +69,8 @@
           </div>
         </v-app-bar>
 
-        <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
-          <h1>ログインすることで利用できます</h1>
-          <v-col cols="12" align="center">
-            <v-btn
-              depressed
-              dark
-              color="indigo"
-              @click="signIn"
-            >
-              <v-icon
-                small
-                class="mr-2"
-              >mdi-google</v-icon>googleアカウントでログイン
-            </v-btn>
-          </v-col>
-          <v-col align="center">
-            <p><v-icon class="mb-1 mr-1" color="black">mdi-alert-circle-outline</v-icon>このアプリを利用する際の注意事項</p>
-            <p class="gray--text">このサービスは現在<strong class="black--text">開発中</strong>です。</p>
-            <p>ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。</p>
-          </v-col>
-        </v-row>
-
-        <router-view />
+        <router-view>
+        </router-view>
 
         <v-footer
           id="footer"

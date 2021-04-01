@@ -43,7 +43,6 @@
           <v-btn
             icon
             class="mb-1 ml-3"
-            color="#7786FF"
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
@@ -82,7 +81,7 @@
                   dark
                   elevation="1"
                   color="#FF7786"
-                  @click="delTask(data.id, type); deleting = true; dialog2 = false"
+                  @click="DelTask(data.id, type); deleting = true; dialog2 = false"
                 >
                 <v-icon>mdi-delete-outline</v-icon>削除する
                 </v-btn>
@@ -118,7 +117,6 @@
           <v-btn
             icon
             class="mb-1 ml-3"
-            color="#7786FF"
             @click="/**/"
           >
             <v-icon>mdi-pencil-outline</v-icon>
@@ -143,23 +141,23 @@
           {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;</p>
         </v-card-text>
 
-        <v-divider class="mx-2"/>
+        <v-divider class="mt-2 mb-4"/>
 
         <v-card-actions>
           <v-btn
-            outlined
+            dark
             depressed
-            color="#FF7786"
+            color="#F0A0D2"
             @click="dialog = false"
           >
-            <v-icon>mdi-menu-left-outline</v-icon>閉じる
+            <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
             dark
             depressed
             color="#7786FF"
-            @click="dialog = false"
+            @click="Complete"
           >
             <v-icon class="mr-1">mdi-check</v-icon>完了！
           </v-btn>
@@ -173,12 +171,16 @@
 <style>
 .card1{
   background-image: url("../assets/card-back.svg");
+  background-position: top right;
 }
 .card2{
-  background-image: url("../assets/card-back2.svg");
+  background-image: url("../assets/card-back3.svg");
+  background-position: top right;
+
 }
 .card3{
-  background-image: url("../assets/card-back3.svg");
+  background-image: url("../assets/card-back4.svg");
+  background-position: top right;
 }
 .marker_red_futo {
   background: linear-gradient(transparent 85%, #ff6666 0%);
@@ -186,6 +188,9 @@
 </style>
 
 <script>
+import firebase from '../plugins/firebase'
+import firestore from '../plugins/firestore'
+
 export default {
   data: () => ({
     dialog: false,
@@ -200,6 +205,16 @@ export default {
   ],
 
   computed: {
+    temporary_data(){
+      return{
+        id: this.data.id,
+        end: this.data.date_end.seconds,
+        start: this.data.date_start.seconds,
+        text: this.data.text,
+        title: this.data.title,
+        group: this.data.group,
+      }
+    },
     userdata(){
       return this.$store.getters.userdata
     },
@@ -220,18 +235,6 @@ export default {
           break;
       }
       return color
-    },
-    color(){
-      var r = Math.round(255/(100/this.progress))
-      var g = Math.round(255/(100/this.progress))
-      var b = Math.round(255/(100/this.progress))
-      //console.log(r, g, b)
-
-      r = r.toString(16)
-      g = g.toString(16)
-      b = b.toString(16)
-      //console.log(r, g, b)
-      return '#' + r + g + 'ff'
     }
   },
 
@@ -239,12 +242,34 @@ export default {
     Log(){
       console.log("bdclick")
     },
+    Complete(){
+      this.temporary_data.group = "完了"
+      this.ChangeTask()
+    },
+    Incomplete(){
+      this.temporary_data.group = "目標"
+      this.ChangeTask()
+    },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
       return date_s
     },
-    delTask(id, type){
+    StoD(date){//YYYY年MM月DD日 => UNIX時間
+      date = Date.parse(date) * 0.001
+      console.log("StoD", date)
+      return date
+    },
+    ChangeTask(){
+      if(this.temporary_data.start <= this.temporary_data.end){
+        console.log("Adding data...")
+        this.$store.dispatch('change_task', { data: this.temporary_data })
+        this.dialog = false
+      }else{
+        console.error("Cannot add.")
+      }
+    },
+    DelTask(id, type){
       console.log("delete: ", id, type)
       this.$store.dispatch('del_task', {docid: id,})
       this.$store.dispatch('onAuth')

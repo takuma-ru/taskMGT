@@ -1,5 +1,26 @@
 <template>
   <v-container class="main_view">
+    <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
+      <h1>ログインすることで利用できます</h1>
+      <v-col cols="12" align="center">
+        <v-btn
+          depressed
+          dark
+          color="indigo"
+          @click="signIn"
+        >
+          <v-icon
+            small
+            class="mr-2"
+          >mdi-google</v-icon>googleアカウントでログイン
+        </v-btn>
+      </v-col>
+      <v-col align="center">
+        <p><v-icon class="mb-1 mr-1" color="black">mdi-alert-circle-outline</v-icon>このアプリを利用する際の注意事項</p>
+        <p class="gray--text">このサービスは現在<strong class="black--text">開発中</strong>です。</p>
+        <p>ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。</p>
+      </v-col>
+    </v-row>
     <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%">
       <v-col cols="12" align="center">
         <h1>Hi!&nbsp;{{userdata.providerData[0].displayName}}</h1><br>
@@ -13,33 +34,25 @@
     <v-row align="end" justify="end">
       <v-col cols="3">
         <div id="task_list">
-          <div v-for="(item, i) in namelist" :key="i" class="" style="width: 100%">
-            <v-card outlined flat color="transparent">
-              <v-card-title class="py-2">
-                <strong>{{item}}</strong>
-                <v-spacer />
-                <card02 />
-              </v-card-title>
+          <v-card outlined flat color="transparent">
+            <v-card-title class="py-2">
+              <strong>目標</strong>
+              <v-spacer />
+            </v-card-title>
 
-              <v-divider class="mx-2"/>
+            <v-divider class="mx-2"/>
 
-              <draggable
-                :list="task"
-                :options="options"
-              >
-                <div v-for="item_2 in task" :key="item_2">
-                  <card01
-                    v-if="item_2.group == item"
-                    :key="item_2.id"
-                    :data="item_2"
-                    :progress="50"
-                    :type="1"
-                    class="item"
-                  ></card01>
-                </div>
-              </draggable>
-            </v-card>
-          </div>
+            <div v-for="item in task" :key="item">
+              <card01
+                v-if="item.group == '目標'"
+                :data="item"
+                :type="item.group == '目標'? 1 : 2"
+                class="item"
+              ></card01>
+            </div>
+
+            <card02 />
+          </v-card>
         </div>
       </v-col>
     </v-row>
@@ -47,16 +60,6 @@
 </template>
 
 <style scoped>
-  .item {
-    display: inline-block;
-  }
-  .item:hover {
-    cursor: grab;
-  }
-  .item:active {
-    cursor: grabbing;
-  }
-
   .main_view {
     min-height: calc(95vh - 64px);
   }
@@ -82,10 +85,6 @@ export default {
     },
     isload: false,
     num: 1,
-    options: {
-      group:'ITEMS',
-      animation: 200
-    },
   }),
 
   computed: {
@@ -109,7 +108,6 @@ export default {
   components: {
     card01,
     card02,
-    draggable,
   },
 
   methods: {

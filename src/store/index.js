@@ -11,11 +11,12 @@ export default new Vuex.Store({
   state: {
     adding: false,
     deleting: false,
+    completing: false,
     isauth: false,
     userdata: {},
     check: false,
     task: [],
-    namelist: ["目標", /*"進行中", "完了済み", "バグ修正中", "確認中"*/],
+    namelist: ["目標", "完了"],
   },
 
   getters: {
@@ -46,6 +47,9 @@ export default new Vuex.Store({
     delChange(state, bool){
       state.deleting = bool
     },
+    completeChange(state, bool){
+      state.completing = bool
+    },
     onAuthStateChanged(state, user) {
       state.userdata = user; //firebaseが返したユーザー情報
     },
@@ -64,7 +68,20 @@ export default new Vuex.Store({
   actions: {
     async init({ commit }) {
       firebase.initializeApp(firebase.firebaseConfig);
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(() => {
+          // Existing and future Auth states are now persisted in the current
+          // session only. Closing the window would clear any existing state even
+          // if a user forgets to sign out.
+          // ...
+          // New sign-in will be persisted with session persistence.
+          return firebase.auth().signInWithEmailAndPassword(email, password);
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
     },
 
     async signIn({ commit }) {
@@ -135,6 +152,43 @@ export default new Vuex.Store({
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
+      })
+    },
+
+    change_task({ commit }, {data}){
+      commit('completeChange',true)
+      console.log("Now changing data...", data)
+      firebase.auth().onAuthStateChanged(user => {
+        firestore.collection("tasks").doc(user.uid).collection("Task").doc(data.id).update(data)
+          .then(() => {
+            firestore.collection("tasks").doc(user.uid).collection("Task").get()
+            .then((querySnapshot) => {
+              if(!querySnapshot.empty) {
+                  commit('init')
+                //console.log(querySnapshot.empty)
+                querySnapshot.forEach((doc) => {
+                  //console.log(doc.id, " => ", doc.data());
+                  commit('Muta', {
+                    id: doc.id,
+                    title: doc.data().title,
+                    text: doc.data().text,
+                    date_start: doc.data().date_start,
+                    date_end: doc.data().date_end,
+                    group: doc.data().group,
+                  })
+                  console.log("GetSuccess :", "Task")
+                })
+              }else{
+                console.log("Not found :_(")
+                firestore.collection('tasks').doc(user.uid).set({id: user.uid})
+              }
+            })
+            console.log("Document successfully updated!");
+          })
+          .catch((error) => {
+            console.error("Error updating document: ", error);
+            commit('addChange',false)
+          });
       })
     },
 

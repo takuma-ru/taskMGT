@@ -4,32 +4,25 @@
   Complete:3
 -->
 <template>
-<div>
   <v-container>
-    <v-btn
-      icon
-      color="black"
-      @click="dialog = true"
-    >
-       <v-icon large>mdi-plus</v-icon>
-    </v-btn>
-    <!--<v-hover
+    <v-hover
       v-slot:default="{ hover }"
       open-delay="0"
     >
       <v-card
         outlined
-        :class="`elevation-${hover ? 5 : 0}`"
-        class="transition-swing rounded-br-xl"
+        :class="`elevation-${hover ? 8 : 1}`"
+        class="transition-swing"
+        color="#fffaf5"
         @click="dialog = true"
       >
         <v-col>
           <v-row justify="center" align="center">
-            <v-icon large>mdi-plus</v-icon>
+            <v-icon class="px-2 py-2" large>mdi-plus</v-icon>
           </v-row>
         </v-col>
       </v-card>
-    </v-hover>-->
+    </v-hover>
 
     <v-dialog
       v-model="dialog"
@@ -62,74 +55,71 @@
 
         <v-divider class="mx-2"/>
 
-        <v-card-text class="py-4 black--text">
-          <v-menu
+        <v-card-text class="py-4 pb-0 black--text">
+          <v-dialog
             ref="menu1"
             v-model="menu1"
-            :close-on-content-click="false"
             :return-value.sync="sd"
-            transition="scale-transition"
-            offset-y
-            min-width="290px"
+            persistent
+            width="290px"
           >
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="sd"
                 label="開始日"
-                prepend-icon="mdi-clock-outline"
+                prepend-icon="mdi-calendar-start"
                 readonly
                 v-bind="attrs"
                 v-on="on"
               ></v-text-field>
             </template>
-            <v-date-picker v-model="sd" no-title scrollable>
-              <v-spacer></v-spacer>
+            <v-date-picker v-model="sd" scrollable>
+              <v-spacer />
               <v-btn text color="primary" @click="menu1 = false">Cancel</v-btn>
               <v-btn text color="primary" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
             </v-date-picker>
-          </v-menu>
-          <v-menu
+          </v-dialog>
+
+          <v-dialog
             ref="menu2"
             v-model="menu2"
-            :close-on-content-click="false"
             :return-value.sync="ed"
-            transition="scale-transition"
-            offset-y
-            min-width="290px"
+            persistent
+            width="290px"
           >
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="ed"
                 label="終了日"
-                prepend-icon="mdi-clock-outline"
+                prepend-icon="mdi-calendar-end"
                 readonly
                 v-bind="attrs"
                 v-on="on"
               ></v-text-field>
             </template>
-            <v-date-picker v-model="ed" no-title scrollable>
-              <v-spacer></v-spacer>
+            <v-date-picker v-model="ed" scrollable>
+              <v-spacer />
               <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
               <v-btn text color="primary" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
             </v-date-picker>
-          </v-menu>
+          </v-dialog>
         </v-card-text>
 
-        <v-divider class="mx-2"/>
+        <v-divider class="mt-2 mb-4" />
 
         <v-card-actions>
           <v-btn
-            elevation="1"
-            color="#FF7786"
-            outlined
+            dark
+            depressed
+            color="#F0A0D2"
             @click="dialog = false"
           >
-            <v-icon class="mr-1 mb-1">mdi-menu-left-outline</v-icon>やめる
+            <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
             dark
-            elevation="1"
+            depressed
             color="#7786FF"
             @click="addTask"
           >
@@ -158,12 +148,12 @@
       </v-card>
     </v-dialog>
   </v-container>
-</div>
 </template>
 
 <style>
 .card{
-  background-image: url("../assets/card-back3.svg");
+  background-image: url("../assets/card-back2.svg");
+  background-position: top right;
 }
 </style>
 
@@ -191,18 +181,6 @@ export default {
     adding(){
       return this.$store.getters.adding
     },
-    color(){
-      var r = Math.round(255/(100/this.progress))
-      var g = Math.round(255/(100/this.progress))
-      var b = Math.round(255/(100/this.progress))
-      console.log(r, g, b)
-
-      r = r.toString(16)
-      g = g.toString(16)
-      b = b.toString(16)
-      console.log(r, g, b)
-      return '#' + r + g + 'ff'
-    }
   },
 
   methods: {
@@ -225,7 +203,7 @@ export default {
     addTask(){
       this.StoD(this.sd)
       this.StoD(this.ed)
-      if(this.sd < this.ed){
+      if(this.sd <= this.ed){
         console.log("Adding data...")
         this.$store.dispatch('add_task', {
           end: this.ed,
