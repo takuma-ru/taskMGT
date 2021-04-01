@@ -16,7 +16,8 @@
       outlined
     >
       <v-card-title class="pt-3 pb-3">
-        <span>{{data.title}}</span>
+        <span class="height: 100%">{{data.title}}</span>
+        <v-subheader v-if="data.group == '完了'">完了済み</v-subheader>
         <v-spacer/>
       </v-card-title>
       <v-card-actions class="pt-0">
@@ -39,7 +40,8 @@
       <v-card :class="`card${type}`">
         <v-col>
         <v-card-title class="headline px-4">
-          <span @dblclick="Log()">{{data.title}}</span>
+          <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
+          <v-subheader v-if="data.group == '完了'">完了済み</v-subheader>
           <v-btn
             icon
             class="mb-1 ml-3"
@@ -154,12 +156,22 @@
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
+            v-if="data.group == '目標'"
             dark
             depressed
             color="#7786FF"
             @click="Complete"
           >
             <v-icon class="mr-1">mdi-check</v-icon>完了！
+          </v-btn>
+          <v-btn
+            v-else
+            dark
+            depressed
+            color="#7786FF"
+            @click="Incomplete"
+          >
+            <v-icon class="mr-1">mdi-check</v-icon>やっぱまだ完了じゃない
           </v-btn>
         </v-card-actions>
         </v-col>
