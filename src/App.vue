@@ -171,7 +171,7 @@ export default {
 
   #footer {
     height: 5vh;
-    background-color: #d8bda6ff;
+    background-color: #3B8056;
     bottom: 0%;
   }
 </style>

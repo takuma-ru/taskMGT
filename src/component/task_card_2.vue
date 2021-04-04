@@ -111,7 +111,7 @@
           <v-btn
             dark
             depressed
-            color="#F0A0D2"
+            color="#FF77CA"
             @click="dialog = false"
           >
             <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
@@ -211,6 +211,7 @@ export default {
           text: this.text,
           title: this.title,
           group: this.group,
+          completed: null
         })
         this.dialog = false
         this.init()

@@ -7,7 +7,7 @@
   <v-container>
     <v-hover
       v-slot:default="{ hover }"
-      open-delay="150"
+      open-delay="50"
     >
     <v-card
       :class="`elevation-${hover ? 8 : 1} card${type}`"
@@ -16,8 +16,8 @@
       outlined
     >
       <v-card-title class="pt-3 pb-3">
-        <span class="height: 100%">{{data.title}}</span>
-        <v-subheader v-if="data.group == '完了'">完了済み</v-subheader>
+        <span>{{data.title}}</span>
+        <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
         <v-spacer/>
       </v-card-title>
       <v-card-actions class="pt-0">
@@ -35,13 +35,13 @@
 
     <v-dialog
       v-model="dialog"
-      max-width="600px"
+      max-width="800px"
     >
       <v-card :class="`card${type}`">
         <v-col>
         <v-card-title class="headline px-4">
           <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
-          <v-subheader v-if="data.group == '完了'">完了済み</v-subheader>
+          <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
           <v-btn
             icon
             class="mb-1 ml-3"
@@ -53,36 +53,37 @@
 
           <v-btn
             text
-            color="#FF7786"
+            color="#FF77CA"
             @click="dialog2 = true"
           >
-            <v-icon>mdi-delete-outline</v-icon><strong class="ml-1">削除</strong>
+            <v-icon>mdi-delete-outline</v-icon><span class="ml-1 font-weight-bold text-subtitle-2">削除</span>
           </v-btn>
 
           <v-dialog
             v-model="dialog2"
             persistent
-            width="300"
+            width="400"
           >
             <v-card>
-              <v-img :src="require('../assets/background.svg')" max-height="140px" position="left: 0">
+              <v-img :src="require('../assets/card-back3.svg')" max-height="140px" position="left: 0">
               <v-card-text>
                 <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
                 ※削除すると元に戻すことはできません
               </v-card-text>
               <v-card-actions>
                 <v-btn
-                  elevation="1"
-                  outlined
+                  dark
+                  depressed
+                  color="#7786FF"
                   @click="dialog2 = false"
                 >
-                <v-icon>mdi-close</v-icon>いいえ
+                <v-icon class="mr-2">mdi-close</v-icon>いいえ
                 </v-btn>
                 <v-spacer/>
                 <v-btn
                   dark
-                  elevation="1"
-                  color="#FF7786"
+                  depressed
+                  color="#FF77CA"
                   @click="DelTask(data.id, type); deleting = true; dialog2 = false"
                 >
                 <v-icon>mdi-delete-outline</v-icon>削除する
@@ -97,7 +98,7 @@
             width="300"
           >
             <v-card>
-              <v-img :src="require('../assets/background.svg')" height="90px" position="left: 0">
+              <v-img :src="require('../assets/card-back3.svg')" height="90px" position="left: 0">
               <v-card-text>
                 <p class="mb-0">削除中...</p>
                 <v-progress-linear
@@ -129,18 +130,20 @@
 
         <v-divider class="mx-2"/>
 
-        <v-card-text class="py-4 black--text">
-          <p class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
-          <v-btn
-            icon
-            class="mb-1 ml-3"
-            color=""
-            @click="/**/"
-          >
-            <v-icon>mdi-pencil-outline</v-icon>
-          </v-btn>
-          <br>
-          {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;</p>
+        <v-card-text class="py-4">
+          <span class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
+            <v-btn
+              icon
+              class="mb-1 ml-3"
+              color=""
+              @click="/**/"
+            >
+              <v-icon>mdi-pencil-outline</v-icon>
+            </v-btn>
+            <br>
+            {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;<br>
+            <p v-if="data.group == '完了'" class="mt-4 mb-0 font-weight-bold" style="color: #7786FF">{{DtoS(data.completed.seconds)}}に完了！</p>
+          </span>
         </v-card-text>
 
         <v-divider class="mt-2 mb-4"/>
@@ -149,7 +152,7 @@
           <v-btn
             dark
             depressed
-            color="#F0A0D2"
+            color="#FF77CA"
             @click="dialog = false"
           >
             <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
@@ -183,15 +186,17 @@
 <style>
 .card1{
   background-image: url("../assets/card-back.svg");
+  background-size: cover;
   background-position: top right;
 }
 .card2{
-  background-image: url("../assets/card-back3.svg");
+  background-image: url("../assets/card-back4.svg");
+  background-size: cover;
   background-position: top right;
-
 }
 .card3{
-  background-image: url("../assets/card-back4.svg");
+  background-image: url("../assets/card-back3.svg");
+  background-size: cover;
   background-position: top right;
 }
 .marker_red_futo {
@@ -218,13 +223,15 @@ export default {
 
   computed: {
     temporary_data(){
+      console.log(this.data)
       return{
         id: this.data.id,
-        end: this.data.date_end.seconds,
-        start: this.data.date_start.seconds,
+        date_end: this.data.date_end,
+        date_start: this.data.date_start,
         text: this.data.text,
         title: this.data.title,
         group: this.data.group,
+        completed: this.data.completed
       }
     },
     userdata(){
@@ -256,10 +263,12 @@ export default {
     },
     Complete(){
       this.temporary_data.group = "完了"
+      this.temporary_data.completed = new Date().toISOString().substr(0, 10)
       this.ChangeTask()
     },
     Incomplete(){
       this.temporary_data.group = "目標"
+      this.temporary_data.completed = null
       this.ChangeTask()
     },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
@@ -273,7 +282,10 @@ export default {
       return date
     },
     ChangeTask(){
-      if(this.temporary_data.start <= this.temporary_data.end){
+      //this.StoD(this.temporary_data.date_end.seconds)
+      //this.StoD(this.temporary_data.date_start.seconds)
+      this.StoD(this.temporary_data.completed)
+      if(this.temporary_data.date_start <= this.temporary_data.date_end){
         console.log("Adding data...")
         this.$store.dispatch('change_task', { data: this.temporary_data })
         this.dialog = false

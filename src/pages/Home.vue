@@ -31,7 +31,7 @@
         <p>{{userdata.providerData[0].displayName}}</p>
       </v-col>-->
     </v-row>
-    <v-row align="end" justify="end">
+    <v-row v-if="isauth" align="end" justify="end">
       <v-col cols="3">
         <div id="task_list">
           <v-card outlined flat color="transparent">
@@ -77,11 +77,12 @@ import card02 from "../component/task_card_2";
 export default {
   data: () => ({
     data: {
-      end: "",
-      start: "",
+      date_end: "",
+      date_start: "",
       text: "",
       title: "",
       group: "",
+      computed: "",
     },
     isload: false,
     num: 1,
