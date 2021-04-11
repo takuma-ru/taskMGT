@@ -1,31 +1,23 @@
 name: Firebase deploy
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  build-deploy:
+  FrontDeploy:
+    name: FrontDeploy
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - name: check out main
+    - name: Checkout Repo
       uses: actions/checkout@main
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: install package
+    - name: setup Node
+      uses: actions/setup-node@v1
+      with: 
+        node-version: 10.x
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install Dependencies
       run: npm install
-    - name: build vue code
+    - name: Build
       run: npm run build
     - name: deploy to Firebase Hosting
-      uses: w9jds/firebase-action@main
-      with:
-        args: deploy
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      run: |
+        firebase deploy --token=${{ secrets.FIREBASE_TOKEN }}
