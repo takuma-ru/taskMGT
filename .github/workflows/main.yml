@@ -3,27 +3,23 @@ name: Firebase deploy
 on: [push]
 
 jobs:
-  build:
-
+  FrontDeploy:
+    name: FrontDeploy
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Checkout Repo
+      uses: actions/checkout@main
+    - name: setup Node
       uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, generate
-      run: |
-           npm install
-           npm run generate --if-present
+      with: 
+        node-version: 10.x
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install Dependencies
+      run: npm install
+    - name: Install Firebase
+      run: npm install firebase
+    - name: Build
+      run: npm run build
     - name: deploy to Firebase Hosting
-      uses: w9jds/firebase-action@main
-      with:
-        args: deploy
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      run: |
+        firebase deploy --token=${{ secrets.FIREBASE_TOKEN }}
