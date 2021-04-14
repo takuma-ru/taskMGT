@@ -14,6 +14,7 @@ export default new Vuex.Store({
     completing: false,
     isauth: false,
     userdata: {},
+    progressdata: {},
     check: false,
     task: [],
     namelist: ["目標", "完了"],
@@ -62,6 +63,9 @@ export default new Vuex.Store({
     Muta(state, data) {
       state.task.push(data)
     },
+    ProgressData(state, data) {
+      state.progressdata = data
+    }
   },
 
   actions: {
@@ -80,6 +84,7 @@ export default new Vuex.Store({
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
+          console.error(errorCode, ':', errorMessage)
         });
     },
 
@@ -90,6 +95,16 @@ export default new Vuex.Store({
         //hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
       })
       firebase.auth().signInWithPopup(provider)
+        .then(() => {
+          /*var result =
+            await FirebaseAuth.instance.signInAnonymously();
+          var isFirstLogin = result.additionalUserInfo.isNewUser;
+          if(isFirstLogin) {
+            print('First Login');
+          } else {
+            print('Not First Login');
+          }*/
+        })
     },
 
     async signOut({ commit }) {
@@ -98,7 +113,7 @@ export default new Vuex.Store({
     },
 
     get_task({ commit }, uid) {
-      console.log(uid)
+      console.log("Now getting task data... :", uid)
       firestore.collection("tasks").doc(uid).collection("Task").get()
       .then((querySnapshot) => {
         if(!querySnapshot.empty) {
@@ -124,6 +139,21 @@ export default new Vuex.Store({
       })
     },
 
+    get_data({ commit }, uid) {
+      console.log("Now getting user data... :", uid)
+      firestore.collection("tasks").doc(uid).collection("Task").doc("Progress").get()
+      .then((querySnapshot) => {
+        if(!querySnapshot.empty) {
+          querySnapshot.forEach((doc) => {
+            commit('ProgressData', doc)
+            console.log("GetSuccess")
+          })
+        }else{
+          console.log("Not found :_(")
+        }
+      })
+    },
+
     add_task({ dispatch, commit }, {end, start, text, title, group, completed}){
       commit('addChange',true)
       var data = {
@@ -140,6 +170,7 @@ export default new Vuex.Store({
           console.log("Document written with ID:", docRef.id);
           commit('addChange',false)
           dispatch('get_task', user.uid)
+          dispatch('get_data', user.uid)
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
@@ -154,6 +185,7 @@ export default new Vuex.Store({
         firestore.collection("tasks").doc(user.uid).collection("Task").doc(docid).delete()
         .then(function() {
             dispatch('get_task', user.uid)
+            dispatch('get_data', user.uid)
             console.log("Document successfully deleted!");
             commit('delChange', false)
         }).catch(function(error) {
@@ -162,7 +194,7 @@ export default new Vuex.Store({
       })
     },
 
-    change_task({ dispatch, commit }, {data}){
+    change_task({ dispatch, commit }, {data, type}){
       data.completed = firebase.firestore.Timestamp.fromDate(new Date(data.completed))
       console.log(data.completed)
       commit('completeChange',true)
@@ -170,7 +202,19 @@ export default new Vuex.Store({
       firebase.auth().onAuthStateChanged(user => {
         firestore.collection("tasks").doc(user.uid).collection("Task").doc(data.id).update(data)
           .then(() => {
+            switch(type){
+              case 1: //タスクを完了させた際
+                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
+                  CompletedTask: firebase.firestore.FieldValue.increment(1)
+                });
+
+              case 2: //タスクを未完了にさせた際
+                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
+                  CompletedTask: firebase.firestore.FieldValue.increment(-1)
+                });
+            }
             dispatch('get_task', user.uid)
+            dispatch('get_data', user.uid)
             console.log("Document successfully updated!");
           })
           .catch((error) => {
@@ -186,8 +230,8 @@ export default new Vuex.Store({
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
         for (let i = 0; i < 3; i++) {
-          console.log("Getting data... :", user.uid)
           dispatch('get_task', user.uid)
+          dispatch('get_data', user.uid)
         }
       });
     },

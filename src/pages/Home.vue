@@ -20,7 +20,7 @@
         </p>
       </v-col>
     </v-row>
-    <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%">
+    <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%;">
       <v-col cols="12" align="center">
         <h1>Hi!&nbsp;{{ userdata.providerData[0].displayName }}</h1>
         <br />
@@ -31,7 +31,42 @@
         <p>{{userdata.providerData[0].displayName}}</p>
       </v-col>-->
     </v-row>
-    <v-row v-if="isauth" align="end" justify="end">
+    <v-row v-if="isauth" align="start" justify="space-between">
+
+      <v-img
+        src="../assets/Bud.svg"
+        class="plant"
+      ></v-img>
+
+      <v-col cols="3">
+        <div>
+          <v-card outlined flat color="transparent">
+            <v-card-title class="py-2">
+              <strong>今日こなしたタスク</strong>
+              <v-spacer />
+            </v-card-title>
+
+            <v-divider class="mx-2" />
+
+          </v-card>
+        </div>
+      </v-col>
+
+      <v-col cols="3">
+        <div style="text-align:center;">
+          <v-btn
+            large
+            depressed
+            rounded
+            dark
+            color="#7786FF"
+          >
+            <v-icon class="mr-1">mdi-water</v-icon>
+            <span>水をあげる</span>
+          </v-btn>
+        </div>
+      </v-col>
+
       <v-col cols="3">
         <div id="task_list">
           <v-card outlined flat color="transparent">
@@ -42,16 +77,19 @@
 
             <v-divider class="mx-2" />
 
-            <div v-for="item in task" :key="item">
-              <card01
-                v-if="item.group == '目標'"
-                :data="item"
-                :type="item.group == '目標' ? 1 : 2"
-                class="item"
-              ></card01>
-            </div>
+            <div style="height: 70vh; overflow:auto;">
+              <div v-for="item in task" :key="item.id">
+                <card01
+                  v-if="item.group == '目標'"
+                  :data="item"
+                  :type="item.group == '目標' ? 1 : 2"
+                  class="item"
+                ></card01>
+              </div>
 
-            <card02 />
+              <card02 />
+
+            </div>
           </v-card>
         </div>
       </v-col>
@@ -62,6 +100,13 @@
 <style scoped>
 .main_view {
   min-height: calc(95vh - 64px);
+}
+
+.plant {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #task_list {

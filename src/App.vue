@@ -156,7 +156,7 @@ export default {
     max-width: 100%;
     position: relative;
     background-color: #f5f8f8;
-    background-image: url("../src/assets/background.svg");
+    background-image: url('../src/assets/background.svg');
     background-position: center left;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -166,12 +166,16 @@ export default {
 
   .main_contents {
     min-height: 95vh;
+    max-height: 95vh;
     min-width: 100%;
   }
 
   #footer {
     height: 5vh;
-    background-color: #3B8056;
+    background-image: url('../src/assets/footer_background.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
     bottom: 0%;
   }
 </style>

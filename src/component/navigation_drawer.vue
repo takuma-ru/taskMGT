@@ -2,9 +2,10 @@
   <v-navigation-drawer
     v-model="drawer"
     app
+    dark
     class="drawer_back"
   >
-      <v-list dense rounded>
+      <v-list rounded>
         <v-list-item
           v-for="item in items"
           :key="item.title"

@@ -18,7 +18,7 @@
                 :list="item"
                 :options="options"
               >
-                <div v-for="item_2 in task" :key="item_2">
+                <div v-for="item_2 in task" :key="item_2.id">
                   <card01
                     v-if="item_2.group == item"
                     :data="item_2"
