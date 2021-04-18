@@ -33,11 +33,14 @@ export default new Vuex.Store({
     check(state) {
       return state.check
     },
-    adding(state){
+    adding(state) {
       return state.adding
     },
-    namelist(state){
+    namelist(state) {
       return state.namelist
+    },
+    progressdata(state) {
+      return state.progressdata
     }
   },
 
@@ -71,21 +74,6 @@ export default new Vuex.Store({
   actions: {
     async init({ commit }) {
       firebase.initializeApp(firebase.firebaseConfig);
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-        .then(() => {
-          // Existing and future Auth states are now persisted in the current
-          // session only. Closing the window would clear any existing state even
-          // if a user forgets to sign out.
-          // ...
-          // New sign-in will be persisted with session persistence.
-          return firebase.auth().signInWithEmailAndPassword(email, password);
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.error(errorCode, ':', errorMessage)
-        });
     },
 
     async signIn({ commit }) {
@@ -96,14 +84,6 @@ export default new Vuex.Store({
       })
       firebase.auth().signInWithPopup(provider)
         .then(() => {
-          /*var result =
-            await FirebaseAuth.instance.signInAnonymously();
-          var isFirstLogin = result.additionalUserInfo.isNewUser;
-          if(isFirstLogin) {
-            print('First Login');
-          } else {
-            print('Not First Login');
-          }*/
         })
     },
 
@@ -141,17 +121,13 @@ export default new Vuex.Store({
 
     get_data({ commit }, uid) {
       console.log("Now getting user data... :", uid)
-      firestore.collection("tasks").doc(uid).collection("Task").doc("Progress").get()
-      .then((querySnapshot) => {
-        if(!querySnapshot.empty) {
-          querySnapshot.forEach((doc) => {
-            commit('ProgressData', doc)
-            console.log("GetSuccess")
-          })
-        }else{
-          console.log("Not found :_(")
-        }
-      })
+      firestore.collection("tasks").doc(uid).collection("Data").doc("Progress").get()
+      .then((doc) => {
+        commit('ProgressData', doc.data())
+        console.log("GetSuccess")
+      }).catch((error) => {
+          console.log("Error getting cached document:", error);
+      });
     },
 
     add_task({ dispatch, commit }, {end, start, text, title, group, completed}){
@@ -203,12 +179,12 @@ export default new Vuex.Store({
         firestore.collection("tasks").doc(user.uid).collection("Task").doc(data.id).update(data)
           .then(() => {
             switch(type){
-              case 1: //タスクを完了させた際
+              case 1: //タスクを完了した場合
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(1)
                 });
 
-              case 2: //タスクを未完了にさせた際
+              case 2: //タスクを未完了にした場合
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(-1)
                 });

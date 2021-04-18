@@ -9,6 +9,7 @@
           class="px-0 py-0"
         >
           <v-btn
+            dark
             icon
             large
             @click.stop="drawer = !drawer"
@@ -19,22 +20,23 @@
           <v-spacer />
 
           <div>
-            <v-list-item v-if="isauth" class="px-0">
+            <v-list-item dark v-if="isauth" class="px-0">
               <v-list-item-avatar>
                 <v-img :src="userdata.photoURL" />
               </v-list-item-avatar>
               <v-list-item-content class="py-0">
                 <v-list-item-title>
-                  <v-list-item-subtitle>
+                  <v-list-item-subtitle class=" white--text">
                     ログイン済み
                   </v-list-item-subtitle>
-                  <p class="mb-0 black--text">
+                  <p class="mb-0 white--text">
                     {{userdata.providerData[0].displayName}}
                   </p>
                 </v-list-item-title>
               </v-list-item-content>
               <v-list-item-icon class="">
                 <v-btn
+                  dark
                   icon
                   @click="signOut"
                 >
@@ -49,16 +51,17 @@
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title>
-                  <v-list-item-subtitle>
+                  <v-list-item-subtitle class=" white--text">
                     未ログイン
                   </v-list-item-subtitle>
-                  <p class="mb-0 black--text">
+                  <p class="mb-0 white--text">
                     -
                   </p>
                 </v-list-item-title>
               </v-list-item-content>
               <v-list-item-icon class="mr-2">
                 <v-btn
+                  dark
                   icon
                   @click="signIn"
                 >
@@ -76,6 +79,7 @@
           id="footer"
           absolute
           padless
+          color="transparent"
         >
           <v-col
             class="px-0 py-0 text-center white--text"
@@ -156,8 +160,8 @@ export default {
     max-width: 100%;
     position: relative;
     background-color: #f5f8f8;
-    background-image: url('../src/assets/background.svg');
-    background-position: center left;
+    background-image: url('../src/assets/background_speace.svg');
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -165,17 +169,16 @@ export default {
   }
 
   .main_contents {
-    min-height: 95vh;
-    max-height: 95vh;
+    height: 95vh;
     min-width: 100%;
   }
 
   #footer {
     height: 5vh;
-    background-image: url('../src/assets/footer_background.svg');
+    /*background-image: url('../src/assets/footer_background.svg');
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     bottom: 0%;
   }
 </style>

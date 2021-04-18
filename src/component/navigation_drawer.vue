@@ -44,6 +44,6 @@ export default {
   .drawer_back {
     background-image: url("../assets/drawer_background.svg");
     background-size: cover;
-    background-position: top left;
+    background-position: top right;
   }
 </style>

@@ -35,6 +35,7 @@
 
     <v-dialog
       v-model="dialog"
+      :fullscreen="false"
       max-width="800px"
     >
       <v-card :class="`card${type}`">
@@ -115,7 +116,7 @@
 
         <v-divider class="mx-2"/>
 
-        <v-card-text class="py-4 black--text">
+        <v-card-text class="py-4">
           <span><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
           <v-btn
             icon

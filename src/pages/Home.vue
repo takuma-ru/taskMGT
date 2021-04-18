@@ -1,6 +1,6 @@
 <template>
   <v-container class="main_view">
-    <v-row v-if="!isauth" class="mt-2" justify="center" align="center">
+    <v-row v-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
       <h1>ログインすることで利用できます</h1>
       <v-col cols="12" align="center">
         <v-btn depressed dark color="indigo" @click="signIn">
@@ -9,11 +9,11 @@
       </v-col>
       <v-col align="center">
         <p>
-          <v-icon class="mb-1 mr-1" color="black">mdi-alert-circle-outline</v-icon
+          <v-icon dark class="mb-1 mr-1">mdi-alert-circle-outline</v-icon
           >このアプリを利用する際の注意事項
         </p>
         <p class="gray--text">
-          このサービスは現在<strong class="black--text">開発中</strong>です。
+          このサービスは現在<strong class="white--text">開発中</strong>です。
         </p>
         <p>
           ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。
@@ -34,40 +34,27 @@
     <v-row v-if="isauth" align="start" justify="space-between">
 
       <v-img
-        src="../assets/Bud.svg"
-        class="plant"
+        src="../assets/earth.svg"
+        class="earth"
       ></v-img>
 
       <v-col cols="3">
         <div>
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
-              <strong>今日こなしたタスク</strong>
+              <strong>こなしたタスクの合計</strong>
               <v-spacer />
             </v-card-title>
 
             <v-divider class="mx-2" />
 
+            <div>{{progressdata.CompletedTask}}</div>
+
           </v-card>
         </div>
       </v-col>
 
-      <v-col cols="3">
-        <div style="text-align:center;">
-          <v-btn
-            large
-            depressed
-            rounded
-            dark
-            color="#7786FF"
-          >
-            <v-icon class="mr-1">mdi-water</v-icon>
-            <span>水をあげる</span>
-          </v-btn>
-        </div>
-      </v-col>
-
-      <v-col cols="3">
+      <v-col lg="3" md="3" sm="6" xs="6">
         <div id="task_list">
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
@@ -77,17 +64,17 @@
 
             <v-divider class="mx-2" />
 
-            <div style="height: 70vh; overflow:auto;">
+            <div style="height: 60vh; overflow:auto;">
               <div v-for="item in task" :key="item.id">
-                <card01
+                <Card01
                   v-if="item.group == '目標'"
                   :data="item"
                   :type="item.group == '目標' ? 1 : 2"
                   class="item"
-                ></card01>
+                ></Card01>
               </div>
 
-              <card02 />
+              <Card02 />
 
             </div>
           </v-card>
@@ -102,11 +89,35 @@
   min-height: calc(95vh - 64px);
 }
 
-.plant {
+.earth {
   position: absolute;
-  bottom: 5vh;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  animation-name: earth;
+  animation-duration: 8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes earth {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(-50%, -45%);
+  }
+  50% {
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    transform: translate(-50%, -55%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
 }
 
 #task_list {
@@ -116,8 +127,8 @@
 
 <script>
 import draggable from "vuedraggable";
-import card01 from "../component/task_card_1";
-import card02 from "../component/task_card_2";
+import Card01 from "../component/task_card_1";
+import Card02 from "../component/task_card_2";
 
 export default {
   data: () => ({
@@ -149,11 +160,14 @@ export default {
     namelist() {
       return this.$store.getters.namelist;
     },
+    progressdata() {
+      return this.$store.getters.progressdata;
+    }
   },
 
   components: {
-    card01,
-    card02,
+    Card01,
+    Card02,
   },
 
   methods: {
