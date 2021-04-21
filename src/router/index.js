@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue';
 import Taskboard from '../pages/Taskboard.vue'
 import Team from '../pages/Team.vue'
+import About from '../pages/About.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/team',
     component: Team,
     name: 'Team',
+  },
+  {
+    path: '/about',
+    component: About,
+    name: 'About',
   },
 ]
 

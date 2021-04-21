@@ -263,12 +263,12 @@ export default {
       console.log("bdclick")
     },
     Complete(){
-      this.temporary_data.group = "完了"
+      this.temporary_data.group = '完了'
       this.temporary_data.completed = new Date().toISOString().substr(0, 10)
       this.ChangeTask()
     },
     Incomplete(){
-      this.temporary_data.group = "目標"
+      this.temporary_data.group = '目標'
       this.temporary_data.completed = null
       this.ChangeTask()
     },
@@ -283,18 +283,20 @@ export default {
       return date
     },
     ChangeTask(){
-      var type
-      if(this.temporary_data.group == "目標"){
-        type = 2
-      }else if(this.temporary_data.group == "完了"){
-        type = 1
-      }
-
       //this.StoD(this.temporary_data.date_end.seconds)
       //this.StoD(this.temporary_data.date_start.seconds)
       this.StoD(this.temporary_data.completed)
+
       if(this.temporary_data.date_start <= this.temporary_data.date_end){
-        console.log("Adding data...")
+        var type
+        if(this.temporary_data.group == '目標'){
+          type = 0
+        }
+        if(this.temporary_data.group == '完了'){
+          type = 1
+        }
+
+        console.log("Changing data...")
         this.$store.dispatch('change_task', { data: this.temporary_data, type: type })
         this.dialog = false
       }else{

@@ -14,19 +14,14 @@
 
                 {{task.length}}
               </v-card-title>
-              <draggable
-                :list="item"
-                :options="options"
-              >
-                <div v-for="item_2 in task" :key="item_2.id">
-                  <card01
-                    v-if="item_2.group == item"
-                    :data="item_2"
-                    :type="item_2.group == '目標' ? 1 : 2"
-                    class="item"
-                  ></card01>
-                </div>
-            </draggable>
+              <div v-for="item_2 in task" :key="item_2.id">
+                <card01
+                  v-if="item_2.group == item"
+                  :data="item_2"
+                  :type="item_2.group == '目標' ? 1 : 2"
+                  class="item"
+                ></card01>
+              </div>
           </v-card>
         </v-col>
       </v-row>

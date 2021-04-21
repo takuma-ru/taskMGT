@@ -9,6 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isphone: false,
     adding: false,
     deleting: false,
     completing: false,
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     },
     progressdata(state) {
       return state.progressdata
+    },
+    isphone(state) {
+      return state.isphone
     }
   },
 
@@ -68,6 +72,9 @@ export default new Vuex.Store({
     },
     ProgressData(state, data) {
       state.progressdata = data
+    },
+    isphoneChange(state, bool){
+      state.isphone = bool
     }
   },
 
@@ -90,6 +97,16 @@ export default new Vuex.Store({
     async signOut({ commit }) {
       console.log("signout...")
       firebase.auth().signOut()
+    },
+
+    async isphone({ commit }) {
+      if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+        commit('isphoneChange', true)
+        console.log("isphone: true")
+      } else {
+        commit('isphoneChange', false)
+        console.log("isphone: false")
+      }
     },
 
     get_task({ commit }, uid) {
@@ -183,11 +200,13 @@ export default new Vuex.Store({
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(1)
                 });
+                break;
 
-              case 2: //タスクを未完了にした場合
+              case 0: //タスクを未完了にした場合
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(-1)
                 });
+                break;
             }
             dispatch('get_task', user.uid)
             dispatch('get_data', user.uid)

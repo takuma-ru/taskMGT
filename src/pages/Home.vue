@@ -84,47 +84,6 @@
   </v-container>
 </template>
 
-<style scoped>
-.main_view {
-  min-height: calc(95vh - 64px);
-}
-
-.earth {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-name: earth;
-  animation-duration: 8s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-@keyframes earth {
-  0% {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  25% {
-    transform: translate(-50%, -45%);
-  }
-  50% {
-    transform: translate(-50%, -50%);
-  }
-  75% {
-    transform: translate(-50%, -55%);
-  }
-  100% {
-    transform: translate(-50%, -50%);
-  }
-}
-
-#task_list {
-  height: 100%;
-}
-</style>
-
 <script>
 import draggable from "vuedraggable";
 import Card01 from "../component/task_card_1";
@@ -180,3 +139,41 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .main_view {
+    min-height: calc(95vh - 64px);
+  }
+
+  .earth {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: earth;
+    animation-duration: 8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes earth {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    25% {
+      transform: translate(-50%, -45%);
+    }
+    75% {
+      transform: translate(-50%, -55%);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  #task_list {
+    height: 100%;
+  }
+</style>

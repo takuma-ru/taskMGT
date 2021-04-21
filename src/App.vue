@@ -19,6 +19,34 @@
 
           <v-spacer />
 
+          <v-menu
+            bottom
+            left
+            offset-y
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                dark
+                icon
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-translate</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+
+          <v-divider dark vertical inset class="mx-4"></v-divider>
+
           <div>
             <v-list-item dark v-if="isauth" class="px-0">
               <v-list-item-avatar>
@@ -103,36 +131,37 @@ export default {
   name: 'App',
   data: () => ({
     drawer: false,
-    isphone: false,
     isload: false,
-    mini: false,
+    items: [
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' },
+    ],
   }),
 
   components: {
     Drawer,
   },
 
-  created: function() {
+  mounted() {
     this.onAuth()
-    if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-      this.isphone = true
-      console.log("true")
-    } else {
-      this.isphone = false
-      console.log("false")
-    }
+    this.$store.dispatch('isphone')
   },
 
   computed: {
-    isauth(){
+    isauth() {
       return this.$store.getters.isauth
     },
-    userdata(){
+    userdata() {
       return this.$store.getters.userdata
     },
-    check(){
+    check() {
       return this.$store.getters.check
     },
+    isphone() {
+      return this.$store.getters.isphone
+    }
   },
 
   methods: {
