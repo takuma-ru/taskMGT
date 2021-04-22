@@ -14,6 +14,6 @@ export default new Vuetify({
     current: 'ja',
   },
   theme: {
-    dark: false,
+    dark: true,
   },
 })

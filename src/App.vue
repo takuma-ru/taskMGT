@@ -9,6 +9,7 @@
           class="px-0 py-0"
         >
           <v-btn
+            v-if="isphone"
             dark
             icon
             large
@@ -16,6 +17,8 @@
           >
             <v-icon large>mdi-menu</v-icon>
           </v-btn>
+
+          <v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>
 
           <v-spacer />
 
@@ -103,20 +106,6 @@
         <router-view>
         </router-view>
 
-        <v-footer
-          id="footer"
-          absolute
-          padless
-          color="transparent"
-        >
-          <v-col
-            class="px-0 py-0 text-center white--text"
-            cols="12"
-          >
-            <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}
-          </v-col>
-        </v-footer>
-
         <Drawer :drawer="drawer" />
 
       </v-container>
@@ -200,14 +189,5 @@ export default {
   .main_contents {
     height: 95vh;
     min-width: 100%;
-  }
-
-  #footer {
-    height: 5vh;
-    /*background-image: url('../src/assets/footer_background.svg');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    bottom: 0%;
   }
 </style>

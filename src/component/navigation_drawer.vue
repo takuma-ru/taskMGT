@@ -28,13 +28,28 @@
           </v-list-item>
         </div>
       </v-list>
+
+      <v-footer
+        v-show="!mini"
+        class="footer"
+        absolute
+        padless
+        color="transparent"
+      >
+        <v-col
+          class="px-0 py-0 text-center white--text"
+          cols="12"
+        >
+          <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}
+        </v-col>
+      </v-footer>
   </v-navigation-drawer>
 </template>
 
 <script>
 export default {
   data: () => ({
-    mini: true,
+    mini: false,
     items: [
       { title: 'ホーム', icon: 'mdi-home-variant-outline', link: '/' },
       { title: 'ボード', icon: 'mdi-view-dashboard-outline', link: '/taskboard' },
@@ -70,5 +85,14 @@ export default {
     background-image: url("../assets/drawer_background.svg");
     background-size: cover;
     background-position: top right;
+  }
+
+  .footer {
+    height: 5vh;
+    /*background-image: url('../src/assets/footer_background.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    bottom: 0%;
   }
 </style>

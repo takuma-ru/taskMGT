@@ -19,8 +19,8 @@
   <sodipodi:namedview
      inkscape:window-maximized="0"
      inkscape:window-y="0"
-     inkscape:window-x="953"
-     inkscape:window-height="1048"
+     inkscape:window-x="946"
+     inkscape:window-height="1041"
      inkscape:window-width="958"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
@@ -35,9 +35,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="387.07529"
-     inkscape:cx="-85.816069"
-     inkscape:zoom="0.35"
+     inkscape:cy="997.9276"
+     inkscape:cx="329.97863"
+     inkscape:zoom="0.12374369"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -67,10 +67,10 @@
        height="1024"
        width="409.60001"
        id="rect525"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#7786ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.39039;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#6473eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.39039;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="scale(-1)"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#77b1ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.69026;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#64a3eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.69026;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect1350"
        width="204.8"
        height="1024"
@@ -83,7 +83,7 @@
        height="1024"
        width="102.4"
        id="rect1352"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#77c9ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.19518;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#64ceeb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.19518;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
        y="-433.23956"
@@ -94,7 +94,7 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00efee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39436;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
-       y="-95.84861"
+       y="-95.848618"
        x="-791.64166"
        height="17.142857"
        width="17.142857"
@@ -102,7 +102,7 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00efee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39436;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
-       y="-184.74202"
+       y="-184.74203"
        x="-545.16449"
        height="17.142857"
        width="17.142857"
@@ -110,7 +110,7 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00efee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39436;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
-       y="-174.6405"
+       y="-174.64052"
        x="-312.82932"
        height="17.142857"
        width="17.142857"
@@ -118,8 +118,8 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00efee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39436;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
-       y="298.11084"
-       x="-381.51978"
+       y="298.11087"
+       x="-381.51974"
        height="17.142857"
        width="17.142857"
        id="rect1815-1-4"
@@ -135,7 +135,7 @@
     <rect
        transform="rotate(-135)"
        y="-309.59805"
-       x="-414.65393"
+       x="-414.6539"
        height="9.0639811"
        width="9.0639811"
        id="rect1815-1-1-4"
@@ -161,8 +161,8 @@
        ry="0.42561111" />
     <rect
        transform="rotate(-135)"
-       y="80.320824"
-       x="-400.51178"
+       y="80.320816"
+       x="-400.51175"
        height="9.0639811"
        width="9.0639811"
        id="rect1815-1-1-5"
@@ -170,8 +170,8 @@
        ry="0.42561111" />
     <rect
        transform="rotate(-135)"
-       y="7.5898399"
-       x="-117.66908"
+       y="7.5898323"
+       x="-117.66905"
        height="9.0639811"
        width="9.0639811"
        id="rect1815-1-1-14"
@@ -179,7 +179,7 @@
        ry="0.42561111" />
     <rect
        transform="rotate(-135)"
-       y="21.731976"
+       y="21.731983"
        x="-560.11591"
        height="9.0639811"
        width="9.0639811"

@@ -10,6 +10,7 @@
       open-delay="0"
     >
       <v-card
+        light
         outlined
         :class="`elevation-${hover ? 8 : 1}`"
         class="transition-swing"
@@ -27,9 +28,9 @@
     <v-dialog
       v-model="dialog"
       persistent
-      max-width="610px"
+      max-width="800px"
     >
-      <v-card class="card">
+      <v-card light class="card">
         <v-card-title class="headline px-3 pb-0">
           <v-text-field
             v-model="title"
@@ -131,7 +132,7 @@
             width="300"
           >
             <v-card>
-              <v-img :src="require('../assets/background.svg')" height="90px" position="left: 0">
+              <v-img :src="require('../assets/background_speace.svg')" height="90px" position="left: 0">
               <v-card-text>
                 <p class="mb-0">送信中...</p>
                 <v-progress-linear

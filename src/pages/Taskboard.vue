@@ -8,11 +8,9 @@
     <v-col cols="12" align="center">
       <v-row>
         <v-col v-for="(item, i) in namelist" :key="i" xs="12" sm="12" md="4" align="center">
-            <v-card outlined>
+            <v-card light outlined>
               <v-card-title class="py-2">
-                {{item}}
-
-                {{task.length}}
+                {{item}}{{task.length}}
               </v-card-title>
               <div v-for="item_2 in task" :key="item_2.id">
                 <card01

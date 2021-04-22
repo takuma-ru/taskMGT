@@ -10,6 +10,7 @@
       open-delay="50"
     >
     <v-card
+      light
       :class="`elevation-${hover ? 8 : 1} card${type}`"
       class="transition-swing rounded-1"
       @click="dialog = true"
@@ -21,24 +22,18 @@
         <v-spacer/>
       </v-card-title>
       <v-card-actions class="pt-0">
-        <!--<v-card
-          elevation="0"
-          color="#FF7786"
-          dark
-          class="py-1"
-        >-->
           <span class="px-2"><v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで</span><br>
-        <!--</v-card>-->
       </v-card-actions>
     </v-card>
     </v-hover>
 
     <v-dialog
+      :dark="false"
       v-model="dialog"
       :fullscreen="false"
       max-width="800px"
     >
-      <v-card :class="`card${type}`">
+      <v-card light :class="`card${type}`">
         <v-col>
         <v-card-title class="headline px-4">
           <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
@@ -67,7 +62,7 @@
           >
             <v-card>
               <v-img :src="require('../assets/card-back3.svg')" max-height="140px" position="left: 0">
-              <v-card-text>
+              <v-card-text class="black--text">
                 <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
                 ※削除すると元に戻すことはできません
               </v-card-text>
