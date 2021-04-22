@@ -28,13 +28,20 @@
     </v-hover>
 
     <v-dialog
-      :dark="false"
+      light
       v-model="dialog"
-      :fullscreen="false"
+      :fullscreen="isphone"
       max-width="800px"
     >
       <v-card light :class="`card${type}`">
         <v-col>
+          <v-btn
+            icon
+            @click="dialog = false"
+            class="px-4"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
         <v-card-title class="headline px-4">
           <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
           <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
@@ -146,6 +153,7 @@
 
         <v-card-actions>
           <v-btn
+            v-if="!isphone"
             dark
             depressed
             color="#FF77CA"
@@ -218,6 +226,9 @@ export default {
   ],
 
   computed: {
+    isphone() {
+      return this.$store.getters.isphone
+    },
     temporary_data(){
       console.log(this.data)
       return{

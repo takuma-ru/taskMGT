@@ -38,7 +38,7 @@
         class="earth"
       ></v-img>
 
-      <v-col cols="3">
+      <v-col lg="3" md="3" sm="0" xs="0">
         <div>
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
@@ -54,7 +54,7 @@
         </div>
       </v-col>
 
-      <v-col lg="3" md="3" sm="6" xs="6">
+      <v-col lg="3" md="3" sm="12" xs="12">
         <div id="task_list">
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
