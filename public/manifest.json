@@ -11,10 +11,10 @@
       "src": "./img/icons/logo.svg",
       "sizes": "512x512",
       "type": "image/png"
-    },
+    }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#4e342e"
+  "background_color": "#6473EB",
+  "theme_color": "#6473EB"
 }
