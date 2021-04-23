@@ -20,7 +20,8 @@
             class="px-2"
           >
             <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon v-if="$route.path == item.link">{{ item.icon }}</v-icon>
+              <v-icon v-else color="grey lighten-2">{{ item.icon_outline }}</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
@@ -53,10 +54,10 @@ export default {
     value: 'ホーム',
     mini: false,
     items: [
-      { title: 'ホーム', icon: 'mdi-home-variant', link: '/' },
-      { title: 'ボード', icon: 'mdi-view-dashboard', link: '/taskboard' },
-      { title: '設定', icon: 'mdi-cog', link: '/setting' },
-      { title: 'このアプリは何？', icon: 'mdi-information', link: '/about' },
+      { title: 'ホーム', icon: 'mdi-home-variant', icon_outline: 'mdi-home-variant-outline', link: '/' },
+      { title: 'ボード', icon: 'mdi-view-dashboard', icon_outline: 'mdi-view-dashboard-outline', link: '/taskboard' },
+      { title: '設定', icon: 'mdi-cog', icon_outline: 'mdi-cog-outline', link: '/setting' },
+      { title: 'このアプリは？', icon: 'mdi-information', icon_outline: 'mdi-information-outline', link: '/about' },
       //{ title: 'Team', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
   }),

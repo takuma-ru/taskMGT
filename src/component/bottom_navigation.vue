@@ -18,7 +18,8 @@
     >
       <span>{{ item.title }}</span>
 
-      <v-icon>{{ item.icon }}</v-icon>
+      <v-icon v-if="$route.path == item.link">{{ item.icon }}</v-icon>
+      <v-icon v-else color="grey lighten-2">{{ item.icon_outline }}</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
@@ -26,12 +27,11 @@
 <script>
 export default {
   data: () => ({
-    value: 'ホーム',
     items: [
-      { title: 'ホーム', icon: 'mdi-home-variant', link: '/' },
-      { title: 'ボード', icon: 'mdi-view-dashboard', link: '/taskboard' },
-      { title: '設定', icon: 'mdi-cog', link: '/setting' },
-      { title: 'このアプリは？', icon: 'mdi-information', link: '/about' },
+      { title: 'ホーム', icon: 'mdi-home-variant', icon_outline: 'mdi-home-variant-outline', link: '/' },
+      { title: 'ボード', icon: 'mdi-view-dashboard', icon_outline: 'mdi-view-dashboard-outline', link: '/taskboard' },
+      { title: '設定', icon: 'mdi-cog', icon_outline: 'mdi-cog-outline', link: '/setting' },
+      { title: 'このアプリは？', icon: 'mdi-information', icon_outline: 'mdi-information-outline', link: '/about' },
       //{ title: 'Team', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
   }),
@@ -40,7 +40,21 @@ export default {
     isphone() {
       return this.$store.getters.isphone
     },
-  },
+    value() {
+      var link = this.$route.path
+      console.log(link)
+      switch (link) {
+        case '/':
+          return 'ホーム'
+        case '/taskboard':
+          return 'ボード'
+        case '/setting':
+          return '設定'
+        case '/about':
+          return 'このアプリは？'
+      }
+    }
+  }
 }
 </script>
 
