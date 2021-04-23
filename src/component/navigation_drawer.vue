@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    v-if="!isphone"
     v-model="drawer"
     :mini-variant="mini"
     :permanent="!isphone"
@@ -49,11 +50,13 @@
 <script>
 export default {
   data: () => ({
+    value: 'ホーム',
     mini: false,
     items: [
-      { title: 'ホーム', icon: 'mdi-home-variant-outline', link: '/' },
-      { title: 'ボード', icon: 'mdi-view-dashboard-outline', link: '/taskboard' },
-      { title: 'このアプリは何？', icon: 'mdi-information-outline', link: '/about' },
+      { title: 'ホーム', icon: 'mdi-home-variant', link: '/' },
+      { title: 'ボード', icon: 'mdi-view-dashboard', link: '/taskboard' },
+      { title: '設定', icon: 'mdi-cog', link: '/setting' },
+      { title: 'このアプリは何？', icon: 'mdi-information', link: '/about' },
       //{ title: 'Team', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
   }),

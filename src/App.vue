@@ -8,17 +8,8 @@
           height="64"
           class="px-0 py-0"
         >
-          <v-btn
-            v-if="isphone"
-            dark
-            icon
-            large
-            @click.stop="drawer = !drawer"
-          >
-            <v-icon large>mdi-menu</v-icon>
-          </v-btn>
 
-          <v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>
+          <!--<v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>-->
 
           <v-spacer />
 
@@ -57,7 +48,7 @@
               </v-list-item-avatar>
               <v-list-item-content class="py-0">
                 <v-list-item-title>
-                  <v-list-item-subtitle class=" white--text">
+                  <v-list-item-subtitle class="text-caption gray--text">
                     ログイン済み
                   </v-list-item-subtitle>
                   <p class="mb-0 white--text">
@@ -110,11 +101,13 @@
 
       </v-container>
     </v-main>
+    <Drawer2></Drawer2>
   </v-app>
 </template>
 
 <script>
 import Drawer from './component/navigation_drawer'
+import Drawer2 from './component/bottom_navigation'
 
 export default {
   name: 'App',
@@ -131,6 +124,7 @@ export default {
 
   components: {
     Drawer,
+    Drawer2
   },
 
   mounted() {

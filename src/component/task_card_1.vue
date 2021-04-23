@@ -36,6 +36,7 @@
       <v-card light :class="`card${type}`">
         <v-col>
           <v-btn
+            v-if="isphone"
             icon
             @click="dialog = false"
             class="px-4"

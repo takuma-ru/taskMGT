@@ -4,6 +4,7 @@ import Home from '../pages/Home.vue';
 import Taskboard from '../pages/Taskboard.vue'
 import Team from '../pages/Team.vue'
 import About from '../pages/About.vue'
+import Setting from '../pages/Setting.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/about',
     component: About,
     name: 'About',
+  },
+  {
+    path: '/setting',
+    component: Setting,
+    name: 'Setting',
   },
 ]
 

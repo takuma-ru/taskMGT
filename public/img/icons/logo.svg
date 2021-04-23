@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 67.733332 67.733335"
+   height="256"
+   width="256">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1057"
+     inkscape:window-width="1920"
+     inkscape:snap-page="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="false"
+     inkscape:snap-bbox="true"
+     inkscape:pagecheckerboard="true"
+     units="px"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="99.736548"
+     inkscape:cx="124.67577"
+     inkscape:zoom="2"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffd4"
+     id="base"
+     inkscape:snap-others="true"
+     inkscape:snap-nodes="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="レイヤー 1">
+    <path
+       id="rect840"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#003fd2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.368;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       d="m 20.108332,6.3499986 -1e-6,55.0333324 c -3.525478,0 -7.050956,0 -10.5764339,0 -1.76277,0 -3.181896,-1.773907 -3.181896,-3.977366 V 10.327369 c 0,-2.2034635 1.419126,-3.9773704 3.181896,-3.9773704 3.5254779,0 7.0509569,0 10.5764349,0 z"
+       sodipodi:nodetypes="cccsscc" />
+    <rect
+       transform="rotate(90)"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#0075d2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.36793;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       id="rect842"
+       width="55.033333"
+       height="13.757146"
+       x="6.3500018"
+       y="-33.866665"
+       ry="0" />
+    <rect
+       transform="rotate(90)"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00b4d2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.368;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       id="rect844"
+       width="55.033333"
+       height="13.758331"
+       x="6.3500018"
+       y="-47.624996"
+       ry="0" />
+    <path
+       id="rect846"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00ffd2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.36809;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       d="m 61.383332,10.489542 v 46.75424 c 0,2.293306 -1.47699,4.139549 -3.311637,4.139549 -3.482232,0 -6.964465,0 -10.446698,0 V 6.3499945 c 3.482233,0 6.964466,0 10.446698,0 1.834647,0 3.311637,1.8462373 3.311637,4.1395475 z"
+       sodipodi:nodetypes="ssccccs" />
+  </g>
+</svg>

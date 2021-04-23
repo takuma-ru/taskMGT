@@ -17,11 +17,11 @@
   <defs
      id="defs19" />
   <sodipodi:namedview
-     inkscape:window-maximized="0"
-     inkscape:window-y="0"
-     inkscape:window-x="946"
-     inkscape:window-height="1041"
-     inkscape:window-width="958"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1057"
+     inkscape:window-width="1920"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
      inkscape:snap-bbox-midpoints="true"
@@ -35,9 +35,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="997.9276"
-     inkscape:cx="329.97863"
-     inkscape:zoom="0.12374369"
+     inkscape:cy="475.73215"
+     inkscape:cx="593.91913"
+     inkscape:zoom="0.49497476"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -67,10 +67,10 @@
        height="1024"
        width="409.60001"
        id="rect525"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#6473eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.39039;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#6445eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.39039;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="scale(-1)"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#64a3eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.69026;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#6478eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.69026;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
        id="rect1350"
        width="204.8"
        height="1024"
@@ -83,7 +83,7 @@
        height="1024"
        width="102.4"
        id="rect1352"
-       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#64ceeb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.19518;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
+       style="font-variation-settings:normal;opacity:1;mix-blend-mode:normal;vector-effect:none;fill:#64b2eb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.19518;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
        y="-433.23956"
@@ -118,8 +118,8 @@
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#00efee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39436;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1" />
     <rect
        transform="rotate(-135)"
-       y="298.11087"
-       x="-381.51974"
+       y="178.11087"
+       x="-278.6626"
        height="17.142857"
        width="17.142857"
        id="rect1815-1-4"
