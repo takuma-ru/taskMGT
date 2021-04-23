@@ -1,5 +1,5 @@
 <template>
-  <v-container class="main_view">
+  <v-container class="px-0 py-0">
     <v-row v-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
       <h1>ログインすることで利用できます</h1>
       <v-col cols="12" align="center">
@@ -38,7 +38,7 @@
         class="earth"
       ></v-img>
 
-      <v-col lg="3" md="3" sm="0" xs="0">
+      <v-col lg="3" md="3" sm="0" cols="0">
         <div>
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
@@ -54,7 +54,7 @@
         </div>
       </v-col>
 
-      <v-col lg="3" md="3" sm="12" xs="12">
+      <v-col lg="3" md="3" sm="12" cols="12">
         <div id="task_list">
           <v-card outlined flat color="transparent">
             <v-card-title class="py-2">
@@ -64,7 +64,7 @@
 
             <v-divider class="mx-2" />
 
-            <div style="height: 60vh; overflow:auto;">
+            <div style="max-height: 60vh; overflow:auto;">
               <div v-for="item in task" :key="item.id">
                 <Card01
                   v-if="item.group == '目標'"
@@ -121,6 +121,9 @@ export default {
     },
     progressdata() {
       return this.$store.getters.progressdata;
+    },
+    isphone() {
+      return this.$store.getters.isphone
     }
   },
 
@@ -174,6 +177,5 @@ export default {
   }
 
   #task_list {
-    height: 100%;
   }
 </style>

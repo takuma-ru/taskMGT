@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container class="px-0 py-0">
   <v-row v-if="isauth && !check" justify="center" align="center">
     <v-col align="center">
       <!--<p>{{userdata}}</p>-->
@@ -7,19 +7,27 @@
     </v-col>
     <v-col cols="12" align="center">
       <v-row>
-        <v-col v-for="(item, i) in namelist" :key="i" xs="12" sm="12" md="4" align="center">
-            <v-card light outlined>
-              <v-card-title class="py-2">
-                {{item}}{{task.length}}
-              </v-card-title>
-              <div v-for="item_2 in task" :key="item_2.id">
-                <card01
-                  v-if="item_2.group == item"
-                  :data="item_2"
-                  :type="item_2.group == '目標' ? 1 : 2"
-                  class="item"
-                ></card01>
-              </div>
+        <v-col
+          v-for="(item, i) in namelist"
+          :key="i"
+          cols="12"
+          lg="3"
+          md="3"
+          sm="12"
+          align="center"
+        >
+          <v-card light outlined>
+            <v-card-title class="py-2">
+              {{item}}{{task.length}}
+            </v-card-title>
+            <div v-for="item_2 in task" :key="item_2.id">
+              <card01
+                v-if="item_2.group == item"
+                :data="item_2"
+                :type="item_2.group == '目標' ? 1 : 2"
+                class="item"
+              ></card01>
+            </div>
           </v-card>
         </v-col>
       </v-row>

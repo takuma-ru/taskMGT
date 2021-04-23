@@ -31,7 +31,6 @@
       light
       v-model="dialog"
       :fullscreen="isphone"
-      hide-overlay
       max-width="800px"
     >
       <v-card light :class="`card${type}`">

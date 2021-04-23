@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-0 px-3 main_contents">
+      <v-container class="py-0 px-3" :style="`height: 100vh; ${isphone ? 'margin-bottom: 56px' : null });`">
         <v-app-bar
           flat
           color="transparent"
@@ -94,8 +94,12 @@
           </div>
         </v-app-bar>
 
-        <router-view>
-        </router-view>
+        <v-container
+          :style="`height: calc(100% - 64px)`"
+        >
+          <router-view>
+          </router-view>
+        </v-container>
 
         <Drawer :drawer="drawer" />
 
