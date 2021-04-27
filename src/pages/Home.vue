@@ -39,19 +39,6 @@
       ></v-img>
 
       <v-col lg="3" md="3" sm="0" cols="0">
-        <div>
-          <v-card outlined flat color="transparent">
-            <v-card-title class="py-2">
-              <strong>こなしたタスクの合計</strong>
-              <v-spacer />
-            </v-card-title>
-
-            <v-divider class="mx-2" />
-
-            <div>{{progressdata.CompletedTask}}</div>
-
-          </v-card>
-        </div>
       </v-col>
 
       <v-col lg="3" md="3" sm="12" cols="12">
@@ -85,7 +72,6 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
 import Card01 from "../component/task_card_1";
 import Card02 from "../component/task_card_2";
 
@@ -176,6 +162,4 @@ export default {
     }
   }
 
-  #task_list {
-  }
 </style>

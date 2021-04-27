@@ -8,26 +8,58 @@
     <v-col cols="12" align="center">
       <v-row>
         <v-col
+          :key="i"
+          cols="12"
+          lg="2"
+          md="2"
+          sm="12"
+          align="start"
+        >
+          <div>
+            <v-card outlined flat color="transparent">
+              <v-card-title class="py-2">
+                <strong>こなしたタスクの合計</strong>
+                <v-spacer />
+              </v-card-title>
+
+              <v-divider class="mx-2" />
+
+              <div class="px-3 py-3">{{progressdata.CompletedTask}}</div>
+
+            </v-card>
+          </div>
+        </v-col>
+        <v-col
           v-for="(item, i) in namelist"
           :key="i"
           cols="12"
-          lg="3"
-          md="3"
+          lg="4"
+          md="4"
           sm="12"
           align="center"
         >
-          <v-card light outlined>
+          <v-card
+            dark
+            outlined
+            color="transparent"
+          >
             <v-card-title class="py-2">
-              {{item}}{{task.length}}
+              <strong>{{item}}</strong>
             </v-card-title>
+
+            <v-divider class="mx-2" />
+
             <div v-for="item_2 in task" :key="item_2.id">
-              <card01
+              <Card01
                 v-if="item_2.group == item"
                 :data="item_2"
                 :type="item_2.group == '目標' ? 1 : 2"
                 class="item"
-              ></card01>
+              ></Card01>
             </div>
+
+            <Card02 v-if="item == '目標'" />
+
           </v-card>
         </v-col>
       </v-row>
@@ -49,10 +81,8 @@
 </style>
 
 <script>
-import firebase from 'firebase'
-import draggable from 'vuedraggable'
-import card01 from '../component/task_card_1'
-import card02 from '../component/task_card_2'
+import Card01 from '../component/task_card_1'
+import Card02 from '../component/task_card_2'
 
 export default {
   data: () => ({
@@ -64,11 +94,6 @@ export default {
       group: '',
     },
     isload: false,
-    num: 1,
-    options: {
-      group:'ITEMS',
-      animation: 200
-    },
   }),
 
   computed: {
@@ -86,13 +111,15 @@ export default {
     },
     namelist(){
       return this.$store.getters.namelist
+    },
+    progressdata() {
+      return this.$store.getters.progressdata;
     }
   },
 
   components: {
-    card01,
-    card02,
-    draggable,
+    Card01,
+    Card02,
   },
 
   methods: {

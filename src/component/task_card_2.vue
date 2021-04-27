@@ -5,147 +5,156 @@
 -->
 <template>
   <v-container>
-    <v-hover
-      v-slot:default="{ hover }"
-      open-delay="0"
+    <v-card
+      dark
+      flat
+      color="transparent"
+      @click="dialog = true"
     >
-      <v-card
-        light
-        outlined
-        :class="`elevation-${hover ? 8 : 1}`"
-        class="transition-swing"
-        color="#fffaf5"
-        @click="dialog = true"
-      >
-        <v-col>
-          <v-row justify="center" align="center">
-            <v-icon class="px-2 py-2" large>mdi-plus</v-icon>
-          </v-row>
-        </v-col>
-      </v-card>
-    </v-hover>
+      <v-col>
+        <v-row justify="center" align="center">
+          <v-icon class="px-2 py-2" large>mdi-plus</v-icon>タスクを追加する
+        </v-row>
+      </v-col>
+    </v-card>
 
     <v-dialog
       v-model="dialog"
       persistent
+      :fullscreen="isphone"
       max-width="800px"
     >
       <v-card light class="card">
-        <v-card-title class="headline px-3 pb-0">
-          <v-text-field
-            v-model="title"
-            label="タイトル"
-            placeholder="例).タスク01"
-            outlined
-            color="black"
-          ></v-text-field>
-          <v-spacer/>
-        </v-card-title>
-
-        <v-divider class="mx-2"/>
-
-        <v-card-text class="pt-3 pb-0 black--text">
-          <p><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</p>
-          <v-textarea
-            v-model="text"
-            row-height="20"
-            rows="2"
-            class="py-0"
-          />
-        </v-card-text>
-
-        <v-divider class="mx-2"/>
-
-        <v-card-text class="py-4 pb-0 black--text">
-          <v-dialog
-            ref="menu1"
-            v-model="menu1"
-            :return-value.sync="sd"
-            persistent
-            width="290px"
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="sd"
-                label="開始日"
-                prepend-icon="mdi-calendar-start"
-                readonly
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker v-model="sd" scrollable>
-              <v-spacer />
-              <v-btn text color="primary" @click="menu1 = false">Cancel</v-btn>
-              <v-btn text color="primary" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
-            </v-date-picker>
-          </v-dialog>
-
-          <v-dialog
-            ref="menu2"
-            v-model="menu2"
-            :return-value.sync="ed"
-            persistent
-            width="290px"
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="ed"
-                label="終了日"
-                prepend-icon="mdi-calendar-end"
-                readonly
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker v-model="ed" scrollable>
-              <v-spacer />
-              <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-              <v-btn text color="primary" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
-            </v-date-picker>
-          </v-dialog>
-        </v-card-text>
-
-        <v-divider class="mt-2 mb-4" />
-
-        <v-card-actions>
+        <div class="px-4 py-4">
           <v-btn
-            dark
-            depressed
-            color="#FF77CA"
+            v-if="isphone"
+            icon
             @click="dialog = false"
+            class="px-4"
           >
-            <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
+            <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn
-            dark
-            depressed
-            color="#7786FF"
-            @click="addTask"
-          >
-            <v-icon class="mr-1">mdi-plus</v-icon>追加する
-          </v-btn>
-          <v-dialog
-            v-model="adding"
-            persistent
-            width="300"
-          >
-            <v-card>
-              <v-img :src="require('../assets/background_speace.svg')" height="90px" position="left: 0">
-              <v-card-text>
-                <p class="mb-0">送信中...</p>
-                <v-progress-linear
-                  indeterminate
-                  color="black"
-                  class="mb-0"
-                ></v-progress-linear>
-                <p class="mb-0 mt-3">ウィンドウを閉じないでください</p>
-              </v-card-text>
-              </v-img>
-            </v-card>
-          </v-dialog>
-        </v-card-actions>
+          <v-card-title class="headline px-3 pb-0">
+            <v-text-field
+              v-model="title"
+              label="タイトル"
+              placeholder="例).タスク01"
+              color="#7786FF"
+              prepend-icon="mdi-format-title"
+            ></v-text-field>
+            <v-spacer/>
+          </v-card-title>
+
+          <v-divider class="mx-2"/>
+
+          <v-card-text class="pt-3 pb-0 black--text">
+            <v-textarea
+              v-model="text"
+              row-height="20"
+              rows="3"
+              class="py-0"
+              placeholder="例).何かする"
+              color="#7786FF"
+              prepend-icon="mdi-text"
+              label="詳細"
+            />
+          </v-card-text>
+
+          <v-divider class="mx-2"/>
+
+          <v-card-text class="py-4 pb-0 black--text">
+            <v-dialog
+              ref="menu1"
+              v-model="menu1"
+              :return-value.sync="sd"
+              persistent
+              width="290px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="sd"
+                  color="#7786FF"
+                  label="開始日"
+                  prepend-icon="mdi-calendar-start"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker light v-model="sd" scrollable color="#6473EB">
+                <v-spacer />
+                <v-btn text color="#FF77CA" @click="menu1 = false">Cancel</v-btn>
+                <v-btn text color="#7786FF" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
+              </v-date-picker>
+            </v-dialog>
+
+            <v-dialog
+              ref="menu2"
+              v-model="menu2"
+              :return-value.sync="ed"
+              persistent
+              width="290px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="ed"
+                  color="#7786FF"
+                  label="終了日"
+                  prepend-icon="mdi-calendar-end"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker light v-model="ed" scrollable color="#6473EB">
+                <v-spacer />
+                <v-btn text color="#FF77CA" @click="menu2 = false">Cancel</v-btn>
+                <v-btn text color="#7786FF" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
+              </v-date-picker>
+            </v-dialog>
+          </v-card-text>
+
+          <v-divider class="mt-2 mb-4" />
+
+          <v-card-actions>
+            <v-btn
+              dark
+              depressed
+              color="#FF77CA"
+              @click="dialog = false"
+            >
+              <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn
+              dark
+              depressed
+              color="#7786FF"
+              @click="addTask"
+            >
+              <v-icon class="mr-1">mdi-plus</v-icon>追加する
+            </v-btn>
+            <v-dialog
+              v-model="adding"
+              persistent
+              width="300"
+            >
+              <v-card>
+                <v-img :src="require('../assets/background_speace.svg')" height="90px" position="left: 0">
+                <v-card-text>
+                  <p class="mb-0">送信中...</p>
+                  <v-progress-linear
+                    indeterminate
+                    color="black"
+                    class="mb-0"
+                  ></v-progress-linear>
+                  <p class="mb-0 mt-3">ウィンドウを閉じないでください</p>
+                </v-card-text>
+                </v-img>
+              </v-card>
+            </v-dialog>
+          </v-card-actions>
+        </div>
       </v-card>
     </v-dialog>
   </v-container>
@@ -176,6 +185,9 @@ export default {
   }),
 
   computed: {
+    isphone() {
+      return this.$store.getters.isphone
+    },
     userdata(){
       return this.$store.getters.userdata
     },

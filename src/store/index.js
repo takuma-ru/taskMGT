@@ -177,10 +177,10 @@ export default new Vuex.Store({
       firebase.auth().onAuthStateChanged(user => {
         firestore.collection("tasks").doc(user.uid).collection("Task").doc(docid).delete()
         .then(function() {
-            dispatch('get_task', user.uid)
-            dispatch('get_data', user.uid)
-            console.log("Document successfully deleted!");
-            commit('delChange', false)
+          dispatch('get_task', user.uid)
+          dispatch('get_data', user.uid)
+          console.log("Document successfully deleted!");
+          commit('delChange', false)
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
@@ -196,15 +196,15 @@ export default new Vuex.Store({
         firestore.collection("tasks").doc(user.uid).collection("Task").doc(data.id).update(data)
           .then(() => {
             switch(type){
-              case 1: //タスクを完了した場合
-                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
-                  CompletedTask: firebase.firestore.FieldValue.increment(1)
-                });
-                break;
-
               case 0: //タスクを未完了にした場合
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(-1)
+                });
+                break;
+
+              case 1: //タスクを完了した場合
+                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
+                  CompletedTask: firebase.firestore.FieldValue.increment(1)
                 });
                 break;
             }

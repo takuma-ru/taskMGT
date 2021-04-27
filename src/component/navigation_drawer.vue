@@ -21,7 +21,7 @@
           >
             <v-list-item-icon>
               <v-icon v-if="$route.path == item.link">{{ item.icon }}</v-icon>
-              <v-icon v-else color="grey lighten-2">{{ item.icon_outline }}</v-icon>
+              <v-icon v-else color="blue-grey darken-2">{{ item.icon_outline }}</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
