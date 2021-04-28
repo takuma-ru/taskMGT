@@ -10,7 +10,6 @@
         :class="`elevation-${hover ? 8 : 1} card${type}`"
         class="transition-swing rounded-1"
         @click="dialog = true"
-        outlined
       >
         <v-card-title class="pt-3 pb-3">
           <span>{{data.title}}</span>

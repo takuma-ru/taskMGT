@@ -34,25 +34,26 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-card-title class="headline px-3 pb-0">
+          <v-card-title class="">
             <v-text-field
               v-model="title"
               label="タイトル"
               placeholder="例).タスク01"
               color="#7786FF"
               prepend-icon="mdi-format-title"
+              :counter="15"
             ></v-text-field>
             <v-spacer/>
           </v-card-title>
 
           <v-divider class="mx-2"/>
 
-          <v-card-text class="pt-3 pb-0 black--text">
+          <v-card-text class="">
             <v-textarea
               v-model="text"
               row-height="20"
               rows="3"
-              class="py-0"
+              :counter="150"
               placeholder="例).何かする"
               color="#7786FF"
               prepend-icon="mdi-text"

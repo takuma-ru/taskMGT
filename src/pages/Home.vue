@@ -22,7 +22,7 @@
     </v-row>
     <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%;">
       <v-col cols="12" align="center">
-        <h1>Hi!&nbsp;{{ userdata.providerData[0].displayName }}</h1>
+        <h1>こんにちは&nbsp;{{ userdata.providerData[0].displayName }}&nbsp;さん</h1>
         <br />
       </v-col>
       <!--<v-col align="center">
@@ -38,14 +38,27 @@
         class="earth"
       ></v-img>
 
-      <v-col lg="3" md="3" sm="0" cols="0">
+      <v-col lg="4" md="4" sm="0" cols="0">
+        <v-card
+          color="transparent"
+          flat
+        >
+          <v-card-title>
+            <strong class="text-h5">情報</strong>
+          </v-card-title>
+
+          <v-divider />
+
+          
+
+        </v-card>
       </v-col>
 
       <v-col lg="3" md="3" sm="12" cols="12">
         <div id="task_list">
-          <v-card outlined flat color="transparent">
+          <v-card flat color="transparent">
             <v-card-title class="py-2">
-              <strong>目標</strong>
+              <strong class="text-h5">今日までの目標</strong>
               <v-spacer />
             </v-card-title>
 

@@ -19,7 +19,7 @@
       <span>{{ item.title }}</span>
 
       <v-icon v-if="$route.path == item.link">{{ item.icon }}</v-icon>
-      <v-icon v-else color="blue-grey darken-2">{{ item.icon_outline }}</v-icon>
+      <v-icon v-else color="#FFFFFF99">{{ item.icon_outline }}</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
