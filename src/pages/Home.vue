@@ -5,14 +5,8 @@
         <h1>こんにちは&nbsp;{{ userdata.providerData[0].displayName }}&nbsp;さん</h1>
         <br />
       </v-col>
-      <!--<v-col align="center">
-        <p>{{$store.getters.task}}</p>
-        <p>{{userdata}}</p>
-        <p>{{userdata.providerData[0].displayName}}</p>
-      </v-col>-->
     </v-row>
     <v-row v-if="isauth" align="start" justify="space-between">
-
       <v-img
         src="../assets/earth.svg"
         class="earth"
@@ -97,7 +91,6 @@ export default {
       group: "",
       computed: "",
     },
-    isload: false,
     num: 1,
   }),
 

@@ -67,10 +67,10 @@ export default new Vuex.Store({
       state.completing = bool
     },
     onAuthStateChanged(state, user) {
-      state.userdata = user; //firebaseが返したユーザー情報
+      state.userdata = user
     },
     onUserStatusChanged(state, status) {
-      state.isauth = status; //ログインしてるかどうか true or false
+      state.isauth = status
     },
     init(state){
       state.task = []
@@ -164,7 +164,7 @@ export default new Vuex.Store({
         commit('ProgressData', doc.data())
         console.log("GetSuccess")
       }).catch((error) => {
-          console.error("Error getting cached document:", error);
+        console.error("Error getting cached document:", error);
       });
     },
 
@@ -215,7 +215,7 @@ export default new Vuex.Store({
           console.log("Document successfully deleted!");
           commit('delChange', false)
         }).catch(function(error) {
-            console.error("Error removing document: ", error);
+          console.error("Error removing document: ", error);
         });
       })
     },

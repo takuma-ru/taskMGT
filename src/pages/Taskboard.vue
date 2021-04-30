@@ -82,14 +82,6 @@ import Card02 from '../component/task_card_2'
 
 export default {
   data: () => ({
-    data: {
-      end: '',
-      start: '',
-      text: '',
-      title: '',
-      group: '',
-    },
-    isload: false,
   }),
 
   computed: {
@@ -122,9 +114,6 @@ export default {
     signIn() {
       this.$store.dispatch('signIn')
     },
-    dragEnd(data){
-      console.log("dragend :", data)
-    }
   },
 }
 </script>
