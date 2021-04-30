@@ -1,10 +1,6 @@
 <template>
 <v-container class="px-0 py-0">
   <v-row v-if="isauth && !check" justify="center" align="center">
-    <v-col align="center">
-      <!--<p>{{userdata}}</p>-->
-      <!--<p>{{$store.getters.task}}</p>-->
-    </v-col>
     <v-col cols="12" align="center">
       <v-row>
         <v-col

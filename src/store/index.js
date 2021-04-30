@@ -16,9 +16,11 @@ export default new Vuex.Store({
     isauth: false,
     userdata: {},
     progressdata: {},
+    planetdata: {},
     check: false,
     task: [],
     namelist: ["目標", "完了"],
+    first: false,
   },
 
   getters: {
@@ -45,6 +47,12 @@ export default new Vuex.Store({
     },
     isphone(state) {
       return state.isphone
+    },
+    planetdata(state) {
+      return state.planetdata
+    },
+    first(state) {
+      return state.first
     }
   },
 
@@ -75,6 +83,12 @@ export default new Vuex.Store({
     },
     isphoneChange(state, bool){
       state.isphone = bool
+    },
+    planetdataChange(state, data) {
+      state.planetdata = data
+    },
+    firstChange(state, bool) {
+      state.first = bool
     }
   },
 
@@ -90,8 +104,15 @@ export default new Vuex.Store({
         //hd: 'g.ichinoseki.ac.jp' //特定のドメインのみアクセス可能
       })
       firebase.auth().signInWithPopup(provider)
-        .then(() => {
-        })
+      .then(() => {
+        firebase.auth().onAuthStateChanged(user => {
+          user = user ? user : {};
+          commit('onAuthStateChanged', user);
+          commit('onUserStatusChanged', user.uid ? true : false);
+
+          dispatch('get_planet', user.uid)
+        });
+      })
     },
 
     async signOut({ commit }) {
@@ -110,7 +131,7 @@ export default new Vuex.Store({
     },
 
     get_task({ commit }, uid) {
-      console.log("Now getting task data... :", uid)
+      console.log("Now getting 'task' data... :", uid)
       firestore.collection("tasks").doc(uid).collection("Task").get()
       .then((querySnapshot) => {
         if(!querySnapshot.empty) {
@@ -130,20 +151,32 @@ export default new Vuex.Store({
             console.log("GetSuccess")
           })
         }else{
-          console.log("Not found :_(")
+          console.error("Not found :_(")
           firestore.collection('tasks').doc(uid).set({id: uid})
         }
       })
     },
 
     get_data({ commit }, uid) {
-      console.log("Now getting user data... :", uid)
+      console.log("Now getting 'user' data... :", uid)
       firestore.collection("tasks").doc(uid).collection("Data").doc("Progress").get()
       .then((doc) => {
         commit('ProgressData', doc.data())
         console.log("GetSuccess")
       }).catch((error) => {
-          console.log("Error getting cached document:", error);
+          console.error("Error getting cached document:", error);
+      });
+    },
+
+    get_planet({ commit }, uid) {
+      console.log("Now getting 'planet' data... :", uid)
+      firestore.collection("tasks").doc(uid).collection("Data").doc("Planet").get()
+      .then((doc) => {
+        commit('planetdataChange', doc.data())
+        commit('firstChange', false)
+        console.log("GetSuccess")
+      }).catch((error) => {
+        commit('firstChange', true)
       });
     },
 
@@ -224,15 +257,11 @@ export default new Vuex.Store({
         user = user ? user : {};
         commit('onAuthStateChanged', user);
         commit('onUserStatusChanged', user.uid ? true : false);
-        for (let i = 0; i < 3; i++) {
-          dispatch('get_task', user.uid)
-          dispatch('get_data', user.uid)
-        }
+
+        dispatch('get_task', user.uid)
+        dispatch('get_data', user.uid)
+        dispatch('get_planet', user.uid)
       });
     },
   },
-  /*modules: {
-    auth,
-    db,
-  },*/
 })

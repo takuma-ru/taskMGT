@@ -1,12 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-0 px-3" :style="`height: 100vh; ${isphone ? 'margin-bottom: 56px' : null });`">
+      <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px' : null });`">
         <v-app-bar
           flat
           color="transparent"
           height="64"
           class="px-0 py-0"
+          fixed
         >
 
           <!--<v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>-->
@@ -25,18 +26,49 @@
                 v-bind="attrs"
                 v-on="on"
               >
-                <v-icon>mdi-translate</v-icon>
+                <v-badge
+                  color="#FF77CA"
+                  content="1"
+                  overlap
+                >
+                  <v-icon>mdi-bell</v-icon>
+                </v-badge>
               </v-btn>
             </template>
 
-            <v-list>
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-              >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
+            <v-card light>
+              <v-card-title>
+                通知<v-spacer />1
+              </v-card-title>
+
+              <v-divider />
+
+              <v-card-text>
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-icon>
+                      <v-icon color="#7786FF">mdi-plus</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title>「test_task_01」が追加されました</v-list-item-title>
+                      <v-list-item-subtitle>2021/04/01</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-divider />
+
+                  <v-list-item>
+                    <v-list-item-icon>
+                      <v-icon color="#FF77CA">mdi-minus</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title>「test_task_00」が削除されました</v-list-item-title>
+                      <v-list-item-subtitle>2021/04/05</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-divider />
+                </v-list>
+              </v-card-text>
+            </v-card>
           </v-menu>
 
           <v-divider dark vertical inset class="mx-4"></v-divider>
@@ -47,7 +79,7 @@
                 <v-img :src="userdata.photoURL" />
               </v-list-item-avatar>
               <v-list-item-content class="py-0">
-                <v-list-item-title>
+                <v-list-item-title v-if="!isphone">
                   <v-list-item-subtitle class="text-caption gray--text">
                     ログイン済み
                   </v-list-item-subtitle>
@@ -56,7 +88,7 @@
                   </p>
                 </v-list-item-title>
               </v-list-item-content>
-              <v-list-item-icon class="">
+              <v-list-item-icon v-if="!isphone">
                 <v-btn
                   dark
                   icon
@@ -94,11 +126,28 @@
           </div>
         </v-app-bar>
 
-        <v-container
-          :style="`height: calc(100% - 64px)`"
-        >
-          <router-view>
-          </router-view>
+        <v-container :style="`margin-top: 64px`">
+    <v-row v-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
+      <h1>ログインすることで利用できます</h1>
+      <v-col cols="12" align="center">
+        <v-btn depressed dark color="indigo" @click="signIn">
+          <v-icon small class="mr-2">mdi-google</v-icon>googleアカウントでログイン
+        </v-btn>
+      </v-col>
+      <v-col align="center">
+        <p>
+          <v-icon dark class="mb-1 mr-1">mdi-alert-circle-outline</v-icon
+          >このアプリを利用する際の注意事項
+        </p>
+        <p class="gray--text">
+          このサービスは現在<strong class="white--text">開発中</strong>です。
+        </p>
+        <p>
+          ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。
+        </p>
+      </v-col>
+    </v-row>
+          <router-view />
         </v-container>
 
         <Drawer :drawer="drawer" />

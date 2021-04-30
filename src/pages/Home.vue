@@ -1,25 +1,5 @@
 <template>
   <v-container class="px-0 py-0">
-    <v-row v-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
-      <h1>ログインすることで利用できます</h1>
-      <v-col cols="12" align="center">
-        <v-btn depressed dark color="indigo" @click="signIn">
-          <v-icon small class="mr-2">mdi-google</v-icon>googleアカウントでログイン
-        </v-btn>
-      </v-col>
-      <v-col align="center">
-        <p>
-          <v-icon dark class="mb-1 mr-1">mdi-alert-circle-outline</v-icon
-          >このアプリを利用する際の注意事項
-        </p>
-        <p class="gray--text">
-          このサービスは現在<strong class="white--text">開発中</strong>です。
-        </p>
-        <p>
-          ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。
-        </p>
-      </v-col>
-    </v-row>
     <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%;">
       <v-col cols="12" align="center">
         <h1>こんにちは&nbsp;{{ userdata.providerData[0].displayName }}&nbsp;さん</h1>
@@ -49,7 +29,26 @@
 
           <v-divider />
 
-          
+          <div class="px-0 py-4">
+            <v-simple-table style="background-color: #FFFFFF20">
+              <template v-slot:default>
+                <tbody style="background-color: transparent">
+                    <tr style="background-color: transparent">
+                      <td class="mr-2">名称</td>
+                      <td>{{planetdata.name}}</td>
+                    </tr>
+                    <tr style="background-color: transparent">
+                      <td>誕生から</td>
+                      <td>{{planetdata.elapsed}}年</td>
+                    </tr>
+                    <tr style="background-color: transparent">
+                      <td>生命体の数</td>
+                      <td>{{planetdata.creatures}}種</td>
+                    </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </div>
 
         </v-card>
       </v-col>
@@ -123,6 +122,9 @@ export default {
     },
     isphone() {
       return this.$store.getters.isphone
+    },
+    planetdata() {
+      return this.$store.getters.planetdata
     }
   },
 
@@ -146,6 +148,7 @@ export default {
   .main_view {
     min-height: calc(95vh - 64px);
   }
+
 
   .earth {
     position: absolute;
