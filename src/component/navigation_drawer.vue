@@ -93,10 +93,6 @@ export default {
 
   .footer {
     height: 5vh;
-    /*background-image: url('../src/assets/footer_background.svg');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
     bottom: 0%;
   }
 </style>

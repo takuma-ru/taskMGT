@@ -32,7 +32,6 @@ export default {
       { title: 'ボード', icon: 'mdi-view-dashboard', icon_outline: 'mdi-view-dashboard-outline', link: '/taskboard' },
       { title: '設定', icon: 'mdi-cog', icon_outline: 'mdi-cog-outline', link: '/setting' },
       { title: 'このアプリは？', icon: 'mdi-information', icon_outline: 'mdi-information-outline', link: '/about' },
-      //{ title: 'Team', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
   }),
 
