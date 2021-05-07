@@ -15,6 +15,7 @@
 | core-js | 3.6.5 |
 | firebase | 7.16.1 |
 | vuetify | 2.4.5 |
+| vue-loading-template | 1.3.2 |
 
 ## Getting Started
 1. `npm run serve`<br>
