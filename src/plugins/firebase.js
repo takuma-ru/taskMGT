@@ -2,14 +2,14 @@ import firebase from "firebase";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.VUE_APP_API_KEY,
-  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-  databaseURL: process.env.VUE_APP_DATABASE_URL,
-  projectId: process.env.VUE_APP_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDERID,
-  appId: process.env.VUE_APP_APP_ID,
-  measurementId: process.env.VUE_APP_MEASUREMENT_ID
+  apiKey: 'AIzaSyDFTTsWomYfk-X5DciDbGxjYuGIb4x0T4w',
+  authDomain: 'taskmgt-fd097.firebaseapp.com',
+  databaseURL: 'https://taskmgt-fd097.firebaseio.com',
+  projectId: 'taskmgt-fd097',
+  storageBucket: 'taskmgt-fd097.appspot.com',
+  messagingSenderId: '970777017612',
+  appId: '1:970777017612:web:d9be75da11de96ace51d29',
+  measurementId: 'G-WR4VX2SMJK'
 };
 firebase.initializeApp(firebaseConfig);
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);

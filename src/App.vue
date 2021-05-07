@@ -7,7 +7,7 @@
 
         <v-container v-if="onload" :style="`margin-top: 64px; height: calc(100vh - 64px);`">
           <div class="onload">
-            <vue-loading type="bubbles" color="#FFFFFF" :size="{ width: '5vw', height: '5vh' }"></vue-loading>
+            <vue-loading type="bubbles" color="#77d0ffff" :size="{ width: '5vw', height: '5vh' }"></vue-loading>
           </div>
         </v-container>
         <v-container v-else :style="`margin-top: 64px`">
