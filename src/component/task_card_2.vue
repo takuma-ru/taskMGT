@@ -39,7 +39,7 @@
               v-model="title"
               label="タイトル"
               placeholder="例).タスク01"
-              color="#7786FF"
+              color="MY_blue"
               prepend-icon="mdi-format-title"
               :counter="15"
             ></v-text-field>
@@ -55,7 +55,7 @@
               rows="3"
               :counter="150"
               placeholder="例).何かする"
-              color="#7786FF"
+              color="MY_blue"
               prepend-icon="mdi-text"
               label="詳細"
             />
@@ -74,7 +74,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
                   v-model="sd"
-                  color="#7786FF"
+                  color="MY_blue"
                   label="開始日"
                   prepend-icon="mdi-calendar-start"
                   readonly
@@ -82,10 +82,10 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="sd" scrollable color="#6473EB">
+              <v-date-picker light v-model="sd" scrollable color="MY_blue">
                 <v-spacer />
-                <v-btn text color="#FF77CA" @click="menu1 = false">Cancel</v-btn>
-                <v-btn text color="#7786FF" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
+                <v-btn text color="MY_red" @click="menu1 = false">Cancel</v-btn>
+                <v-btn text color="MY_blue" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
               </v-date-picker>
             </v-dialog>
 
@@ -99,7 +99,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
                   v-model="ed"
-                  color="#7786FF"
+                  color="MY_blue"
                   label="終了日"
                   prepend-icon="mdi-calendar-end"
                   readonly
@@ -107,10 +107,10 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="ed" scrollable color="#6473EB">
+              <v-date-picker light v-model="ed" scrollable color="MY_blue">
                 <v-spacer />
-                <v-btn text color="#FF77CA" @click="menu2 = false">Cancel</v-btn>
-                <v-btn text color="#7786FF" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
+                <v-btn text color="MY_red" @click="menu2 = false">Cancel</v-btn>
+                <v-btn text color="MY_blue" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
               </v-date-picker>
             </v-dialog>
           </v-card-text>
@@ -121,7 +121,7 @@
             <v-btn
               dark
               depressed
-              color="#FF77CA"
+              color="MY_red"
               @click="dialog = false"
             >
               <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
@@ -130,7 +130,7 @@
             <v-btn
               dark
               depressed
-              color="#7786FF"
+              color="MY_blue"
               @click="addTask"
             >
               <v-icon class="mr-1">mdi-plus</v-icon>追加する

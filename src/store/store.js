@@ -21,6 +21,7 @@ export default new Vuex.Store({
     task: [],
     namelist: ["目標", "完了"],
     first: false,
+    onload: false,
   },
 
   getters: {
@@ -53,6 +54,9 @@ export default new Vuex.Store({
     },
     first(state) {
       return state.first
+    },
+    onload(state) {
+      return state.onload
     }
   },
 
@@ -89,6 +93,9 @@ export default new Vuex.Store({
     },
     firstChange(state, bool) {
       state.first = bool
+    },
+    onloadChange(state, bool){
+      state.onload = bool
     }
   },
 
@@ -253,6 +260,7 @@ export default new Vuex.Store({
     },
 
     async onAuth({ dispatch, commit }) {
+      commit('onloadChange', true)
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
         commit('onAuthStateChanged', user);
@@ -261,6 +269,9 @@ export default new Vuex.Store({
         dispatch('get_task', user.uid)
         dispatch('get_data', user.uid)
         dispatch('get_planet', user.uid)
+        .then(
+          commit('onloadChange', false)
+        )
       });
     },
   },

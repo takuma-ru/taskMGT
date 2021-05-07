@@ -86,13 +86,20 @@
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-icon v-if="!isphone">
-          <v-btn
-            dark
-            icon
-            @click="signOut"
-          >
-            <v-icon>mdi-logout</v-icon>
-          </v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                dark
+                icon
+                v-bind="attrs"
+                v-on="on"
+                @click="signOut"
+              >
+                <v-icon>mdi-logout</v-icon>
+              </v-btn>
+            </template>
+            <span>ログアウト</span>
+          </v-tooltip>
         </v-list-item-icon>
       </v-list-item>
 
@@ -111,13 +118,20 @@
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-icon class="mr-2">
-          <v-btn
-            dark
-            icon
-            @click="signIn"
-          >
-            <v-icon>mdi-login</v-icon>
-          </v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                dark
+                icon
+                v-bind="attrs"
+                v-on="on"
+                @click="signIn"
+              >
+                <v-icon>mdi-login</v-icon>
+              </v-btn>
+            </template>
+            <span>ログイン</span>
+          </v-tooltip>
         </v-list-item-icon>
       </v-list-item>
     </div>

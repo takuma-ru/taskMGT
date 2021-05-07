@@ -42,18 +42,19 @@
           <v-card-title class="headline px-4">
             <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
             <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
-            <v-btn
-              icon
-              class="mb-1 ml-3"
-              @click="/**/"
-            >
-              <v-icon>mdi-pencil-outline</v-icon>
-            </v-btn>
             <v-spacer/>
 
             <v-btn
               text
-              color="#FF77CA"
+              color="MY_blue"
+              @click="/**/"
+            >
+              <v-icon>mdi-pencil-outline</v-icon><span class="ml-1 font-weight-bold text-subtitle-2">編集</span>
+            </v-btn>
+
+            <v-btn
+              text
+              color="MY_red"
               @click="dialog2 = true"
             >
               <v-icon>mdi-delete-outline</v-icon><span class="ml-1 font-weight-bold text-subtitle-2">削除</span>
@@ -66,29 +67,29 @@
             >
               <v-card>
                 <v-img :src="require('../assets/card-back3.svg')" max-height="140px" position="left: 0">
-                <v-card-text class="black--text">
-                  <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
-                  ※削除すると元に戻すことはできません
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn
-                    dark
-                    depressed
-                    color="#7786FF"
-                    @click="dialog2 = false"
-                  >
-                  <v-icon class="mr-2">mdi-close</v-icon>いいえ
-                  </v-btn>
-                  <v-spacer/>
-                  <v-btn
-                    dark
-                    depressed
-                    color="#FF77CA"
-                    @click="DelTask(data.id, type); deleting = true; dialog2 = false"
-                  >
-                  <v-icon>mdi-delete-outline</v-icon>削除する
-                  </v-btn>
-                </v-card-actions>
+                  <v-card-text class="black--text">
+                    <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
+                    ※削除すると元に戻すことはできません
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-btn
+                      dark
+                      depressed
+                      color="MY_blue"
+                      @click="dialog2 = false"
+                    >
+                    <v-icon class="mr-2">mdi-close</v-icon>いいえ
+                    </v-btn>
+                    <v-spacer/>
+                    <v-btn
+                      dark
+                      depressed
+                      color="MY_red"
+                      @click="DelTask(data.id, type); deleting = true; dialog2 = false"
+                    >
+                      <v-icon>mdi-delete-outline</v-icon>削除する
+                    </v-btn>
+                  </v-card-actions>
                 </v-img>
               </v-card>
             </v-dialog>
@@ -117,13 +118,6 @@
 
           <v-card-text class="py-4">
             <span><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
-            <v-btn
-              icon
-              class="mb-1 ml-3"
-              @click="/**/"
-            >
-              <v-icon>mdi-pencil-outline</v-icon>
-            </v-btn>
             <br>
             {{data.text}}
           </v-card-text>
@@ -132,14 +126,6 @@
 
           <v-card-text class="py-4">
             <span class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
-              <v-btn
-                icon
-                class="mb-1 ml-3"
-                color=""
-                @click="/**/"
-              >
-                <v-icon>mdi-pencil-outline</v-icon>
-              </v-btn>
               <br>
               {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;<br>
               <p v-if="data.group == '完了'" class="mt-4 mb-0 font-weight-bold" style="color: #7786FF">{{DtoS(data.completed.seconds)}}に完了！</p>
@@ -153,7 +139,7 @@
               v-if="!isphone"
               dark
               depressed
-              color="#FF77CA"
+              color="MY_red"
               @click="dialog = false"
             >
               <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
@@ -163,7 +149,7 @@
               v-if="data.group == '目標'"
               dark
               depressed
-              color="#7786FF"
+              color="MY_blue"
               @click="Complete"
             >
               <v-icon class="mr-1">mdi-check</v-icon>完了！
@@ -172,7 +158,7 @@
               v-else
               dark
               depressed
-              color="#7786FF"
+              color="MY_blue"
               @click="Incomplete"
             >
               <v-icon class="mr-1">mdi-check</v-icon>やっぱまだ完了じゃない

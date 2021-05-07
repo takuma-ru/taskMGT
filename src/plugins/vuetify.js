@@ -15,6 +15,20 @@ export default new Vuetify({
     current: 'ja',
   },
   theme: {
+    themes: {
+      light: {
+        MY_blue: '#7786FF',
+        MY_red: '#FF77CA',
+        MY_green: '#77FFAC',
+        MY_yellow: '#FFF077'
+      },
+      dark: {
+        MY_blue: '#7786FF',
+        MY_red: '#FF77CA',
+        MY_green: '#77FFAC',
+        MY_yellow: '#FFF077'
+      }
+    },
     dark: true,
   },
 })

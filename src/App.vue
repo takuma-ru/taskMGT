@@ -5,12 +5,24 @@
 
         <Bar />
 
-        <v-container :style="`margin-top: 64px`">
-          <v-row v-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
+        <v-container v-if="onload" :style="`margin-top: 64px; height: calc(100vh - 64px);`">
+          <div class="onload">
+            <vue-loading type="bars" color="#FFFFFF" :size="{ width: '5vw', height: '5vh' }"></vue-loading>
+          </div>
+        </v-container>
+        <v-container v-else :style="`margin-top: 64px`">
+          <v-row v-if="$route.path == '/about'">
+          </v-row>
+          <v-row v-else-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
             <h1>ログインすることで利用できます</h1>
             <v-col cols="12" align="center">
-              <v-btn depressed dark color="indigo" @click="signIn">
+              <v-btn depressed dark color="MY_blue" @click="signIn">
                 <v-icon small class="mr-2">mdi-google</v-icon>googleアカウントでログイン
+              </v-btn>
+            </v-col>
+            <v-col cols="12" align="center">
+              <v-btn depressed dark color="MY_blue" to="/about">
+                <v-icon small class="mr-2">mdi-information</v-icon>このアプリは何？
               </v-btn>
             </v-col>
             <v-col align="center">
@@ -42,6 +54,7 @@
 </template>
 
 <script>
+import { VueLoading } from 'vue-loading-template'
 import Drawer from './component/navigation_drawer'
 import Drawer2 from './component/bottom_navigation'
 import Bar from './component/app_bar'
@@ -53,12 +66,13 @@ export default {
   }),
 
   components: {
+    VueLoading,
     Drawer,
     Drawer2,
     Bar
   },
 
-  mounted() {
+  created() {
     this.onAuth()
     this.$store.dispatch('isphone')
   },
@@ -69,6 +83,9 @@ export default {
     },
     isphone() {
       return this.$store.getters.isphone
+    },
+    onload() {
+      return this.$store.getters.onload
     }
   },
 
@@ -78,7 +95,7 @@ export default {
     },
     onAuth() {
       this.$store.dispatch('onAuth')
-    },
+    }
   },
 
 };
@@ -105,5 +122,12 @@ export default {
   .main_contents {
     height: 95vh;
     min-width: 100%;
+  }
+
+  .onload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>

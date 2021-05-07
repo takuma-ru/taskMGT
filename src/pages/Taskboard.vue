@@ -26,8 +26,8 @@
           </div>
         </v-col>
         <v-col
-          v-for="item in namelist"
-          :key="item"
+          v-for="(item, i) in namelist"
+          :key="i"
           cols="12"
           lg="4"
           md="4"
