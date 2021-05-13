@@ -19,6 +19,25 @@
         >
           <v-card-title>
             <strong class="text-h5">情報</strong>
+            <v-spacer />
+            <v-tooltip bottom right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  dark
+                  color="grey lighten-2"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-help-circle-outline
+                </v-icon>
+              </template>
+              <span>惑星の情報が記載されています</span>
+              <ul>
+                <li>名称｜あなたの惑星の名前</li>
+                <li>誕生から｜誕生から何年経っているか。これは1日を1年としています。</li>
+                <li>生命体の数｜タスクを1つこなすと1体増えます。</li>
+              </ul>
+            </v-tooltip>
           </v-card-title>
 
           <v-divider />
@@ -53,6 +72,19 @@
             <v-card-title class="py-2">
               <strong class="text-h5">今日までの目標</strong>
               <v-spacer />
+              <v-tooltip bottom right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    dark
+                    color="grey lighten-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-help-circle-outline
+                  </v-icon>
+                </template>
+                <span>今日が期限となっているタスクが表示されます。</span>
+              </v-tooltip>
             </v-card-title>
 
             <v-divider class="mx-2" />

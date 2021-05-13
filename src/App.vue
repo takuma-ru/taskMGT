@@ -1,18 +1,20 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px' : null });`">
-
+      <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px;' : null }`" style="margin-top: 64px;">
         <Bar />
 
-        <v-container v-if="onload" :style="`margin-top: 64px; height: calc(100vh - 64px);`">
+        <v-container v-if="onload">
           <div class="onload">
-            <vue-loading type="bubbles" color="#77d0ffff" :size="{ width: '5vw', height: '5vh' }"></vue-loading>
+            <vue-loading type="beat" color="#77FFAC" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
+            <p class="px-4">タスク情報を取得中...</p>
           </div>
         </v-container>
-        <v-container v-else :style="`margin-top: 64px`">
+
+        <v-container v-else>
           <v-row v-if="$route.path == '/about'">
           </v-row>
+
           <v-row v-else-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
             <h1>ログインすることで利用できます</h1>
             <v-col cols="12" align="center">

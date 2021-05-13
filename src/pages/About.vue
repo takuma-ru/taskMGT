@@ -18,7 +18,14 @@
 
 <script>
 export default {
-
+  methods: {
+    signIn() {
+      this.$store.dispatch('signIn')
+    },
+    onAuth() {
+      this.$store.dispatch('onAuth')
+    }
+  },
 }
 </script>
 

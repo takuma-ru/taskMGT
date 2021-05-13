@@ -41,7 +41,7 @@ export default {
     },
     value() {
       var link = this.$route.path
-      console.log(link)
+      //console.log(link)
       switch (link) {
         case '/':
           return 'ホーム'

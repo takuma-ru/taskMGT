@@ -11,7 +11,7 @@
 
     <v-spacer />
 
-    <v-menu
+    <!--<v-menu
       bottom
       left
       offset-y
@@ -66,7 +66,7 @@
           </v-list>
         </v-card-text>
       </v-card>
-    </v-menu>
+    </v-menu>-->
 
     <v-divider dark vertical inset class="mx-4"></v-divider>
 

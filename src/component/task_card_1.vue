@@ -7,11 +7,22 @@
     >
       <v-card
         light
-        :class="`elevation-${hover ? 8 : 1} card${type}`"
+        :class="`elevation-${hover ? 9 : 1} card${type}`"
         class="transition-swing rounded-1"
         @click="dialog = true"
       >
-        <v-card-title class="pt-3 pb-3">
+        <v-card-title class="py-2">
+          <div style="width: 100%; height: 3vh;">
+            <v-chip
+              v-for="tag in tags_group"
+              :key="tag.name"
+              dark
+              :color="tag.color"
+              class="mx-1"
+              style="height: 1vh; width: 2vw"
+            >
+            </v-chip>
+          </div>
           <span>{{data.title}}</span>
           <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
           <v-spacer/>
@@ -39,6 +50,17 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
+          <div>
+            <v-chip
+              v-for="tag in tags_group"
+              :key="tag.name"
+              class="mx-1"
+              :color="tag.color"
+              dark
+            >
+              {{ tag.name }}
+            </v-chip>
+          </div>
           <v-card-title class="headline px-4">
             <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
             <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
@@ -170,34 +192,16 @@
   </v-container>
 </template>
 
-<style>
-.card1{
-  background-image: url("../assets/card-back.svg");
-  background-size: cover;
-  background-position: top right;
-}
-.card2{
-  background-image: url("../assets/card-back4.svg");
-  background-size: cover;
-  background-position: top right;
-}
-.card3{
-  background-image: url("../assets/card-back3.svg");
-  background-size: cover;
-  background-position: top right;
-}
-.marker_red_futo {
-  background: linear-gradient(transparent 85%, #ff6666 0%);
-}
-</style>
-
 <script>
-
 export default {
   data: () => ({
     dialog: false,
     dialog2: false,
     ex4: null,
+    tags_group: [
+      {name: 'tag1', color: 'MY_blue'},
+      {name: 'tag2', color: 'MY_red'},
+    ],
   }),
 
   props:[
@@ -298,3 +302,24 @@ export default {
   }
 }
 </script>
+
+<style>
+.card1{
+  background-image: url("../assets/card-back.svg");
+  background-size: cover;
+  background-position: top right;
+}
+.card2{
+  background-image: url("../assets/card-back4.svg");
+  background-size: cover;
+  background-position: top right;
+}
+.card3{
+  background-image: url("../assets/card-back3.svg");
+  background-size: cover;
+  background-position: top right;
+}
+.marker_red_futo {
+  background: linear-gradient(transparent 85%, #ff6666 0%);
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
 <v-container class="px-0 py-0">
-  <v-row v-if="isauth && !check" justify="center" align="center">
-    <v-col cols="12" align="center">
+  <h1 class="pb-5">タスクボード</h1>
+  <v-row v-if="isauth && !check" justify="center">
+    <v-col cols="12">
       <v-row>
         <v-col
-          :key="i"
           cols="12"
           lg="2"
           md="2"
@@ -26,13 +26,12 @@
           </div>
         </v-col>
         <v-col
-          v-for="(item, i) in namelist"
-          :key="i"
+          v-for="item in namelist"
+          :key="item"
           cols="12"
           lg="4"
           md="4"
           sm="12"
-          align="center"
         >
           <v-card
             dark

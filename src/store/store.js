@@ -169,7 +169,7 @@ export default new Vuex.Store({
       firestore.collection("tasks").doc(uid).collection("Data").doc("Progress").get()
       .then((doc) => {
         commit('ProgressData', doc.data())
-        console.log("GetSuccess")
+        console.log("Progress data GetSuccess")
       }).catch((error) => {
         console.error("Error getting cached document:", error);
       });
@@ -181,8 +181,9 @@ export default new Vuex.Store({
       .then((doc) => {
         commit('planetdataChange', doc.data())
         commit('firstChange', false)
-        console.log("GetSuccess")
+        console.log("Planet data GetSuccess")
       }).catch((error) => {
+        console.error("Error getting cached document:", error);
         commit('firstChange', true)
       });
     },
@@ -240,16 +241,27 @@ export default new Vuex.Store({
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(-1)
                 });
+                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Planet").update({
+                  creatures: firebase.firestore.FieldValue.increment(-1)
+                });
                 break;
 
               case 1: //タスクを完了した場合
                 firestore.collection("tasks").doc(user.uid).collection("Data").doc("Progress").update({
                   CompletedTask: firebase.firestore.FieldValue.increment(1)
                 });
+                firestore.collection("tasks").doc(user.uid).collection("Data").doc("Planet").update({
+                  creatures: firebase.firestore.FieldValue.increment(1)
+                });
                 break;
+
+              case 3: //
+                break;
+
             }
             dispatch('get_task', user.uid)
             dispatch('get_data', user.uid)
+            dispatch('get_planet', user.uid)
             console.log("Document successfully updated!");
           })
           .catch((error) => {
@@ -272,6 +284,7 @@ export default new Vuex.Store({
         .then(
           commit('onloadChange', false)
         )
+          console.log(firebase.auth().currentUser)
       });
     },
   },

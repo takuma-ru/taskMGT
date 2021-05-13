@@ -3,5 +3,10 @@ module.exports = {
     "vuetify"
   ],
 
-  lintOnSave: false
+  lintOnSave: false,
+
+  pwa: {
+    themeColor: '#6473EB',
+    msTileColor: '#6473EB'
+  }
 }
