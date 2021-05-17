@@ -9,6 +9,7 @@
       dark
       flat
       color="transparent"
+      class="rounded-lg"
       @click="dialog = true"
     >
       <v-col>
@@ -24,16 +25,17 @@
       :fullscreen="isphone"
       max-width="800px"
     >
-      <v-card light class="card">
+      <v-card light :class="`card ${ isphone? null : 'rounded-lg' }`">
         <div class="px-4 py-4">
-          <v-btn
-            v-if="isphone"
-            icon
-            @click="dialog = false"
-            class="px-4"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
+          <div class="pb-2">
+            <v-btn
+              v-if="isphone"
+              icon
+              @click="dialog = false"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </div>
           <v-card-title class="">
             <v-text-field
               v-model="title"
@@ -42,8 +44,8 @@
               color="MY_blue"
               prepend-icon="mdi-format-title"
               :counter="15"
+              class="pt-0"
             ></v-text-field>
-            <v-spacer/>
           </v-card-title>
 
           <v-divider class="mx-2"/>
@@ -115,7 +117,17 @@
             </v-dialog>
           </v-card-text>
 
-          <v-divider class="mt-2 mb-4" />
+          <v-divider class="mx-2"/>
+
+          <v-card-text class="py-6 black--text">
+            <v-icon class="mr-4">mdi-tag</v-icon>
+            <v-btn rounded depressed>
+              <v-icon color="grey darken-1">mdi-plus</v-icon>
+              <span class="grey-darken-1--text">タグを追加</span>
+            </v-btn>
+          </v-card-text>
+
+          <v-divider class="mx-2 mb-4" />
 
           <v-card-actions>
             <v-btn
@@ -183,6 +195,17 @@ export default {
     sd: new Date().toISOString().substr(0, 10),
     ed: new Date().toISOString().substr(0, 10),
     type: null,
+    activator: null,
+    attach: null,
+    colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
+    editing: null,
+    editingIndex: -1,
+    tag_items: [
+      {name: 'tag1', color: 'MY_blue'},
+      {name: 'tag2', color: 'MY_red'},
+    ],
+    tag_model: [],
+    tag_search: null,
   }),
 
   computed: {
@@ -197,7 +220,49 @@ export default {
     },
   },
 
+  watch: {
+    model (val, prev) {
+      if (val.length === prev.length) return
+
+      this.model = val.map(v => {
+        if (typeof v === 'string') {
+          v = {
+            text: v,
+            color: this.colors[this.nonce - 1],
+          }
+
+          this.items.push(v)
+
+          this.nonce++
+        }
+
+        return v
+      })
+    },
+  },
+
   methods: {
+    edit (index, item) {
+      if (!this.editing) {
+        this.editing = item
+        this.editingIndex = index
+      } else {
+        this.editing = null
+        this.editingIndex = -1
+      }
+    },
+    filter (item, queryText, itemText) {
+      if (item.header) return false
+
+      const hasValue = val => val != null ? val : ''
+
+      const text = hasValue(itemText)
+      const query = hasValue(queryText)
+
+      return text.toString()
+        .toLowerCase()
+        .indexOf(query.toString().toLowerCase()) > -1
+    },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"

@@ -8,7 +8,7 @@
       <v-card
         light
         :class="`elevation-${hover ? 9 : 1} card${type}`"
-        class="transition-swing rounded-1"
+        class="transition-swing rounded-lg"
         @click="dialog = true"
       >
         <v-card-title class="py-2">
@@ -40,16 +40,17 @@
       :fullscreen="isphone"
       max-width="800px"
     >
-      <v-card light :class="`card${type}`">
+      <v-card light :class="`card${type} rounded-lg`">
         <div class="px-4 py-4">
-          <v-btn
-            v-if="isphone"
-            icon
-            @click="dialog = false"
-            class="px-4"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
+          <div class="pb-4">
+            <v-btn
+              v-if="isphone"
+              icon
+              @click="dialog = false"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </div>
           <div>
             <v-chip
               v-for="tag in tags_group"
@@ -67,19 +68,18 @@
             <v-spacer/>
 
             <v-btn
-              text
-              color="MY_blue"
+              icon
+              class="mr-4"
               @click="/**/"
             >
-              <v-icon>mdi-pencil-outline</v-icon><span class="ml-1 font-weight-bold text-subtitle-2">編集</span>
+              <v-icon>mdi-pencil-outline</v-icon><!--<span class="ml-1 font-weight-bold text-subtitle-2">編集</span>-->
             </v-btn>
 
             <v-btn
-              text
-              color="MY_red"
+              icon
               @click="dialog2 = true"
             >
-              <v-icon>mdi-delete-outline</v-icon><span class="ml-1 font-weight-bold text-subtitle-2">削除</span>
+              <v-icon>mdi-delete-outline</v-icon><!--<span class="ml-1 font-weight-bold text-subtitle-2">削除</span>-->
             </v-btn>
 
             <v-dialog

@@ -2,11 +2,13 @@
   <v-app>
     <v-main>
       <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px;' : null }`" style="margin-top: 64px;">
+
+
         <Bar />
 
         <v-container v-if="onload">
           <div class="onload">
-            <vue-loading type="beat" color="#77FFAC" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
+            <vue-loading type="bubbles" color="#77FFAC" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
             <p class="px-4">タスク情報を取得中...</p>
           </div>
         </v-container>
@@ -52,6 +54,45 @@
     <Drawer2 />
 
     </v-main>
+
+    <div
+      style="position: fixed; right: 2.5%; bottom: 2.5%"
+    >
+      <v-alert
+        light
+        v-model="alert"
+        elevation="4"
+        dismissible
+        border="left"
+        colored-border
+        type="success"
+        color="MY_success"
+        class="rounded-lg "
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            通知（インフォサンプル）
+          </v-col>
+        </v-row>
+      </v-alert>
+      <v-alert
+        light
+        elevation="4"
+        dismissible
+        border="left"
+        colored-border
+        type="error"
+        color="My_error"
+        class="rounded-lg "
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            通知（エラーサンプル）
+          </v-col>
+        </v-row>
+      </v-alert>
+    </div>
+
   </v-app>
 </template>
 
@@ -64,6 +105,7 @@ import Bar from './component/app_bar'
 export default {
   name: 'App',
   data: () => ({
+    alert: true,
     drawer: false,
   }),
 

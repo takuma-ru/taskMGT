@@ -14,8 +14,9 @@
 
       <v-col lg="4" md="4" sm="0" cols="0">
         <v-card
-          color="transparent"
           flat
+          class="rounded-lg"
+          color="transparent"
         >
           <v-card-title>
             <strong class="text-h5">情報</strong>
