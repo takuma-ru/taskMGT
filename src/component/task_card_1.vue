@@ -24,7 +24,12 @@
             </v-chip>
           </div>
           <span>{{data.title}}</span>
-          <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
+          <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">
+            <v-icon>
+              mdi-check
+            </v-icon>
+            完了済み
+          </span>
           <v-spacer/>
         </v-card-title>
         <v-card-actions class="pt-0">
@@ -45,10 +50,15 @@
           <div class="pb-4">
             <v-btn
               v-if="isphone"
-              icon
+              large
+              text
               @click="dialog = false"
+              class="px-0"
             >
-              <v-icon>mdi-close</v-icon>
+              <v-icon
+                large
+                class="mr-1"
+              >mdi-chevron-left</v-icon>とじる
             </v-btn>
           </div>
           <div>

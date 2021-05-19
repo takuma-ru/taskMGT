@@ -30,10 +30,15 @@
           <div class="pb-2">
             <v-btn
               v-if="isphone"
-              icon
+              large
+              text
               @click="dialog = false"
+              class="px-0"
             >
-              <v-icon>mdi-close</v-icon>
+              <v-icon
+                large
+                class="mr-1"
+              >mdi-chevron-left</v-icon>とじる
             </v-btn>
           </div>
           <v-card-title class="">
@@ -86,7 +91,7 @@
               </template>
               <v-date-picker light v-model="sd" scrollable color="MY_blue">
                 <v-spacer />
-                <v-btn text color="MY_red" @click="menu1 = false">Cancel</v-btn>
+                <v-btn text color="MY_red" @click="menu1 = false">キャンセル</v-btn>
                 <v-btn text color="MY_blue" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
               </v-date-picker>
             </v-dialog>
@@ -111,7 +116,7 @@
               </template>
               <v-date-picker light v-model="ed" scrollable color="MY_blue">
                 <v-spacer />
-                <v-btn text color="MY_red" @click="menu2 = false">Cancel</v-btn>
+                <v-btn text color="MY_red" @click="menu2 = false">キャンセル</v-btn>
                 <v-btn text color="MY_blue" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
               </v-date-picker>
             </v-dialog>
@@ -121,16 +126,93 @@
 
           <v-card-text class="py-6 black--text">
             <v-icon class="mr-4">mdi-tag</v-icon>
-            <v-btn rounded depressed>
-              <v-icon color="grey darken-1">mdi-plus</v-icon>
-              <span class="grey-darken-1--text">タグを追加</span>
-            </v-btn>
+            <v-bottom-sheet
+              light
+              v-model="sheet"
+              inset
+              max-width="800px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  rounded
+                  depressed
+                >
+                  <v-icon color="grey darken-1">mdi-plus</v-icon>
+                  <span class="grey-darken-1--text">タグを追加</span>
+                </v-btn>
+              </template>
+              <v-sheet
+                class="px-4 py-4 rounded-t-lg"
+              >
+                <v-card-title>
+                  タグの追加
+                </v-card-title>
+
+                <v-card-text>
+                  <v-list rounded dense>
+                    <v-list-item-group
+                      v-model="tag_selected"
+                      multiple
+                      active-class=""
+                    >
+                      <v-list-item
+                        light
+                        v-for="(item, i) in tag_items"
+                        :key="i"
+                        @click=""
+                      >
+                        <template v-slot:default="{ active }">
+                          <v-list-item-action>
+                            <v-checkbox :input-value="active"></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-title>
+                            <v-chip
+                              dark
+                              small
+                              :color="item.color"
+                              class="mr-4"
+                            >
+                              {{ item.name }}
+                            </v-chip>
+                            {{ item.description }}
+                          </v-list-item-title>
+                        </template>
+                      </v-list-item>
+                    </v-list-item-group>
+                  </v-list>
+                </v-card-text>
+
+                <v-divider class="mx-2 mb-4" />
+                <v-card-actions>
+                  <v-btn
+                    dark
+                    depressed
+                    color="MY_red"
+                    @click="sheet = false"
+                  >
+                    <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
+                  </v-btn>
+                  <v-spacer />
+                  <v-btn
+                    dark
+                    depressed
+                    color="MY_blue"
+                    @click="sheet = false"
+                  >
+                    <v-icon class="mr-1">mdi-check</v-icon>OK
+                  </v-btn>
+                </v-card-actions>
+              </v-sheet>
+            </v-bottom-sheet>
           </v-card-text>
 
           <v-divider class="mx-2 mb-4" />
 
           <v-card-actions>
             <v-btn
+              v-if="!isphone"
               dark
               depressed
               color="MY_red"
@@ -200,12 +282,14 @@ export default {
     colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
     editing: null,
     editingIndex: -1,
-    tag_items: [
-      {name: 'tag1', color: 'MY_blue'},
-      {name: 'tag2', color: 'MY_red'},
+    tag_items:[
+      {name: 'tag1', color: 'MY_blue', description: 'タグの説明'},
+      {name: 'tag2', color: 'MY_red', description: 'タグの説明'},
     ],
     tag_model: [],
     tag_search: null,
+    sheet: false,
+    tag_selected: [],
   }),
 
   computed: {

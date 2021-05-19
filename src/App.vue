@@ -56,18 +56,20 @@
     </v-main>
 
     <div
-      style="position: fixed; right: 2.5%; bottom: 2.5%"
+      style="position: fixed; right: 2.5%; top: calc(64px + 2.5%)"
     >
       <v-alert
         light
-        v-model="alert"
+        :value="alert"
         elevation="4"
         dismissible
         border="left"
         colored-border
         type="success"
         color="MY_success"
-        class="rounded-lg "
+        class="rounded-lg"
+        transition="slide-x-transition"
+        style="transform-origin: center right;"
       >
         <v-row align="center">
           <v-col class="grow">
@@ -146,6 +148,10 @@ export default {
 </script>
 
 <style>
+  #app {
+    font-family: Arial, Helvetica, sans-serif, 'Noto Sans JP';
+  }
+
   ::-webkit-scrollbar {
     width: 0px;
   }

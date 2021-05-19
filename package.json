@@ -12,6 +12,7 @@
     "@vue/cli-plugin-pwa": "^4.5.12",
     "core-js": "^3.6.5",
     "firebase": "^7.24.0",
+    "google-fonts-webpack-plugin": "^0.4.4",
     "highlight.js": "^10.7.2",
     "hosted-git-info": "^4.0.2",
     "is-svg": "^4.3.1",
