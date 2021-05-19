@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "uninitialized.application.id",
+    "package_name": "takumaru.nekoo.taskmgt",
     "sha256_cert_fingerprints":
     ["B1:45:C3:DB:27:43:41:98:76:DB:74:C7:6C:99:E1:6D:AF:82:46:A2:71:ED:F8:42:8E:06:00:1A:C9:DC:38:EB"]
   }
@@ -18,7 +18,7 @@
   "relation": ["delegate_permission/common.get_login_creds"],
   "target": {
     "namespace": "android_app",
-    "package_name": "uninitialized.application.id",
+    "package_name": "takumaru.nekoo.taskmgt",
     "sha256_cert_fingerprints":
     ["B1:45:C3:DB:27:43:41:98:76:DB:74:C7:6C:99:E1:6D:AF:82:46:A2:71:ED:F8:42:8E:06:00:1A:C9:DC:38:EB"]
   }
