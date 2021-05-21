@@ -85,7 +85,7 @@
             </p>
           </v-list-item-title>
         </v-list-item-content>
-        <v-list-item-icon v-if="!isphone">
+        <v-list-item-icon>
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
               <v-btn

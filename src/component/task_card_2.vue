@@ -1,8 +1,3 @@
-<!--
-  Task:1
-  InProgress:2
-  Complete:3
--->
 <template>
   <v-container>
     <v-card
@@ -89,10 +84,20 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="sd" scrollable color="MY_blue">
+              <v-date-picker light v-model="sd" scrollable color="MY_blue" class="rounded-lg">
+                <v-btn
+                  dark
+                  depressed
+                  color="MY_red"
+                  @click="menu1 = false"
+                >とじる</v-btn>
                 <v-spacer />
-                <v-btn text color="MY_red" @click="menu1 = false">キャンセル</v-btn>
-                <v-btn text color="MY_blue" @click="$refs.menu1.save(sd); StoD(sd)">OK</v-btn>
+                <v-btn
+                  dark
+                  depressed
+                  color="MY_blue"
+                  @click="$refs.menu1.save(sd); StoD(sd)"
+                >OK</v-btn>
               </v-date-picker>
             </v-dialog>
 
@@ -114,10 +119,18 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="ed" scrollable color="MY_blue">
+              <v-date-picker light v-model="ed" scrollable color="MY_blue" class="rounded-lg">
+                <v-btn
+                  dark
+                  depressed
+                  color="MY_red"
+                  @click="menu2 = false">とじる</v-btn>
                 <v-spacer />
-                <v-btn text color="MY_red" @click="menu2 = false">キャンセル</v-btn>
-                <v-btn text color="MY_blue" @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
+                <v-btn
+                  dark
+                  depressed
+                  color="MY_blue"
+                  @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
               </v-date-picker>
             </v-dialog>
           </v-card-text>
@@ -126,6 +139,15 @@
 
           <v-card-text class="py-6 black--text">
             <v-icon class="mr-4">mdi-tag</v-icon>
+            <v-chip
+              v-for="item in tag_selected"
+              :key="item"
+              dark
+              :color="tag_items[item].color"
+              class="mx-1"
+            >
+              {{ tag_items[item].name }}
+            </v-chip>
             <v-bottom-sheet
               light
               v-model="sheet"
@@ -138,9 +160,12 @@
                   v-on="on"
                   rounded
                   depressed
+                  dark
+                  color="grey darken-2"
+                  class="mx-1"
                 >
-                  <v-icon color="grey darken-1">mdi-plus</v-icon>
-                  <span class="grey-darken-1--text">タグを追加</span>
+                  <v-icon >mdi-plus</v-icon>
+                  <span>タグを追加</span>
                 </v-btn>
               </template>
               <v-sheet
@@ -161,11 +186,15 @@
                         light
                         v-for="(item, i) in tag_items"
                         :key="i"
-                        @click=""
+                        :color="item.color"
                       >
                         <template v-slot:default="{ active }">
                           <v-list-item-action>
-                            <v-checkbox :input-value="active"></v-checkbox>
+                            <v-checkbox
+                              :input-value="active"
+                              :color="item.color"
+                              :ripple="false"
+                            ></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-title>
                             <v-chip
@@ -180,20 +209,30 @@
                           </v-list-item-title>
                         </template>
                       </v-list-item>
+                      <v-list-item
+                        light
+                        to="/setting"
+                      >
+                        <v-list-item-icon>
+                          <v-icon>mdi-plus</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>
+                          <v-chip
+                            dark
+                            small
+                            class="mr-4"
+                          >
+                            新しいタグ
+                          </v-chip>
+                          設定画面に移動します
+                        </v-list-item-title>
+                      </v-list-item>
                     </v-list-item-group>
                   </v-list>
                 </v-card-text>
 
                 <v-divider class="mx-2 mb-4" />
                 <v-card-actions>
-                  <v-btn
-                    dark
-                    depressed
-                    color="MY_red"
-                    @click="sheet = false"
-                  >
-                    <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
-                  </v-btn>
                   <v-spacer />
                   <v-btn
                     dark
@@ -283,8 +322,14 @@ export default {
     editing: null,
     editingIndex: -1,
     tag_items:[
-      {name: 'tag1', color: 'MY_blue', description: 'タグの説明'},
-      {name: 'tag2', color: 'MY_red', description: 'タグの説明'},
+      {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
+      {name: '緊急', color: 'MY_red', description: '至急完了させる必要がある'},
+    ],
+    tag_items: [
+      {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
+      {name: '優先度：高', color: 'MY_red', description: '至急完了させる必要がある'},
+      {name: '優先度：中', color: 'MY_yellow_dark', description: 'やらなきゃいけないやつ'},
+      {name: '優先度：低', color: 'MY_green_dark', description: '別に急ぐ必要はないはず'},
     ],
     tag_model: [],
     tag_search: null,
@@ -326,27 +371,6 @@ export default {
   },
 
   methods: {
-    edit (index, item) {
-      if (!this.editing) {
-        this.editing = item
-        this.editingIndex = index
-      } else {
-        this.editing = null
-        this.editingIndex = -1
-      }
-    },
-    filter (item, queryText, itemText) {
-      if (item.header) return false
-
-      const hasValue = val => val != null ? val : ''
-
-      const text = hasValue(itemText)
-      const query = hasValue(queryText)
-
-      return text.toString()
-        .toLowerCase()
-        .indexOf(query.toString().toLowerCase()) > -1
-    },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"
@@ -374,7 +398,8 @@ export default {
           text: this.text,
           title: this.title,
           group: this.group,
-          completed: null
+          completed: null,
+          tag: this.tag_selected
         })
         this.dialog = false
         this.init()

@@ -90,7 +90,7 @@
 
             <v-divider class="mx-2" />
 
-            <div style="max-height: 60vh; overflow:auto;">
+            <div style="max-height: 70vh; overflow:auto;">
               <div v-for="item in task" :key="item.id">
                 <Card01
                   v-if="item.group == '目標'"

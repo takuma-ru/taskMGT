@@ -14,11 +14,11 @@
         <v-card-title class="py-2">
           <div style="width: 100%; height: 3vh;">
             <v-chip
-              v-for="tag in tags_group"
-              :key="tag.name"
+              v-for="item in data.tag"
+              :key="item"
               dark
-              :color="tag.color"
-              class="mx-1"
+              :color="tags_group[item].color"
+              class="mr-2 py-1"
               style="height: 1vh; width: 2vw"
             >
             </v-chip>
@@ -33,7 +33,22 @@
           <v-spacer/>
         </v-card-title>
         <v-card-actions class="pt-0">
-            <span class="px-2"><v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで</span><br>
+            <span
+              v-if="data.date_end.seconds == today"
+              class="px-2 font-weight-bold"
+              style="color: #EF6786"
+            >
+              <v-icon class="mr-2 mb-1" color="My_error">mdi-clock-outline</v-icon>
+              今日まで！！急げ
+            </span>
+            <span
+              v-else
+              class="px-2"
+            >
+              <v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>
+              &nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで
+            </span>
+            <br>
         </v-card-actions>
       </v-card>
     </v-hover>
@@ -63,18 +78,23 @@
           </div>
           <div>
             <v-chip
-              v-for="tag in tags_group"
-              :key="tag.name"
-              class="mx-1"
-              :color="tag.color"
+              v-for="item in data.tag"
+              :key="item"
+              class="mr-2 my-1"
+              :color="tags_group[item].color"
               dark
             >
-              {{ tag.name }}
+              {{ tags_group[item].name }}
             </v-chip>
           </div>
           <v-card-title class="headline px-4">
             <p class="mb-0" @dblclick="Log()">{{data.title}}</p>
-            <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">完了済み</span>
+            <span v-if="data.group == '完了'" class="ml-4 text-subtitle-2" style="color: #79DFA1">
+              <v-icon>
+                mdi-check
+              </v-icon>
+              完了済み
+            </span>
             <v-spacer/>
 
             <v-btn
@@ -160,7 +180,7 @@
             <span class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
               <br>
               {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;<br>
-              <p v-if="data.group == '完了'" class="mt-4 mb-0 font-weight-bold" style="color: #7786FF">{{DtoS(data.completed.seconds)}}に完了！</p>
+              <p v-if="data.group == '完了'" class="mt-4 mb-0 font-weight-bold" style="color: #79DFA1">{{DtoS(data.completed.seconds)}}に完了！</p>
             </span>
           </v-card-text>
 
@@ -209,8 +229,10 @@ export default {
     dialog2: false,
     ex4: null,
     tags_group: [
-      {name: 'tag1', color: 'MY_blue'},
-      {name: 'tag2', color: 'MY_red'},
+      {name: '簡単', color: 'MY_blue'},
+      {name: '優先度：高', color: 'MY_red'},
+      {name: '優先度：中', color: 'MY_yellow_dark'},
+      {name: '優先度：低', color: 'MY_green_dark'},
     ],
   }),
 
@@ -221,6 +243,9 @@ export default {
   ],
 
   computed: {
+    today(){
+      return this.StoD(new Date().toISOString().substr(0, 10))
+    },
     isphone() {
       return this.$store.getters.isphone
     },
@@ -233,7 +258,8 @@ export default {
         text: this.data.text,
         title: this.data.title,
         group: this.data.group,
-        completed: this.data.completed
+        completed: this.data.completed,
+        tag: this.data.tag
       }
     },
     userdata(){

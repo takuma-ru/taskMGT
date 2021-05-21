@@ -2,7 +2,8 @@
 
 ## Description
 **現在開発中**<br>
-個人向けタスク管理アプリ<br>
+個人向けタスク管理Webアプリ<br>
+**PWA・TWA化済み**<br>
 タスクをこなすと**地球**が育つ<br>
 
 
@@ -22,7 +23,7 @@
 
 or
 1. `vue ui`
-2. task > serve > run task 
+2. task > serve > run task
 
 ## Deploy
 firebase `firebase deploy`<br>

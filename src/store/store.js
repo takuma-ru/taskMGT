@@ -153,7 +153,8 @@ export default new Vuex.Store({
               date_start: doc.data().date_start,
               date_end: doc.data().date_end,
               group: doc.data().group,
-              completed: doc.data().completed
+              completed: doc.data().completed,
+              tag: doc.data().tag
             })
             console.log("GetSuccess")
           })
@@ -188,7 +189,7 @@ export default new Vuex.Store({
       });
     },
 
-    add_task({ dispatch, commit }, {end, start, text, title, group, completed}){
+    add_task({ dispatch, commit }, {end, start, text, title, group, completed, tag}){
       commit('addChange',true)
       var data = {
         date_end: firebase.firestore.Timestamp.fromDate(new Date(end)),
@@ -197,6 +198,7 @@ export default new Vuex.Store({
         title: title,
         group: group,
         completed: completed,
+        tag: tag,
       }
       firebase.auth().onAuthStateChanged(user => {
         firestore.collection("tasks").doc(user.uid).collection("Task").add(data)
