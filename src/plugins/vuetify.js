@@ -17,7 +17,7 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        MY_success: '#79D9EF',
+        MY_success: '#54BFD7',
         My_error: '#EF6786',
         MY_blue: '#7786FF',
         MY_red: '#FF77CA',
@@ -27,7 +27,7 @@ export default new Vuetify({
         MY_yellow_dark: '#F7D130'
       },
       dark: {
-        MY_success: '#79D9EF',
+        MY_success: '#54BFD7',
         My_error: '#EF6786',
         MY_blue: '#7786FF',
         MY_red: '#FF77CA',

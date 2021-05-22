@@ -80,7 +80,7 @@
             <v-list-item-subtitle class="text-caption gray--text">
               ログイン済み
             </v-list-item-subtitle>
-            <p class="mb-0 white--text">
+            <p class="mb-0">
               {{userdata.providerData[0].displayName}}
             </p>
           </v-list-item-title>

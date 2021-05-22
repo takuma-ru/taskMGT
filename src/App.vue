@@ -56,7 +56,7 @@
     </v-main>
 
     <div
-      style="position: fixed; right: 2.5%; bottom: calc(64px + 0.5%)"
+      style="position: fixed; right: 4vw; bottom: calc(64px + 0.5%)"
     >
       <v-alert
         light
