@@ -121,6 +121,7 @@ export default {
   created() {
     this.onAuth()
     this.$store.dispatch('isphone')
+    this.$router.push({ name: 'Home' })
   },
 
   computed: {
