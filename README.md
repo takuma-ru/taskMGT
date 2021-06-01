@@ -28,3 +28,9 @@ or
 ## Deploy
 firebase `firebase deploy`<br>
 https://taskmgt-fd097.firebaseapp.com/<br>
+
+
+## Play Store
+タスク管理
+**オープンベータテスト実施中**
+https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt
