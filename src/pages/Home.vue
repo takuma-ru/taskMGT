@@ -1,16 +1,13 @@
 <template>
   <v-container class="px-0 py-0">
-    <v-row v-if="isauth && !check" justify="center" align="center" style="height: 100%;">
-      <v-col cols="12" align="center">
-        <h1>こんにちは&nbsp;{{ userdata.providerData[0].displayName }}&nbsp;さん</h1>
-        <br />
-      </v-col>
-    </v-row>
     <v-row v-if="isauth" align="start" justify="space-between">
-      <v-img
-        src="../assets/earth.svg"
-        class="earth"
-      ></v-img>
+      <div class="earth_group">
+        <img
+          src="../assets/earth.svg"
+          class="earth"
+        >
+        <img src="../assets/kimo_pen.svg" class="pen">
+      </div>
 
       <v-col lg="4" md="4" sm="0" cols="0">
         <v-card
@@ -175,33 +172,40 @@ export default {
     min-height: calc(95vh - 64px);
   }
 
+  .earth_group {
+    position: fixed;
+    height: 90vmax;
+    width: 90vmax;
+    bottom: -55vmax;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: earth;
+    animation-duration: 128s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
 
   .earth {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-name: earth;
-    animation-duration: 8s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+    height: 100%;
+    width: 100%;
   }
 
   @keyframes earth {
     0% {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    25% {
-      transform: translate(-50%, -45%);
-    }
-    75% {
-      transform: translate(-50%, -55%);
+      transform: translateX(-50%) rotate(45deg);
     }
     100% {
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%) rotate(405deg);
     }
+  }
+
+  .pen {
+    position: absolute;
+    height: 3.5%;
+    top: -3.5%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
 </style>

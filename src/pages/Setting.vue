@@ -67,7 +67,7 @@
               depressed
               color="MY_red"
               @click="signOut"
-              class="my-2"
+              class="mr-2 my-2"
             >
             <v-icon class="mr-2">mdi-logout</v-icon>ログアウト
             </v-btn>
@@ -77,7 +77,7 @@
               depressed
               color="MY_red"
               @click="signIn"
-              class="mx-2 my-2"
+              class="my-2"
             >
             <v-icon class="mr-2">mdi-logout</v-icon>別のアカウントでログイン
             </v-btn>

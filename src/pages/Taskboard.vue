@@ -1,7 +1,7 @@
 <template>
-<v-container class="px-0 py-0">
+<v-container v-if="isauth && !check" class="px-0 py-0">
   <h1 class="pb-5">タスクボード</h1>
-  <v-row v-if="isauth && !check" justify="center">
+  <v-row justify="center">
     <v-col cols="12">
       <v-row>
         <v-col

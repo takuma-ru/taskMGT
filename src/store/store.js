@@ -124,6 +124,7 @@ export default new Vuex.Store({
 
     async signOut({ commit }) {
       console.log("signout...")
+      location.reload();
       firebase.auth().signOut()
     },
 
@@ -169,9 +170,11 @@ export default new Vuex.Store({
       console.log("Now getting 'user' data... :", uid)
       firestore.collection("tasks").doc(uid).collection("Data").doc("Progress").get()
       .then((doc) => {
+        if(doc.data() != undefined)
         commit('ProgressData', doc.data())
         console.log("Progress data GetSuccess")
       }).catch((error) => {
+        firestore.collection('tasks').doc(uid).collection("Data").doc("Progress").set({CompletedTask: 0})
         console.error("Error getting cached document:", error);
       });
     },
@@ -180,9 +183,18 @@ export default new Vuex.Store({
       console.log("Now getting 'planet' data... :", uid)
       firestore.collection("tasks").doc(uid).collection("Data").doc("Planet").get()
       .then((doc) => {
-        commit('planetdataChange', doc.data())
-        commit('firstChange', false)
-        console.log("Planet data GetSuccess")
+        if(doc.data() != undefined){
+          commit('planetdataChange', doc.data())
+          commit('firstChange', false)
+          console.log("Planet data GetSuccess: ", doc.data())
+        }else{
+          firestore.collection('tasks').doc(uid).collection("Data").doc("Planet").set({
+            name: '地球',
+            creatures: 0,
+            elapsed: 0,
+            created: firebase.firestore.Timestamp.fromDate(new Date())
+          })
+        }
       }).catch((error) => {
         console.error("Error getting cached document:", error);
         commit('firstChange', true)
@@ -276,17 +288,22 @@ export default new Vuex.Store({
     async onAuth({ dispatch, commit }) {
       commit('onloadChange', true)
       firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        commit('onAuthStateChanged', user);
-        commit('onUserStatusChanged', user.uid ? true : false);
+        if(user){
+          commit('onAuthStateChanged', user);
+          commit('onUserStatusChanged', true);
 
-        dispatch('get_task', user.uid)
-        dispatch('get_data', user.uid)
-        dispatch('get_planet', user.uid)
-        .then(
-          commit('onloadChange', false)
-        )
+          dispatch('get_task', user.uid)
+          dispatch('get_data', user.uid)
+          dispatch('get_planet', user.uid)
+          .then(
+            commit('onloadChange', false)
+          )
           console.log(firebase.auth().currentUser)
+        }else{
+          commit('onAuthStateChanged', user);
+          commit('onloadChange', false)
+          console.log('Can not connect online')
+        }
       });
     },
   },

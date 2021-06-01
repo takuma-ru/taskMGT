@@ -5,6 +5,7 @@
     height="64"
     class="px-0 py-0"
     fixed
+    style="backdrop-filter: blur(2px);"
   >
 
     <!--<v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>-->

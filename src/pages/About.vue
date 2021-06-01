@@ -8,7 +8,7 @@
   <h3 class="py-2">始め方</h3>
   <ol>
     <li>googleアカウントを使ってログインします。
-      <v-btn depressed dark color="MY_blue" @click="signIn">
+      <v-btn depressed dark color="MY_success" @click="signIn">
         <v-icon small class="mx-2 my-2">mdi-google</v-icon>googleアカウントでログイン
       </v-btn>
     </li>

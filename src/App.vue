@@ -8,24 +8,24 @@
 
         <v-container v-if="onload">
           <div class="onload">
-            <vue-loading type="bubbles" color="#77FFAC" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
+            <vue-loading type="bubbles" color="#54BFD7" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
             <p class="px-4">タスク情報を取得中...</p>
           </div>
         </v-container>
 
-        <v-container v-else>
+        <v-container v-else class="mt-2">
           <v-row v-if="$route.path == '/about'">
           </v-row>
 
-          <v-row v-else-if="!isauth" class="mt-2" justify="center" align="center" style="color: white">
+          <v-row v-else-if="!isauth" justify="center" align="center" style="color: white">
             <h1>ログインすることで利用できます</h1>
             <v-col cols="12" align="center">
-              <v-btn depressed dark color="MY_blue" @click="signIn">
+              <v-btn depressed dark color="MY_success" @click="signIn">
                 <v-icon small class="mr-2">mdi-google</v-icon>googleアカウントでログイン
               </v-btn>
             </v-col>
             <v-col cols="12" align="center">
-              <v-btn depressed dark color="MY_blue" to="/about">
+              <v-btn depressed dark color="MY_success" to="/about">
                 <v-icon small class="mr-2">mdi-information</v-icon>このアプリは何？
               </v-btn>
             </v-col>
@@ -35,7 +35,7 @@
                 >このアプリを利用する際の注意事項
               </p>
               <p class="gray--text">
-                このサービスは現在<strong class="white--text">開発中</strong>です。
+                このサービスは現在<strong class="white--text">ベータテスト中</strong>です。
               </p>
               <p>
                 ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。
@@ -118,7 +118,7 @@ export default {
     Bar
   },
 
-  created() {
+  mounted() {
     this.onAuth()
     this.$store.dispatch('isphone')
     this.$router.push({ name: 'Home' })
