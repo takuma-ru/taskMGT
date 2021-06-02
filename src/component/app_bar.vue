@@ -8,66 +8,7 @@
     style="backdrop-filter: blur(2px);"
   >
 
-    <!--<v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>-->
-
     <v-spacer />
-
-    <!--<v-menu
-      bottom
-      left
-      offset-y
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          dark
-          icon
-          v-bind="attrs"
-          v-on="on"
-        >
-          <v-badge
-            color="#FF77CA"
-            content="1"
-            overlap
-          >
-            <v-icon>mdi-bell</v-icon>
-          </v-badge>
-        </v-btn>
-      </template>
-
-      <v-card light>
-        <v-card-title>
-          通知<v-spacer />1
-        </v-card-title>
-
-        <v-divider />
-
-        <v-card-text>
-          <v-list>
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon color="#7786FF">mdi-plus</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>「test_task_01」が追加されました</v-list-item-title>
-                <v-list-item-subtitle>2021/04/01</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider />
-
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon color="#FF77CA">mdi-minus</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>「test_task_00」が削除されました</v-list-item-title>
-                <v-list-item-subtitle>2021/04/05</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider />
-          </v-list>
-        </v-card-text>
-      </v-card>
-    </v-menu>-->
 
     <v-divider dark vertical inset class="mx-4"></v-divider>
 
