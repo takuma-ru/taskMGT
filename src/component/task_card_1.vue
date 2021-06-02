@@ -76,7 +76,7 @@
               >mdi-chevron-left</v-icon>とじる
             </v-btn>
           </div>
-          <div>
+          <div class="px-4">
             <v-chip
               v-for="item in data.tag"
               :key="item"
