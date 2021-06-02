@@ -8,7 +8,7 @@
     style="backdrop-filter: blur(2px);"
   >
 
-    <v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>
+    <!--<v-toolbar-title class="text-h5">タスク管理</v-toolbar-title>-->
 
     <v-spacer />
 
