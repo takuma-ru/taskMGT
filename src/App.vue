@@ -118,7 +118,7 @@ export default {
   },
 
   beforeMount(){
-    if (localStorage.getItem('version') == null || localStorage.getItem('varsion') == undefined || localStorage.getItem('version') < this.$version) {
+    if (localStorage.getItem('version') === null || localStorage.getItem('varsion') === undefined || localStorage.getItem('version') < this.$version) {
       localStorage.setItem('version', this.$version)
       console.log('Update', this.$version, 'to', localStorage.getItem('version'))
       window.location.reload(true)
