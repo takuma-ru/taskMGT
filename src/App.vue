@@ -120,10 +120,10 @@ export default {
   beforeMount(){
     if (localStorage.getItem('version') === null, undefined || localStorage.getItem('version') < this.$version) {
       localStorage.setItem('version', this.$version)
-      console.log('Update', this.$version)
+      console.log('Update', this.$version, 'to', localStorage.getItem('version'))
       window.location.reload(true)
     }else{
-      console.log('Already update', this.$version)
+      console.log('Already update', localStorage.getItem('version'), this.$version)
     }
   },
 
