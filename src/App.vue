@@ -117,7 +117,7 @@ export default {
     Bar
   },
 
-  beforeMount(){
+  /*beforeMount(){
     if (localStorage.getItem('version') === null || localStorage.getItem('varsion') === undefined || localStorage.getItem('version') < this.$version) {
       localStorage.setItem('version', this.$version)
       console.log('Update', this.$version, 'to', localStorage.getItem('version'))
@@ -125,7 +125,7 @@ export default {
     }else{
       console.log('Already update', localStorage.getItem('version'), this.$version)
     }
-  },
+  },*/
 
   mounted() {
     this.onAuth()
