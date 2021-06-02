@@ -163,6 +163,7 @@ export default {
           registration.unregister();
         }
       });
+      registration.update();
       window.location.reload(true);
     }
   },
