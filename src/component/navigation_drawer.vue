@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer
     v-if="!isphone"
-    v-model="drawer"
     :mini-variant="mini"
     :permanent="!isphone"
     app
@@ -33,7 +32,7 @@
 
       <v-footer
         v-show="!mini"
-        class="footer"
+        class="footer mb-5"
         absolute
         padless
         color="transparent"
@@ -42,7 +41,8 @@
           class="px-0 py-0 text-center white--text"
           cols="12"
         >
-          <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}
+          <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}<br>
+          ver. {{ this.$version }}
         </v-col>
       </v-footer>
   </v-navigation-drawer>
@@ -61,10 +61,6 @@ export default {
       //{ title: 'Team', icon: 'mdi-account-multiple-outline', link: '/team' },
     ],
   }),
-
-  props:[
-    'drawer',
-  ],
 
   mounted() {
     if(this.isphone == true){

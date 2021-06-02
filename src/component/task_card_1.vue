@@ -306,7 +306,7 @@ export default {
     },
     StoD(date){//YYYY年MM月DD日 => UNIX時間
       date = Date.parse(date) * 0.001
-      console.log("StoD", date)
+      //console.log("StoD", date)
       return date
     },
     ChangeTask(){

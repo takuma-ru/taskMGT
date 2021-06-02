@@ -157,8 +157,8 @@ export default new Vuex.Store({
               completed: doc.data().completed,
               tag: doc.data().tag
             })
-            console.log("GetSuccess")
           })
+          console.log('Tasks data GetSuccess')
         }else{
           console.error("Not found :_(")
           firestore.collection('tasks').doc(uid).set({id: uid})
@@ -172,7 +172,7 @@ export default new Vuex.Store({
       .then((doc) => {
         if(doc.data() != undefined)
         commit('ProgressData', doc.data())
-        console.log("Progress data GetSuccess")
+        console.log('Progress data GetSuccess')
       }).catch((error) => {
         firestore.collection('tasks').doc(uid).collection("Data").doc("Progress").set({CompletedTask: 0})
         console.error("Error getting cached document:", error);
@@ -186,7 +186,7 @@ export default new Vuex.Store({
         if(doc.data() != undefined){
           commit('planetdataChange', doc.data())
           commit('firstChange', false)
-          console.log("Planet data GetSuccess: ", doc.data())
+          console.log('Planet data GetSuccess')
         }else{
           firestore.collection('tasks').doc(uid).collection("Data").doc("Planet").set({
             name: '地球',
@@ -298,11 +298,10 @@ export default new Vuex.Store({
           .then(
             commit('onloadChange', false)
           )
-          console.log(firebase.auth().currentUser)
         }else{
           commit('onAuthStateChanged', user);
           commit('onloadChange', false)
-          console.log('Can not connect online')
+          console.error('Can not connect online')
         }
       });
     },

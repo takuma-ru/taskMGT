@@ -47,7 +47,7 @@
 
         </v-container>
 
-        <Drawer :drawer="drawer" />
+        <Drawer />
 
       </v-container>
 
@@ -108,7 +108,6 @@ export default {
   name: 'App',
   data: () => ({
     alert: true,
-    drawer: false,
   }),
 
   components: {
@@ -116,6 +115,16 @@ export default {
     Drawer,
     Drawer2,
     Bar
+  },
+
+  beforeMount(){
+    if (localStorage.getItem('version') === null, undefined || localStorage.getItem('version') < this.$version) {
+      localStorage.setItem('version', this.$version)
+      console.log('Update', this.$version)
+      window.location.reload(true)
+    }else{
+      console.log('Already update', this.$version)
+    }
   },
 
   mounted() {
