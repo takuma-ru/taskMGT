@@ -60,11 +60,37 @@
     >
       <v-alert
         light
+        :value="update"
+        dense
+        dark
+        elevation="4"
+        border="left"
+        color="MY_success"
+        class="rounded-lg"
+        transition="slide-x-transition"
+        style="transform-origin: center right;"
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            新しいバージョンが配信されました！更新してください。
+          </v-col>
+          <v-col class="shrink">
+            <v-btn
+              dark
+              outlined
+              @click="reload"
+            >
+              更新する
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-alert>
+      <!--<v-alert
+        light
         :value="alert"
         elevation="4"
         dismissible
         border="left"
-        colored-border
         type="success"
         color="MY_success"
         class="rounded-lg"
@@ -76,23 +102,7 @@
             通知（インフォサンプル）
           </v-col>
         </v-row>
-      </v-alert>
-      <v-alert
-        light
-        elevation="4"
-        dismissible
-        border="left"
-        colored-border
-        type="error"
-        color="My_error"
-        class="rounded-lg "
-      >
-        <v-row align="center">
-          <v-col class="grow">
-            通知（エラーサンプル）
-          </v-col>
-        </v-row>
-      </v-alert>
+      </v-alert>-->
     </div>
 
   </v-app>
@@ -117,17 +127,8 @@ export default {
     Bar
   },
 
-  /*beforeMount(){
-    if (localStorage.getItem('version') === null || localStorage.getItem('varsion') === undefined || localStorage.getItem('version') < this.$version) {
-      localStorage.setItem('version', this.$version)
-      console.log('Update', this.$version, 'to', localStorage.getItem('version'))
-      window.location.reload(true)
-    }else{
-      console.log('Already update', localStorage.getItem('version'), this.$version)
-    }
-  },*/
-
   mounted() {
+    this.$store.commit('updateChange', false)
     this.onAuth()
     this.$store.dispatch('isphone')
     this.$router.push({ name: 'Home' })
@@ -142,6 +143,9 @@ export default {
     },
     onload() {
       return this.$store.getters.onload
+    },
+    update() {
+      return this.$store.getters.update
     }
   },
 
@@ -151,6 +155,13 @@ export default {
     },
     onAuth() {
       this.$store.dispatch('onAuth')
+    },
+    reload() {
+      navigator.serviceWorker.getRegistration()
+      .then(registration => {
+        registration.unregister();
+      })
+      window.location.reload(true)
     }
   },
 

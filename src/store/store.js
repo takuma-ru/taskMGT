@@ -22,6 +22,7 @@ export default new Vuex.Store({
     namelist: ["目標", "完了"],
     first: false,
     onload: false,
+    update: false,
   },
 
   getters: {
@@ -57,6 +58,9 @@ export default new Vuex.Store({
     },
     onload(state) {
       return state.onload
+    },
+    update(state) {
+      return state.update
     }
   },
 
@@ -96,6 +100,9 @@ export default new Vuex.Store({
     },
     onloadChange(state, bool){
       state.onload = bool
+    },
+    updateChange(state, bool) {
+      state.update = bool
     }
   },
 
