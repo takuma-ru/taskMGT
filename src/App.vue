@@ -161,9 +161,9 @@ export default {
       .then(registrations => {
         for(let registration of registrations) {
           registration.unregister();
+          registration.update();
         }
       });
-      registration.update();
       window.location.reload(true);
     }
   },
