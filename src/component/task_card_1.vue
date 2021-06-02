@@ -98,6 +98,7 @@
             <v-spacer/>
 
             <v-btn
+              disabled
               icon
               class="mr-4"
               @click="/**/"

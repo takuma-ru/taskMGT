@@ -210,6 +210,7 @@
                         </template>
                       </v-list-item>
                       <v-list-item
+                        disabled
                         light
                         to="/setting"
                       >
@@ -218,6 +219,7 @@
                         </v-list-item-icon>
                         <v-list-item-title>
                           <v-chip
+                            disabled
                             dark
                             small
                             class="mr-4"

@@ -99,6 +99,7 @@
               が完全に削除されます。削除したデータは一生帰ってくることはありません。ご注意ください。
             </p>
             <v-btn
+              disabled
               dark
               outlined
               color="MY_red"
