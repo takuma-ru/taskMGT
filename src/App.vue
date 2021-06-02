@@ -157,11 +157,13 @@ export default {
       this.$store.dispatch('onAuth')
     },
     reload() {
-      navigator.serviceWorker.getRegistration()
-      .then(registration => {
-        registration.unregister();
-      })
-      window.location.reload(true)
+      window.navigator.serviceWorker.getRegistrations()
+      .then(registrations => {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+      window.location.reload(true);
     }
   },
 
