@@ -72,7 +72,7 @@
       >
         <v-row align="center">
           <v-col class="grow">
-            新しいバージョンが配信されました！更新してください。
+            新しいバージョンがダウンロードされました！アプリを再起動して下さい。
           </v-col>
           <v-col class="shrink">
             <v-btn
@@ -80,7 +80,7 @@
               outlined
               @click="reload"
             >
-              更新する
+              アプリを終了
             </v-btn>
           </v-col>
         </v-row>
@@ -168,7 +168,7 @@ export default {
           registration.update();
         }
       });
-      window.location.reload(true);
+      window.close()
     }
   },
 
