@@ -1,6 +1,7 @@
 <template>
 <v-container class="px-0 py-0">
   <h1 class="pb-5">設定</h1>
+  <v-subheader>アプリバージョン： ver.{{ this.$version }}</v-subheader>
 
   <v-row>
     <v-col cols="12">
