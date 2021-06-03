@@ -60,7 +60,7 @@
     >
       <v-alert
         light
-        :value="true"
+        :value="update"
         dense
         dark
         elevation="4"
