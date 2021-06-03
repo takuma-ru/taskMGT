@@ -60,19 +60,19 @@
     >
       <v-alert
         light
-        :value="update"
+        :value="true"
         dense
         dark
         elevation="4"
         border="left"
         color="MY_success"
-        class="rounded-lg"
+        class="rounded-lg ml-4"
         transition="slide-x-transition"
         style="transform-origin: center right;"
       >
         <v-row align="center">
           <v-col class="grow">
-            新しいバージョンがダウンロードされました！アプリを再起動して下さい。
+            新しいバージョンに更新されました！アプリを開きなおしてください。
           </v-col>
           <v-col class="shrink">
             <v-btn
@@ -80,7 +80,7 @@
               outlined
               @click="reload"
             >
-              アプリを終了
+              OK
             </v-btn>
           </v-col>
         </v-row>
@@ -157,18 +157,7 @@ export default {
       this.$store.dispatch('onAuth')
     },
     reload() {
-      window.navigator.serviceWorker.register("service-worker.js")
-      .then(success => console.log("Success: Service worker is registered.", success))
-      .catch(error => console.log("Error: Service worker is not registered.", error));
-
-      window.navigator.serviceWorker.getRegistrations()
-      .then(registrations => {
-        for(let registration of registrations) {
-          registration.unregister();
-          registration.update();
-        }
-      });
-      window.close()
+      this.$store.commit('updateChange', false)
     }
   },
 

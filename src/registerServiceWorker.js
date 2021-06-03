@@ -19,6 +19,13 @@ if (process.env.NODE_ENV === 'production') {
       console.log('New content is downloading.')
     },
     updated () {
+      navigator.serviceWorker.getRegistrations()
+      .then(registrations => {
+        for(let registration of registrations) {
+          registration.unregister();
+          registration.update();
+        }
+      });
       console.log('New content is available; please refresh.')
       store.commit('updateChange', true)
     },
