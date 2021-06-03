@@ -60,7 +60,7 @@
     >
       <v-alert
         light
-        :value="update"
+        :value="true"
         dense
         dark
         elevation="4"
@@ -157,6 +157,10 @@ export default {
       this.$store.dispatch('onAuth')
     },
     reload() {
+      window.navigator.serviceWorker.register("service-worker.js")
+      .then(success => console.log("Success: Service worker is registered.", success))
+      .catch(error => console.log("Error: Service worker is not registered.", error));
+
       window.navigator.serviceWorker.getRegistrations()
       .then(registrations => {
         for(let registration of registrations) {
