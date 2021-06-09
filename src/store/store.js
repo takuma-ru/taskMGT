@@ -136,12 +136,12 @@ export default new Vuex.Store({
     },
 
     async isphone({ commit }) {
-      if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+      if (navigator.userAgent.match(/iPhone|Android.+Mobile/) || window.innerWidth <= 768) {
         commit('isphoneChange', true)
-        console.log("isphone: true")
+        //console.log("isphone: true")
       } else {
         commit('isphoneChange', false)
-        console.log("isphone: false")
+        //console.log("isphone: false")
       }
     },
 

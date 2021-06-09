@@ -24,7 +24,7 @@ export default new Vuetify({
         MY_green: '#77FFAC',
         MY_yellow: '#FFF077',
         MY_green_dark: '#51D585',
-        MY_yellow_dark: '#F7D130'
+        MY_yellow_dark: '#F4C200'
       },
       dark: {
         MY_success: '#54BFD7',
@@ -34,7 +34,7 @@ export default new Vuetify({
         MY_green: '#77FFAC',
         MY_yellow: '#FFF077',
         MY_green_dark: '#51D585',
-        MY_yellow_dark: '#F7D130'
+        MY_yellow_dark: '#F4C200'
       }
     },
     dark: true,

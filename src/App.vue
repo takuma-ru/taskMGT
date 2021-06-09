@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main v-resize="onResize">
       <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px;' : null }`" style="margin-top: 64px;">
 
 
@@ -21,25 +21,18 @@
             <h1>ログインすることで利用できます</h1>
             <v-col cols="12" align="center">
               <v-btn depressed dark color="MY_success" @click="signIn">
-                <v-icon small class="mr-2">mdi-google</v-icon>googleアカウントでログイン
+                <v-icon class="mr-2">mdi-google</v-icon>Googleアカウントでログイン
               </v-btn>
             </v-col>
             <v-col cols="12" align="center">
               <v-btn depressed dark color="MY_success" to="/about">
-                <v-icon small class="mr-2">mdi-information</v-icon>このアプリは何？
+                <v-icon class="mr-2">mdi-information-outline</v-icon>このアプリは何？
               </v-btn>
             </v-col>
             <v-col align="center">
-              <p>
-                <v-icon dark class="mb-1 mr-1">mdi-alert-circle-outline</v-icon
-                >このアプリを利用する際の注意事項
-              </p>
-              <p class="gray--text">
-                このサービスは現在<strong class="white--text">ベータテスト中</strong>です。
-              </p>
-              <p>
-                ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。
-              </p>
+              <h2 class="pb-2">このアプリを利用する際の注意事項</h2>
+              <p class="gray--text">このサービスは現在<strong class="white--text">ベータテスト中</strong>です。<br>
+                ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。</p>
             </v-col>
           </v-row>
 
@@ -77,10 +70,42 @@
           <v-col class="shrink">
             <v-btn
               dark
-              outlined
+              depressed
+              rounded
+              color="white"
               @click="reload"
             >
-              OK
+              <span class="MY_success--text font-weight-bold">OK</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-alert>
+      <v-alert
+        light
+        :value="app"
+        dense
+        dark
+        elevation="4"
+        border="left"
+        color="MY_yellow_dark"
+        class="rounded-lg ml-4"
+        transition="slide-x-transition"
+        style="transform-origin: center right;"
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            Android用アプリが配信されました！
+          </v-col>
+          <v-col class="shrink">
+            <v-btn
+              dark
+              depressed
+              rounded
+              color="white"
+              href="https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt"
+              target="_blank"
+            >
+              <span class="MY_yellow_dark--text font-weight-bold">Playストアで入手</span>
             </v-btn>
           </v-col>
         </v-row>
@@ -117,7 +142,7 @@ import Bar from './component/app_bar'
 export default {
   name: 'App',
   data: () => ({
-    alert: true,
+    app :true
   }),
 
   components: {
@@ -150,6 +175,9 @@ export default {
   },
 
   methods: {
+    onResize() {
+      this.$store.dispatch("isphone");
+    },
     signIn() {
       this.$store.dispatch('signIn')
     },

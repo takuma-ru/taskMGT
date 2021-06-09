@@ -1,6 +1,6 @@
 <template>
 <v-container class="px-0 py-0">
-  <h1 class="pb-5">設定</h1>
+  <h1 class="pb-3">設定</h1>
   <v-subheader>アプリバージョン： ver.{{ this.$version }}</v-subheader>
 
   <v-row>
@@ -21,7 +21,7 @@
         class="rounded-lg"
       >
         <div class="px-4 py-4">
-          <h3 class="mb-4">
+          <h3 class="mb-2">
             ログインしているアカウント
           </h3>
 
@@ -41,7 +41,7 @@
             </v-list-item-action>
           </v-list-item>
 
-          <h3 class="mt-8 mb-4">
+          <h3 class="mt-8 mb-2">
             アカウント情報を編集
           </h3>
           <div class="px-4">
@@ -59,7 +59,7 @@
             </v-btn>
           </div>
 
-          <h3 class="mt-8 mb-4">
+          <h3 class="mt-8 mb-1">
             アカウントの操作
           </h3>
           <div class="px-4">
@@ -68,7 +68,7 @@
               depressed
               color="MY_red"
               @click="signOut"
-              class="mr-2 my-2"
+              class="mr-2 my-1"
             >
             <v-icon class="mr-2">mdi-logout</v-icon>ログアウト
             </v-btn>
@@ -78,14 +78,24 @@
               depressed
               color="MY_red"
               @click="signIn"
-              class="my-2"
+              class="my-1"
             >
             <v-icon class="mr-2">mdi-logout</v-icon>別のアカウントでログイン
             </v-btn>
 
             <br>
 
-            <p class="mt-6">アカウントを削除してしまうと、
+            <v-btn
+              disabled
+              dark
+              outlined
+              color="MY_red"
+              @click="null"
+              class="mt-4 my-1"
+            >
+            <v-icon class="mr-2">mdi-logout</v-icon>アカウントを削除
+            </v-btn>
+            <p class="mt-1">アカウントを削除してしまうと、
               <ul>
                 <li>
                   すべてのタスクデータ
@@ -99,16 +109,6 @@
               </ul>
               が完全に削除されます。削除したデータは一生帰ってくることはありません。ご注意ください。
             </p>
-            <v-btn
-              disabled
-              dark
-              outlined
-              color="MY_red"
-              @click="null"
-              class="my-2"
-            >
-            <v-icon class="mr-2">mdi-logout</v-icon>アカウントを削除
-            </v-btn>
           </div>
         </div>
       </v-card>
