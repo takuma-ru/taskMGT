@@ -6,7 +6,20 @@
           src="../assets/earth.svg"
           class="earth"
         >
-        <img src="../assets/kimo_pen.svg" class="pen">
+        <div
+          v-for=" item in creatures_pos"
+          :key="item.i"
+        >
+        <img
+          src="../assets/kimo_pen.svg"
+          class="pen"
+          :style="`
+            top: ${ item.y }%;
+            left: ${ item.x }%;
+            transform: translateX(${ -1 * item.x }%) translateY(${ -1 * item.y }%) rotate(${(item.num * 360) + 90}deg);
+          `"
+        >
+        </div>
       </div>
 
       <v-col lg="4" md="4" sm="0" cols="0">
@@ -50,11 +63,11 @@
                     </tr>
                     <tr style="background-color: transparent">
                       <td>誕生から</td>
-                      <td>{{planetdata.elapsed}}年</td>
+                      <td>{{age}} 日</td>
                     </tr>
                     <tr style="background-color: transparent">
                       <td>生命体の数</td>
-                      <td>{{planetdata.creatures}}種</td>
+                      <td>{{planetdata.creatures}} 体</td>
                     </tr>
                 </tbody>
               </template>
@@ -148,6 +161,31 @@ export default {
     },
     planetdata() {
       return this.$store.getters.planetdata
+    },
+    age() {
+      var today, created
+      today = this.StoD(new Date().toISOString().substr(0, 10))
+      created = this.$store.getters.planetdata.created.seconds
+      return Math.floor((today - created) / 86400)
+    },
+    creatures_pos() {
+      var array = []
+      for (let i = 0; i < this.$store.getters.planetdata.creatures; i++) {
+        var num = Math.random().toPrecision(3)
+        var deg = num * 360
+        var red = (deg * Math.PI/180.0)
+        var x = Math.cos(red) * 50 + 50 + 2.9 * Math.cos(red)
+        var y = Math.sin(red) * 50 + 50 + 2.9 * Math.sin(red)
+
+        array.push({
+          i: i,
+          num: num,
+          x: x,
+          y: y
+        })
+      }
+
+      return array
     }
   },
 
@@ -163,6 +201,16 @@ export default {
     dragEnd(data) {
       console.log("dragend :", data);
     },
+    DtoS(time){//UNIX時間 => YYYY年MM月DD日
+      var date = new Date(time * 1000)
+      var date_s = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
+      return date_s
+    },
+    StoD(date){//YYYY年MM月DD日 => UNIX時間
+      date = Date.parse(date) * 0.001
+      //console.log("StoD", date)
+      return date
+    },
   },
 };
 </script>
@@ -173,16 +221,21 @@ export default {
   }
 
   .earth_group {
-    position: fixed;
+    position: absolute;
     height: 90vmax;
     width: 90vmax;
     bottom: -55vmax;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(0deg);
     animation-name: earth;
     animation-duration: 128s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+  }
+
+  .pen {
+    position: absolute;
+    height: 3%;
   }
 
   .earth {
@@ -193,19 +246,11 @@ export default {
 
   @keyframes earth {
     0% {
-      transform: translateX(-50%) rotate(45deg);
+      transform: translateX(-50%) rotate(0deg);
     }
     100% {
-      transform: translateX(-50%) rotate(405deg);
+      transform: translateX(-50%) rotate(360deg);
     }
-  }
-
-  .pen {
-    position: absolute;
-    height: 3.5%;
-    top: -3.5%;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
 </style>
