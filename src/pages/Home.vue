@@ -221,7 +221,7 @@ export default {
   }
 
   .earth_group {
-    position: absolute;
+    position: fixed;
     height: 90vmax;
     width: 90vmax;
     bottom: -55vmax;
