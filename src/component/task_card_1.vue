@@ -43,7 +43,7 @@
             </span>
             <span
               v-else
-              class="px-2"
+              class="px-2 subtitle--text"
             >
               <v-icon class="mr-2 mb-1">mdi-clock-outline</v-icon>
               &nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;まで
@@ -170,7 +170,7 @@
           <v-divider class="mx-2"/>
 
           <v-card-text class="py-4">
-            <span><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
+            <span class="subtitle--text"><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
             <br>
             {{data.text}}
           </v-card-text>
@@ -178,11 +178,10 @@
           <v-divider class="mx-2"/>
 
           <v-card-text class="py-4">
-            <span class="my-0"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限
+            <span class="subtitle--text"><v-icon class="mr-2">mdi-clock-outline</v-icon>期限</span>
               <br>
               {{DtoS(data.date_start.seconds)}}&nbsp;～&nbsp;{{DtoS(data.date_end.seconds)}}&nbsp;<br>
               <p v-if="data.group == '完了'" class="mt-4 mb-0 font-weight-bold" style="color: #79DFA1">{{DtoS(data.completed.seconds)}}に完了！</p>
-            </span>
           </v-card-text>
 
           <v-divider class="mt-2 mb-4"/>

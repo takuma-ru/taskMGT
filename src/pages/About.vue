@@ -45,7 +45,7 @@
       >制作者のホームページ</v-btn><br>
       <v-btn
         text
-        href="https://nekoo-homepage.vercel.app/"
+        href="https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt"
         target="_blank"
       >アプリをダウンロードする（Android）</v-btn><br>
     </div>

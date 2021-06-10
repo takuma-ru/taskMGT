@@ -102,10 +102,11 @@
               depressed
               rounded
               color="white"
+              @click="app = false"
               href="https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt"
               target="_blank"
             >
-              <span class="MY_yellow_dark--text font-weight-bold">Playストアで入手</span>
+              <span class="MY_yellow_dark--text">Playストアで入手</span>
             </v-btn>
           </v-col>
         </v-row>
@@ -194,7 +195,7 @@ export default {
 
 <style>
   #app {
-    font-family: Arial, Helvetica, sans-serif, 'Noto Sans JP';
+    font-family: 'Noto Sans JP', sans-serif;
   }
 
   ::-webkit-scrollbar {

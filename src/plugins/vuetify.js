@@ -1,8 +1,10 @@
 import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
+
 import Vuetify from 'vuetify/lib'
 import ja from 'vuetify/es5/locale/ja'
 import en from 'vuetify/es5/locale/en'
+import colors from 'vuetify/lib/util/colors'
 
 Vue.use(Vuetify)
 
@@ -17,6 +19,7 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
+        subtitle: colors.grey.darken1,
         MY_success: '#54BFD7',
         My_error: '#EF6786',
         MY_blue: '#7786FF',
@@ -27,6 +30,7 @@ export default new Vuetify({
         MY_yellow_dark: '#F4C200'
       },
       dark: {
+        subtitle: colors.grey.darken1,
         MY_success: '#54BFD7',
         My_error: '#EF6786',
         MY_blue: '#7786FF',

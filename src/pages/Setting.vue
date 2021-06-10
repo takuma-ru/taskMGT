@@ -90,7 +90,6 @@
               dark
               outlined
               color="MY_red"
-              @click="null"
               class="mt-4 my-1"
             >
             <v-icon class="mr-2">mdi-logout</v-icon>アカウントを削除

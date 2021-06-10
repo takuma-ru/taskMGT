@@ -28,7 +28,7 @@
           class="rounded-lg"
           color="transparent"
         >
-          <v-card-title>
+          <v-card-title class="py-2">
             <strong class="text-h5">情報</strong>
             <v-spacer />
             <v-tooltip bottom right>
@@ -54,7 +54,7 @@
           <v-divider />
 
           <div class="px-0 py-4">
-            <v-simple-table style="background-color: #FFFFFF20">
+            <v-simple-table style="background-color: #FFFFFF20" class="rounded-lg">
               <template v-slot:default>
                 <tbody style="background-color: transparent">
                     <tr style="background-color: transparent">
