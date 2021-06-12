@@ -26,3 +26,4 @@ firebase
 
 # NOT use image
 /src/assets/Other
+/public/logo_png

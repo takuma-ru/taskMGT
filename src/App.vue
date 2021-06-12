@@ -83,6 +83,7 @@
       <v-alert
         light
         :value="app"
+        timemout="5000"
         dense
         dark
         elevation="4"
