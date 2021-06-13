@@ -31,6 +31,6 @@ https://taskmgt-fd097.firebaseapp.com/<br>
 
 
 ## Play Store
-タスク管理<br>
+**TWA**の技術を使いWebアプリをネイティブにしました。<br>
 **オープンベータテスト実施中**<br>
 https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt
