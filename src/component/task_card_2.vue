@@ -144,7 +144,7 @@
               :key="item"
               dark
               :color="tag_items[item].color"
-              class="mx-1"
+              class="mx-1 my-1"
             >
               {{ tag_items[item].name }}
             </v-chip>
