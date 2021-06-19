@@ -1,5 +1,5 @@
 <template>
-<v-container v-if="isauth && !check" class="px-0 py-0">
+<div v-if="isauth && !check">
   <h1 class="pb-5">タスクボード</h1>
   <v-row justify="center">
     <v-col cols="12">
@@ -60,7 +60,7 @@
       </v-row>
     </v-col>
   </v-row>
-</v-container>
+</div>
 </template>
 
 <style scoped>

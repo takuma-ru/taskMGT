@@ -1,8 +1,7 @@
 <template>
   <v-app>
     <v-main v-resize="onResize">
-      <v-container class="py-0 px-3" :style="`${isphone ? 'margin-bottom: 56px;' : null }`" style="margin-top: 64px;">
-
+      <div class="main_container" :style="`${isphone ? 'margin-bottom: 56px;' : null }`">
 
         <Bar />
 
@@ -13,7 +12,7 @@
           </div>
         </v-container>
 
-        <v-container v-else class="mt-2">
+        <div v-else class="mt-2 main_container">
           <v-row v-if="$route.path == '/about'">
           </v-row>
 
@@ -38,11 +37,11 @@
 
           <router-view />
 
-        </v-container>
+        </div>
 
         <Drawer />
 
-      </v-container>
+      </div>
 
     <Drawer2 />
 
@@ -131,7 +130,6 @@
         </v-row>
       </v-alert>-->
     </div>
-
   </v-app>
 </template>
 
@@ -214,6 +212,13 @@ export default {
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
+  }
+
+  .main_container {
+    position: relative;
+    margin-top: 64px;
+    margin-left: 1vw;
+    margin-right: 1vw;
   }
 
   .main_contents {

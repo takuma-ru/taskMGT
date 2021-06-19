@@ -1,5 +1,5 @@
 <template>
-<v-container class="px-0 py-0">
+<div>
   <h1 class="pb-3">設定</h1>
   <v-subheader>アプリバージョン： ver.{{ this.$version }}</v-subheader>
 
@@ -113,7 +113,7 @@
       </v-card>
     </v-col>
   </v-row>
-</v-container>
+</div>
 </template>
 
 <script>

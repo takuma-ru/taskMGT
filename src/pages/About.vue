@@ -1,6 +1,5 @@
 <template>
-<v-container class="px-0">
-  <div>
+  <div class="pt-4">
     <div>
       <h1 class="pb-5">このアプリは何？</h1>
       <h3 class="py-2">概要</h3>
@@ -50,7 +49,6 @@
       >アプリをダウンロードする（Android）</v-btn><br>
     </div>
   </div>
-</v-container>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-0 py-0">
+  <div>
     <v-row v-if="isauth" align="start" justify="space-between">
       <div class="earth_group">
         <img
@@ -117,7 +117,7 @@
         </div>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
