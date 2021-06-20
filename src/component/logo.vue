@@ -1,0 +1,545 @@
+<template>
+<svg :class="active ? `active` : null" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="new_logo.svg" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" id="svg8" version="1.1" viewBox="0 0 67.733331 67.733335" height="67.73333740234375" width="67.73332977294922" inkscape:export-filename="C:\Users\knk takuma\dev\taskMGT\public\img\icons\new_logo_192.png" inkscape:export-xdpi="72.000008" inkscape:export-ydpi="72.000008">
+  <defs id="defs2"></defs>
+  <sodipodi:namedview inkscape:object-nodes="true" inkscape:snap-center="false" inkscape:snap-nodes="true" inkscape:snap-object-midpoints="true" inkscape:snap-smooth-nodes="true" inkscape:object-paths="true" inkscape:snap-intersection-paths="true" inkscape:snap-midpoints="true" inkscape:window-maximized="1" inkscape:window-y="-8" inkscape:window-x="1912" inkscape:window-height="1057" inkscape:window-width="1920" inkscape:snap-page="true" inkscape:snap-bbox-midpoints="true" inkscape:snap-bbox-edge-midpoints="true" inkscape:bbox-nodes="true" inkscape:bbox-paths="true" inkscape:snap-bbox="true" borderlayer="true" inkscape:pagecheckerboard="true" units="px" showgrid="false" inkscape:document-rotation="0" inkscape:current-layer="layer7" inkscape:document-units="mm" inkscape:cy="78.083887" inkscape:cx="199.78329" inkscape:zoom="1.7285156" inkscape:pageshadow="2" inkscape:pageopacity="0.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base"></sodipodi:namedview>
+  <metadata id="metadata5">
+    <rdf:rdf>
+      <cc:work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+        <dc:title></dc:title>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <g style="display:none" sodipodi:insensitive="true" id="layer1" inkscape:groupmode="layer" inkscape:label="framework">
+    <rect y="0" x="1.4210855e-14" height="67.73333" width="67.73333" id="rect10" style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(250, 250, 250); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-1"></rect>
+  </g>
+  <g style="display:none" inkscape:label="main_back" id="layer4" inkscape:groupmode="layer">
+    <rect y="0" x="0" height="67.73333" width="67.73333" id="rect846" style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(119, 201, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" ry="2.937465e-16" class="svg-elem-2"></rect>
+    <rect transform="matrix(-0.70710678,0.70710678,0.70710678,0.70710678,0,0)" ry="0" y="14.028032" x="-47.894695" height="67.73333" width="33.866665" id="rect854-3" style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(119, 210, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-3"></rect>
+    <rect inkscape:export-ydpi="250" inkscape:export-xdpi="250" transform="matrix(-0.70710678,0.70710678,0.70710678,0.70710678,0,0)" ry="0" y="14.028032" x="-47.894695" height="67.73333" width="16.933332" id="rect856-7" style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(119, 220, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-4"></rect>
+    <rect style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(119, 210, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" id="rect854-9-1" width="33.866665" height="67.73333" x="-47.894695" y="-81.76136" ry="0" transform="matrix(0.70710678,-0.70710678,-0.70710678,-0.70710678,0,0)" class="svg-elem-5"></rect>
+    <rect inkscape:export-ydpi="250" inkscape:export-xdpi="250" style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(119, 220, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" id="rect856-9-4" width="16.933332" height="67.73333" x="-47.894695" y="-81.76136" ry="0" transform="matrix(0.70710678,-0.70710678,-0.70710678,-0.70710678,0,0)" class="svg-elem-6"></rect>
+  </g>
+  <g inkscape:label="main_back_b" id="layer6" inkscape:groupmode="layer" style="display:none">
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(228, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="m 115.41152,255.19894 c -8.74475,-0.84991 -17.730879,-2.75805 -27.234503,-5.78305 l -5.736748,-1.826 -24.776045,-24.69125 C 44.037403,209.31846 27.408442,192.66995 20.710982,185.90197 L 8.5337817,173.59655 6.9402329,168.92205 C -1.726428,143.49936 -2.0018796,115.20616 6.1666135,89.459195 7.0839528,86.567756 7.957916,84.067299 8.1087538,83.902624 8.2595917,83.737949 13.458597,88.628732 19.662099,94.771032 l 11.279095,11.167818 -0.888857,5.43963 c -1.750897,10.71515 -1.849346,21.77423 -0.284511,31.96018 0.800187,5.20864 3.293873,14.44502 5.343252,19.79091 12.841175,33.49674 42.001353,57.21151 77.284742,62.85251 10.3182,1.64963 22.60464,1.52262 32.63453,-0.33737 l 4.49816,-0.83416 11.53663,11.49375 11.53663,11.49376 -3.34709,1.1649 c -7.97048,2.774 -18.95972,5.18298 -28.01213,6.1406 -4.95697,0.52438 -20.8146,0.58293 -25.83103,0.0954 z" id="path943" transform="scale(0.26458333)" class="svg-elem-7"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(213, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="M 73.008719,243.26603 C 48.741312,231.5604 29.546987,213.55759 16.298157,190.07586 14.101313,186.18225 8.5376797,174.34541 8.5337817,173.59655 c 73.9064873,73.99334 0,0 73.9064873,73.99334 0,0 -5.822507,-2.58301 -9.43155,-4.32386 z" id="path945" transform="scale(0.26458333)" sodipodi:nodetypes="csccc" class="svg-elem-8"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(228, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="M 116.30487,199.42856 C 96.238913,197.44247 80.699061,185.7777 68.504241,169.00248 c -2.923826,-4.02203 -6.992784,-12.70266 -8.65719,-17.57154 -1.76461,-5.16201 -3.805618,-11.51609 -3.741287,-15.96588 l 0.0587,-4.0603 27.686708,27.67392 c 38.666098,38.64823 40.903808,40.90737 40.460978,40.84839 -0.21626,-0.0288 -6.20636,-0.32026 -8.00728,-0.49851 z" id="path947" transform="scale(0.26458333)" sodipodi:nodetypes="sssscsss" class="svg-elem-9"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(255, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="m 149.52851,224.81055 c 0.32534,-0.11097 3.3333,-0.86705 5.55181,-1.46905 11.71807,-3.17975 25.39032,-10.2788 35.1382,-18.24484 8.96986,-7.33023 11.6005,-11.06858 11.5731,-16.44626 -0.0287,-5.6774 -2.69848,-9.98401 -7.69296,-12.41056 -2.31469,-1.12459 -3.11395,-1.30145 -5.81785,-1.28738 -4.16174,0.0217 -6.67962,1.1989 -10.91066,5.10125 -13.53344,12.48213 -28.25828,19.68607 -45.49452,19.81624 l -7.56348,0.0571 C 101.4119,177.00093 79.064716,154.33089 56.164465,131.40476 l 0.07513,-5.58471 C 56.534569,103.8949 67.691445,81.598698 86.957742,68.569949 97.783813,61.248865 109.57437,57.411601 123.69998,56.305477 l 7.46443,-0.46121 c 34.26617,34.238022 0,0 34.26617,34.238022 l -16.9159,17.013021 c -9.20481,9.25766 -17.68635,17.52151 -18.75784,18.45403 l -1.94817,1.69548 -15.30307,-15.04998 C 95.241456,95.216227 95.766982,95.599714 89.831137,95.648831 c -2.456656,0.02033 -3.748311,0.247448 -5.180733,0.910963 -2.568065,1.189558 -5.471468,3.969256 -6.777153,6.488406 -0.939916,1.81345 -1.069806,2.54818 -1.057253,5.98039 0.02274,6.21612 -0.605403,5.41842 22.583084,28.67927 17.670308,17.72544 20.393878,20.29902 22.611098,21.36592 3.57573,1.72058 6.40566,1.94366 10.1112,0.79703 3.50623,-1.08495 1.8973,0.41077 32.21577,-29.94885 10.89852,-10.91333 19.97433,-19.84324 20.16846,-19.84425 0.19412,-10e-4 14.4795,14.10983 31.74529,31.35743 l 31.39233,31.35927 -0.53881,1.66162 c -0.96545,2.97734 -7.05498,15.20003 -9.87667,19.82408 -12.00394,19.67156 -29.54722,36.19176 -49.56253,46.67217 -4.90342,2.56753 -12.93448,6.20633 -15.06345,6.84578 z" id="path949" transform="scale(0.26458333)" sodipodi:nodetypes="csscssssccsssccsscssssssssssscssscc" class="svg-elem-10"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(255, 255, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="M 8.1087538,83.902624 C 8.1036495,82.92204 12.689197,72.629066 15.285829,67.799695 29.158594,41.998303 52.030615,21.157846 78.516298,10.185557 L 83.181635,8.2528355 94.314922,19.542391 c 6.123308,6.209256 11.187118,11.422818 11.252918,11.585694 0.0658,0.162876 -0.64122,0.421868 -1.57115,0.575538 -3.63238,0.60025 -14.331998,4.561261 -20.186754,7.473165 C 77.213464,42.45759 69.195353,47.650263 64.136748,51.9175 59.524997,55.807792 51.637057,64.165709 48.344826,68.650333 40.864562,78.839835 35.524981,89.74168 32.186357,101.64115 c -0.565126,2.01421 -1.184125,4.23602 -1.245163,4.2977 -22.8324402,-22.036226 0,0 -22.8324402,-22.036226 z" id="path951" transform="scale(0.26458333)" sodipodi:nodetypes="csscssssssscc" class="svg-elem-11"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(228, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="m 183.74625,109.95338 11.93832,-11.282365 c 12.58159,-11.89029 12.53706,-12.856522 12.81286,-18.172582 0.29032,-5.595751 -2.43224,-10.203427 -7.45797,-12.62192 -4.47414,-2.153059 -9.41318,-1.934022 -13.19658,0.585241 -0.74446,0.495715 -6.09177,5.563127 -11.88293,11.260915 l -10.52937,10.35962 -34.26617,-34.238022 c 0.10223,-0.07455 1.18135,-0.593671 2.39803,-1.153612 2.68262,-1.234599 5.28774,-3.779179 6.59036,-6.437224 0.81444,-1.661896 0.96336,-2.583849 0.94632,-5.858512 -0.0172,-3.29621 -0.17386,-4.194368 -1.03208,-5.915746 -1.29059,-2.588579 -3.80411,-5.076065 -6.40598,-6.339634 -1.96644,-0.954978 -2.32731,-0.987297 -10.01668,-0.897071 -6.28287,0.07372 -8.79782,0.942606 -12.54879,1.323823 l -5.52775,0.561794 c -22.386205,-22.8752495 0,0 -22.386205,-22.8752495 l 4.35359,-1.479979 c 9.133434,-3.1048608 18.711215,-5.0362966 28.526025,-5.98805572 7.83632,-0.75990065 21.95035,-0.44402602 29.7338,0.66544772 7.40699,1.0558125 18.53809,3.7558719 24.23543,5.8787631 22.06079,22.5619294 64.0665,47.4613544 77.96323,76.5809684 1.26068,3.193629 3.91447,12.337619 4.82966,16.64127 4.71482,22.17119 3.73988,44.37953 -2.88157,65.6401 -0.87735,2.81705 -2.12029,6.32856 -2.29857,6.60306 z" id="path953" transform="scale(0.26458333)" sodipodi:nodetypes="csssssccsscssssccsssccsscc" class="svg-elem-12"></path>
+    <path style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(213, 249, 255); fill-opacity: 1; stroke-width: 4.41757; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="m 170.03048,7.3290116 c 0.27489,-0.2777691 14.19149,5.7712824 18.73214,8.2510454 22.14329,12.092988 40.88907,31.028826 52.16229,52.691139 2.8561,5.488212 5.90322,12.622298 5.65765,12.870432 z" id="path955" transform="scale(0.26458333)" sodipodi:nodetypes="csscc" class="svg-elem-13"></path>
+  </g>
+  <g style="display:inline" inkscape:label="main_sd" id="layer7" inkscape:groupmode="layer">
+    <circle style="display: inline; opacity: 0.3; fill: none; fill-opacity: 1; stroke: rgb(120, 120, 120); stroke-width: 7.68114; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: stroke;" id="circle53" sodipodi:type="arc" sodipodi:cx="35.440125" sodipodi:cy="35.319969" sodipodi:rx="24.34059" sodipodi:ry="24.34059" sodipodi:start="0.26179939" sodipodi:end="4.712389" sodipodi:open="true" sodipodi:arc-type="arc" d="M 58.951329,41.619777 A 24.34059,24.34059 0 0 1 31.213425,59.29077 24.34059,24.34059 0 0 1 11.192158,33.198547 24.34059,24.34059 0 0 1 35.440125,10.97938" class="svg-elem-14"></circle>
+    <path sodipodi:nodetypes="ccc" id="path85" d="M 24.714789,29.930426 35.493882,40.709516 54.56598,21.658487" style="display: inline; opacity: 0.3; fill: none; stroke: rgb(120, 120, 120); stroke-width: 7.68114; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1;" class="svg-elem-15"></path>
+  </g>
+  <g style="display:inline" inkscape:label="main" id="layer2" inkscape:groupmode="layer">
+    <path sodipodi:nodetypes="ccc" id="path939" d="M 23.007867,28.223502 33.786958,39.002593 52.859057,19.951563" style="fill: none; stroke: rgb(0, 255, 192); stroke-width: 7.68114; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1;" class="svg-elem-16"></path>
+    <path d="M 57.467691,39.912442 A 24.43358,24.43358 0 0 1 29.623818,57.650945 24.43358,24.43358 0 0 1 9.5260617,31.459039 24.43358,24.43358 0 0 1 33.866665,9.1549854" sodipodi:arc-type="arc" sodipodi:open="true" sodipodi:end="4.712389" sodipodi:start="0.26179939" sodipodi:ry="24.43358" sodipodi:rx="24.43358" sodipodi:cy="33.588566" sodipodi:cx="33.866665" sodipodi:type="arc" id="path4970" style="opacity: 1; fill: none; fill-opacity: 1; stroke: rgb(0, 255, 192); stroke-width: 7.681; stroke-linecap: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: stroke; stroke-linejoin: round;" class="svg-elem-17"></path>
+    <path id="path1005" d="m 25.113566,60.391237 c -1.72829,-0.563136 -2.251901,-0.778828 -3.982339,-1.640474 -2.84878,-1.418504 -5.281392,-3.21005 -7.601259,-5.5981 C 6.9284505,46.357123 4.2367764,36.872622 6.2602396,27.536739 7.9169549,19.892965 12.899836,13.120035 19.760138,9.1871454 c 3.820592,-2.190278 8.173185,-3.448505 12.745953,-3.6845399 1.249367,-0.06449 1.634865,-0.04349 2.195939,0.1196188 0.818049,0.2378131 1.430199,0.607781 1.874013,1.132605 1.308328,1.5471412 1.233889,3.8392407 -0.1689,5.2006007 -0.875511,0.849655 -1.917062,1.162503 -3.918028,1.17685 -0.99078,0.0072 -3.364345,0.426549 -4.629715,0.818144 -1.385129,0.428654 -2.114035,0.721937 -3.385917,1.362344 -5.610704,2.825058 -9.503375,7.951785 -10.899799,14.355256 -0.234258,1.074215 -0.265426,1.538305 -0.265427,3.95205 1e-6,2.409871 0.03148,2.880129 0.264863,3.956881 1.416254,6.534048 5.486214,11.761584 11.32752,14.549279 l 1.328913,0.634211 -0.04266,2.736881 c -0.03085,1.979271 0.0053,3.091251 0.130069,4.017048 0.095,0.704095 0.16423,1.287543 0.153843,1.296559 -0.01039,0.009 -0.621144,-0.179851 -1.357242,-0.419696 z" style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(0, 144, 255); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-18"></path>
+    <path id="path1007" d="m 25.229944,35.784843 c -4.069553,-4.067795 -5.369114,-5.436005 -5.614399,-5.910967 -0.944858,-1.82959 -0.149437,-4.130738 1.750317,-5.063642 0.568842,-0.279339 0.805003,-0.325903 1.652884,-0.325904 1.640663,1e-6 1.627734,-0.0097 6.516,4.883564 l 4.246616,4.250942 8.438686,-8.419105 c 6.718837,-6.703251 8.557276,-8.475617 9.020578,-8.696391 0.478556,-0.22804 0.767908,-0.277505 1.629305,-0.278527 0.917885,-0.0011 1.122483,0.03821 1.65451,0.317721 0.771038,0.405091 1.343421,0.977473 1.748511,1.74851 0.279097,0.531226 0.318961,0.738005 0.31896,1.654511 0,1.624329 -0.08849,1.751271 -3.865906,5.546194 -3.086033,3.100328 -3.223522,3.22153 -3.741124,3.29785 -1.002155,0.147767 -3.557447,0.855391 -4.843367,1.341247 -2.061422,0.778865 -4.40073,2.01096 -6.168082,3.248687 -2.574551,1.803029 -5.504165,4.798788 -7.273681,7.43791 -0.170983,0.255009 -0.283324,0.151647 -5.469808,-5.0326 z" style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(0, 144, 255); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-19"></path>
+    <path id="path1017" d="m 24.915525,60.376599 c -1.540421,-0.510516 -4.073263,-1.613523 -4.073263,-1.773834 0,-0.05974 -0.05237,-0.07624 -0.116378,-0.03667 -0.06401,0.03956 -0.116377,0.01647 -0.116377,-0.05132 -3e-6,-0.06778 -0.0393,-0.112657 -0.08728,-0.09972 -0.153489,0.04136 -1.097862,-0.493605 -2.420132,-1.370974 l -1.285438,-0.852937 0.08665,-1.081911 c 0.265386,-3.313484 0.665634,-6.221594 1.059233,-7.696155 l 0.150157,-0.562535 0.504635,0.598466 c 1.291207,1.531298 4.081467,3.587898 6.315013,4.654566 l 1.238794,0.591609 0.06683,3.57554 c 0.03675,1.966546 0.100142,3.798111 0.140878,4.070149 0.04075,0.272035 0.02928,0.49116 -0.02543,0.486944 -0.05474,-0.0041 -0.701771,-0.20726 -1.437865,-0.451209 z" style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(0, 173, 192); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-20"></path>
+    <path id="path1019" d="m 28.361962,38.870602 c -3.029779,-2.966538 -4.38874,-4.361776 -4.351677,-4.467841 0.107624,-0.307986 2.205836,-2.779231 3.470391,-4.087374 l 1.490902,-1.542297 2.390053,2.380389 c 1.314528,1.309213 2.431271,2.338936 2.481656,2.288277 0.05038,-0.05065 3.227441,-3.190467 7.060136,-6.977352 l 6.968533,-6.885246 0.828854,-0.0795 c 1.168564,-0.112079 5.125754,-0.313051 6.640705,-0.337257 l 1.273076,-0.02035 -0.009,0.875849 c -0.0096,0.923545 -0.199829,1.714255 -0.412513,1.714255 -0.06973,-4e-6 -0.09264,0.03414 -0.05096,0.07576 0.04168,0.04168 -0.01505,0.142198 -0.126077,0.223377 -0.11102,0.08118 -0.201856,0.196198 -0.201856,0.255595 -3e-6,0.160447 -5.7615,5.944387 -6.168079,6.192103 -0.192024,0.116996 -1.003767,0.371058 -1.803874,0.564585 -6.846385,1.655996 -12.179943,5.164379 -16.44066,10.814571 -0.446477,0.592078 -0.838705,1.076505 -0.871619,1.076505 -0.03291,1.8e-5 -1.008483,-0.928839 -2.167926,-2.064083 z" style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(0, 173, 192); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-21"></path>
+    <path style="font-variation-settings: normal; opacity: 1; vector-effect: none; fill: rgb(0, 144, 255); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" d="m 25.229944,35.784843 c -4.069553,-4.067795 -5.369114,-5.436005 -5.614399,-5.910967 -0.944858,-1.82959 -0.149437,-4.130738 1.750317,-5.063642 0.568842,-0.279339 0.805003,-0.325903 1.652884,-0.325904 1.640663,1e-6 1.627734,-0.0097 6.516,4.883564 l 4.246616,4.250942 8.438686,-8.419105 c 6.718837,-6.703251 8.557276,-8.475617 9.020578,-8.696391 0.478556,-0.22804 0.767908,-0.277505 1.629305,-0.278527 0.917885,-0.0011 1.122483,0.03821 1.65451,0.317721 0.771038,0.405091 1.343421,0.977473 1.748511,1.74851 0.279097,0.531226 0.318961,0.738005 0.31896,1.654511 0,1.624329 -0.08849,1.751271 -3.865906,5.546194 -3.086033,3.100328 -3.223522,3.22153 -3.741124,3.29785 -1.002155,0.147767 -3.557447,0.855391 -4.843367,1.341247 -2.061422,0.778865 -4.40073,2.01096 -6.168082,3.248687 -2.574551,1.803029 -5.504165,4.798788 -7.273681,7.43791 -0.170983,0.255009 -0.283324,0.151647 -5.469808,-5.0326 z" id="path59" class="svg-elem-22"></path>
+    <path style="display: inline; fill: none; stroke: rgb(0, 255, 192); stroke-width: 7.681; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1;" d="M 23.007867,28.223502 33.786958,39.002593 52.859057,19.951563" id="path55" sodipodi:nodetypes="ccc" class="svg-elem-23"></path>
+    <path id="path82" d="m 28.361962,38.870602 c -3.029779,-2.966538 -4.38874,-4.361776 -4.351677,-4.467841 0.107624,-0.307986 2.205836,-2.779231 3.470391,-4.087374 l 1.490902,-1.542297 2.390053,2.380389 c 1.314528,1.309213 2.431271,2.338936 2.481656,2.288277 0.05038,-0.05065 3.227441,-3.190467 7.060136,-6.977352 l 6.968533,-6.885246 0.828854,-0.0795 c 1.168564,-0.112079 5.125754,-0.313051 6.640705,-0.337257 l 1.273076,-0.02035 -0.009,0.875849 c -0.0096,0.923545 -0.199829,1.714255 -0.412513,1.714255 -0.06973,-4e-6 -0.09264,0.03414 -0.05096,0.07576 0.04168,0.04168 -0.01505,0.142198 -0.126077,0.223377 -0.11102,0.08118 -0.201856,0.196198 -0.201856,0.255595 -3e-6,0.160447 -5.7615,5.944387 -6.168079,6.192103 -0.192024,0.116996 -1.003767,0.371058 -1.803874,0.564585 -6.846385,1.655996 -12.179943,5.164379 -16.44066,10.814571 -0.446477,0.592078 -0.838705,1.076505 -0.871619,1.076505 -0.03291,1.8e-5 -1.008483,-0.928839 -2.167926,-2.064083 z" style="font-variation-settings: normal; display: inline; opacity: 1; vector-effect: none; fill: rgb(0, 173, 192); fill-opacity: 1; stroke-width: 1.25674; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; paint-order: markers stroke; stop-color: rgb(0, 0, 0); stop-opacity: 1;" class="svg-elem-24"></path>
+  </g>
+  <g sodipodi:insensitive="true" style="display:none" inkscape:label="framework_b" id="layer3" inkscape:groupmode="layer">
+    <circle r="33.866665" cy="33.866665" cx="33.866665" id="path12" style="opacity: 1; fill: none; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: square; stroke-miterlimit: 4; stroke-opacity: 0.501259; paint-order: stroke;" class="svg-elem-25"></circle>
+    <path id="path848" d="M 0,33.866664 H 67.73333" style="fill: none; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 0.501259;" class="svg-elem-26"></path>
+    <path id="path850" d="M 33.866664,0 V 67.73333" style="fill: none; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 0.501259;" class="svg-elem-27"></path>
+    <circle r="16.933332" cy="33.866665" cx="33.866665" id="path852" style="opacity: 1; fill: none; fill-opacity: 1; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: square; stroke-miterlimit: 4; stroke-opacity: 0.501259; paint-order: stroke;" class="svg-elem-28"></circle>
+    <circle style="opacity: 1; fill: none; fill-opacity: 1; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: square; stroke-miterlimit: 4; stroke-opacity: 0.501259; paint-order: stroke;" id="path852-9" cx="16.883333" cy="33.866665" r="16.933332" class="svg-elem-29"></circle>
+    <circle style="opacity: 1; fill: none; fill-opacity: 1; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: square; stroke-miterlimit: 4; stroke-opacity: 0.501259; paint-order: stroke;" id="path852-7" cx="50.799995" cy="16.933332" r="16.933332" class="svg-elem-30"></circle>
+    <path id="path877" d="M 0,0 67.733332,67.733332" style="fill: none; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 0.5;" class="svg-elem-31"></path>
+    <path id="path879" d="M 67.733332,0 0,67.733332" style="fill: none; stroke: rgb(60, 60, 60); stroke-width: 0.05; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 0.5;" class="svg-elem-32"></path>
+    <circle r="25.4" style="display: inline; opacity: 1; fill: none; fill-opacity: 1; stroke: rgb(60, 60, 60); stroke-width: 0.0499999; stroke-linecap: square; stroke-miterlimit: 4; stroke-opacity: 0.501259; paint-order: stroke;" id="path852-3" cx="33.866665" cy="33.866665" class="svg-elem-33"></circle>
+  </g>
+</svg>
+</template>
+
+<script>
+export default {
+
+props: [
+  'active'
+]
+
+}
+</script>
+
+<style>
+/***************************************************
+ * Generated by SVG Artista on 6/20/2021, 12:21:19 PM
+ * MIT license (https://opensource.org/licenses/MIT)
+ * W. https://svgartista.net
+ **************************************************/
+
+svg .svg-elem-1 {
+  stroke-dashoffset: 272.9333190917969px;
+  stroke-dasharray: 272.9333190917969px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
+}
+
+svg.active .svg-elem-1 {
+  stroke-dashoffset: 0;
+  fill: rgb(250, 250, 250);
+}
+
+svg .svg-elem-2 {
+  stroke-dashoffset: 272.9333190917969px;
+  stroke-dasharray: 272.9333190917969px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.12s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
+}
+
+svg.active .svg-elem-2 {
+  stroke-dashoffset: 0;
+  fill: rgb(119, 201, 255);
+}
+
+svg .svg-elem-3 {
+  stroke-dashoffset: 205.19998168945312px;
+  stroke-dasharray: 205.19998168945312px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.24s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.24s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+}
+
+svg.active .svg-elem-3 {
+  stroke-dashoffset: 0;
+  fill: rgb(119, 210, 255);
+}
+
+svg .svg-elem-4 {
+  stroke-dashoffset: 171.3333282470703px;
+  stroke-dasharray: 171.3333282470703px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.36s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.36s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
+}
+
+svg.active .svg-elem-4 {
+  stroke-dashoffset: 0;
+  fill: rgb(119, 220, 255);
+}
+
+svg .svg-elem-5 {
+  stroke-dashoffset: 205.19998168945312px;
+  stroke-dasharray: 205.19998168945312px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.48s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.48s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
+}
+
+svg.active .svg-elem-5 {
+  stroke-dashoffset: 0;
+  fill: rgb(119, 210, 255);
+}
+
+svg .svg-elem-6 {
+  stroke-dashoffset: 171.3333282470703px;
+  stroke-dasharray: 171.3333282470703px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
+}
+
+svg.active .svg-elem-6 {
+  stroke-dashoffset: 0;
+  fill: rgb(119, 220, 255);
+}
+
+svg .svg-elem-7 {
+  stroke-dashoffset: 554.4163818359375px;
+  stroke-dasharray: 554.4163818359375px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.72s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.72s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
+}
+
+svg.active .svg-elem-7 {
+  stroke-dashoffset: 0;
+  fill: rgb(228, 249, 255);
+}
+
+svg .svg-elem-8 {
+  stroke-dashoffset: 214.18096923828125px;
+  stroke-dasharray: 214.18096923828125px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.84s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.84s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
+}
+
+svg.active .svg-elem-8 {
+  stroke-dashoffset: 0;
+  fill: rgb(213, 249, 255);
+}
+
+svg .svg-elem-9 {
+  stroke-dashoffset: 205.3916778564453px;
+  stroke-dasharray: 205.3916778564453px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.96s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0.96s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
+}
+
+svg.active .svg-elem-9 {
+  stroke-dashoffset: 0;
+  fill: rgb(228, 249, 255);
+}
+
+svg .svg-elem-10 {
+  stroke-dashoffset: 932.3115844726562px;
+  stroke-dasharray: 932.3115844726562px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.08s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.08s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
+}
+
+svg.active .svg-elem-10 {
+  stroke-dashoffset: 0;
+  fill: rgb(255, 249, 255);
+}
+
+svg .svg-elem-11 {
+  stroke-dashoffset: 286.8818664550781px;
+  stroke-dasharray: 286.8818664550781px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
+}
+
+svg.active .svg-elem-11 {
+  stroke-dashoffset: 0;
+  fill: rgb(255, 255, 255);
+}
+
+svg .svg-elem-12 {
+  stroke-dashoffset: 622.9810791015625px;
+  stroke-dasharray: 622.9810791015625px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3199999999999998s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3199999999999998s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
+}
+
+svg.active .svg-elem-12 {
+  stroke-dashoffset: 0;
+  fill: rgb(228, 249, 255);
+}
+
+svg .svg-elem-13 {
+  stroke-dashoffset: 218.1338653564453px;
+  stroke-dasharray: 218.1338653564453px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.44s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.44s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s;
+}
+
+svg.active .svg-elem-13 {
+  stroke-dashoffset: 0;
+  fill: rgb(213, 249, 255);
+}
+
+svg .svg-elem-14 {
+  stroke-dashoffset: NaNpx;
+  stroke-dasharray: NaNpx;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.56s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.56s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s;
+}
+
+svg.active .svg-elem-14 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-15 {
+  stroke-dashoffset: 44.2010612487793px;
+  stroke-dasharray: 44.2010612487793px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.68s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.68s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s;
+}
+
+svg.active .svg-elem-15 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-16 {
+  stroke-dashoffset: 44.20106506347656px;
+  stroke-dasharray: 44.20106506347656px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7999999999999998s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7999999999999998s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3s;
+}
+
+svg.active .svg-elem-16 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-17 {
+  stroke-dashoffset: 110.75466918945312px;
+  stroke-dasharray: 110.75466918945312px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.92s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4000000000000004s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1.92s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4000000000000004s;
+}
+
+svg.active .svg-elem-17 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-18 {
+  stroke-dashoffset: 159.78004455566406px;
+  stroke-dasharray: 159.78004455566406px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.04s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.04s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s;
+}
+
+svg.active .svg-elem-18 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 144, 255);
+}
+
+svg .svg-elem-19 {
+  stroke-dashoffset: 106.32791137695312px;
+  stroke-dasharray: 106.32791137695312px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.16s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.16s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s;
+}
+
+svg.active .svg-elem-19 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 144, 255);
+}
+
+svg .svg-elem-20 {
+  stroke-dashoffset: 40.42530059814453px;
+  stroke-dasharray: 40.42530059814453px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.28s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.28s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.7s;
+}
+
+svg.active .svg-elem-20 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 173, 192);
+}
+
+svg .svg-elem-21 {
+  stroke-dashoffset: 89.5611801147461px;
+  stroke-dasharray: 89.5611801147461px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s;
+}
+
+svg.active .svg-elem-21 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 173, 192);
+}
+
+svg .svg-elem-22 {
+  stroke-dashoffset: 106.32791137695312px;
+  stroke-dasharray: 106.32791137695312px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.52s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.9000000000000004s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.52s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.9000000000000004s;
+}
+
+svg.active .svg-elem-22 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 144, 255);
+}
+
+svg .svg-elem-23 {
+  stroke-dashoffset: 44.20106506347656px;
+  stroke-dasharray: 44.20106506347656px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6399999999999997s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6399999999999997s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3s;
+}
+
+svg.active .svg-elem-23 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-24 {
+  stroke-dashoffset: 89.5611801147461px;
+  stroke-dasharray: 89.5611801147461px;
+  fill: transparent;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.76s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.1000000000000005s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.76s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.1000000000000005s;
+}
+
+svg.active .svg-elem-24 {
+  stroke-dashoffset: 0;
+  fill: rgb(0, 173, 192);
+}
+
+svg .svg-elem-25 {
+  stroke-dashoffset: 214.79053193117312px;
+  stroke-dasharray: 214.79053193117312px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.88s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.2s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 2.88s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.2s;
+}
+
+svg.active .svg-elem-25 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-26 {
+  stroke-dashoffset: 69.73332977294922px;
+  stroke-dasharray: 69.73332977294922px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.3s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.3s;
+}
+
+svg.active .svg-elem-26 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-27 {
+  stroke-dashoffset: 69.73332977294922px;
+  stroke-dasharray: 69.73332977294922px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.12s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.4000000000000004s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.12s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.4000000000000004s;
+}
+
+svg.active .svg-elem-27 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-28 {
+  stroke-dashoffset: 108.39526282399392px;
+  stroke-dasharray: 108.39526282399392px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.2399999999999998s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.5s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.2399999999999998s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.5s;
+}
+
+svg.active .svg-elem-28 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-29 {
+  stroke-dashoffset: 108.39526282399392px;
+  stroke-dasharray: 108.39526282399392px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.36s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.6000000000000005s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.36s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.6000000000000005s;
+}
+
+svg.active .svg-elem-29 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-30 {
+  stroke-dashoffset: 108.39526282399392px;
+  stroke-dasharray: 108.39526282399392px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.48s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.7s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.48s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.7s;
+}
+
+svg.active .svg-elem-30 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-31 {
+  stroke-dashoffset: 97.78939819335938px;
+  stroke-dasharray: 97.78939819335938px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.5999999999999996s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.8s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.5999999999999996s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.8s;
+}
+
+svg.active .svg-elem-31 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-32 {
+  stroke-dashoffset: 97.78939819335938px;
+  stroke-dasharray: 97.78939819335938px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.7199999999999998s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.9000000000000004s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.7199999999999998s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.9000000000000004s;
+}
+
+svg.active .svg-elem-32 {
+  stroke-dashoffset: 0;
+}
+
+svg .svg-elem-33 {
+  stroke-dashoffset: 161.59290680236148px;
+  stroke-dasharray: 161.59290680236148px;
+  -webkit-transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.84s,
+                        fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 4s;
+          transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 3.84s,
+                fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 4s;
+}
+
+svg.active .svg-elem-33 {
+  stroke-dashoffset: 0;
+}
+</style>

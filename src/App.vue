@@ -8,6 +8,7 @@
         <v-container v-if="onload">
           <div class="onload">
             <vue-loading type="bubbles" color="#54BFD7" :size="{ width: '7vmax', height: '7vmax' }"></vue-loading>
+            <!--<Logo :active="true"></Logo>-->
             <p class="px-4">タスク情報を取得中...</p>
           </div>
         </v-container>
@@ -138,6 +139,7 @@ import { VueLoading } from 'vue-loading-template'
 import Drawer from './component/navigation_drawer'
 import Drawer2 from './component/bottom_navigation'
 import Bar from './component/app_bar'
+import Logo from './component/logo'
 
 export default {
   name: 'App',
@@ -149,7 +151,8 @@ export default {
     VueLoading,
     Drawer,
     Drawer2,
-    Bar
+    Bar,
+    Logo
   },
 
   mounted() {
@@ -227,9 +230,10 @@ export default {
   }
 
   .onload {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
   }
 </style>
