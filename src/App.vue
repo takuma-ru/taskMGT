@@ -90,14 +90,17 @@
       <v-alert
         light
         :value="app"
-        timemout="5000"
         dense
         dark
         elevation="4"
         border="left"
-        color="MY_yellow_dark"
         class="rounded-lg ml-4"
         transition="slide-x-transition"
+        v-touch="{
+          right: () => app = false,
+          left: () => app = false
+        }"
+        color="MY_yellow_dark"
         style="transform-origin: center right;"
       >
         <v-row align="center">
