@@ -69,18 +69,20 @@
         :class="`card${type} rounded-lg`"
       >
         <div class="px-4 py-4">
-          <div class="pb-4">
+          <div class="pb-4 text-center">
             <v-btn
               v-if="isphone"
               large
+              block
               text
               @click="dialog = false"
               class="px-0"
             >
+              <span>とじる</span><br>
               <v-icon
                 large
                 class="mr-1"
-              >mdi-chevron-left</v-icon>とじる
+              >mdi-chevron-down</v-icon>
             </v-btn>
           </div>
           <div class="px-4">
