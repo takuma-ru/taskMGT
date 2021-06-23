@@ -1,5 +1,5 @@
 <template>
-  <div style="width: auto">
+  <v-container fluid class="px-0">
     <v-row v-if="isauth" align="start" justify="space-between">
       <div class="earth_group">
         <img
@@ -117,7 +117,7 @@
         </div>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -216,6 +216,12 @@ export default {
 </script>
 
 <style scoped>
+  .page_container {
+    position: relative;
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+  }
+
   .main_view {
     min-height: calc(95vh - 64px);
   }

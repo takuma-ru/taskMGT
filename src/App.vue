@@ -211,16 +211,15 @@ export default {
 </script>
 
 <style>
-  #app {
+  body {
     font-family: 'Noto Sans JP', sans-serif;
     -ms-overflow-style: none;
     overflow-scrolling: touch;
     scrollbar-width: none;
   }
 
-  #app::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     display:none;
-    width: 0%;
   }
 
 
