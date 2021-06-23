@@ -20,7 +20,7 @@ export default new Vuex.Store({
     check: false,
     task: [],
     namelist: ["目標", "完了"],
-    first: false,
+    tutorial: false,
     onload: false,
     update: false,
   },
@@ -53,14 +53,14 @@ export default new Vuex.Store({
     planetdata(state) {
       return state.planetdata
     },
-    first(state) {
-      return state.first
-    },
     onload(state) {
       return state.onload
     },
     update(state) {
       return state.update
+    },
+    tutorial(state) {
+      return state.tutorial
     }
   },
 
@@ -95,14 +95,14 @@ export default new Vuex.Store({
     planetdataChange(state, data) {
       state.planetdata = data
     },
-    firstChange(state, bool) {
-      state.first = bool
-    },
     onloadChange(state, bool){
       state.onload = bool
     },
     updateChange(state, bool) {
       state.update = bool
+    },
+    tutorialChange(state, bool) {
+      state.tutorial = bool
     }
   },
 
@@ -192,7 +192,6 @@ export default new Vuex.Store({
       .then((doc) => {
         if(doc.data() != undefined){
           commit('planetdataChange', doc.data())
-          commit('firstChange', false)
           console.log('Planet data GetSuccess')
         }else{
           firestore.collection('tasks').doc(uid).collection("Data").doc("Planet").set({
@@ -204,7 +203,6 @@ export default new Vuex.Store({
         }
       }).catch((error) => {
         console.error("Error getting cached document:", error);
-        commit('firstChange', true)
       });
     },
 

@@ -13,8 +13,16 @@
     <v-divider dark vertical inset class="mx-4"></v-divider>
 
     <div>
-      <v-list-item dark v-if="isauth" class="px-0">
-        <v-list-item-avatar>
+      <v-list-item
+        dark
+        v-if="isauth"
+        class="px-0 py-0"
+      >
+        <v-list-item-avatar
+          @click="$router.push({ name: 'Setting' })"
+          :ripple="{ center: true }"
+          style="cursor: pointer"
+        >
           <v-img :src="userdata.photoURL" />
         </v-list-item-avatar>
         <v-list-item-content class="py-0">

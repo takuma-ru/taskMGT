@@ -19,20 +19,27 @@
 
           <v-row v-else-if="!isauth" justify="center" align="center" style="color: white">
             <h1>ログインすることで利用できます</h1>
+            <v-col cols="12" align="center" class="mt-4">
+              <h4>初めての方はこちらのチュートリアルをおすすめします</h4>
+              <Tutorial></Tutorial>
+            </v-col>
+
             <v-col cols="12" align="center">
-              <v-btn depressed dark color="MY_success" @click="signIn">
+              <h4>既に使い方が分かっている方</h4>
+              <v-btn
+                dark
+                depressed
+                color="MY_success"
+                class="my-2"
+                @click="signIn"
+              >
                 <v-icon class="mr-2">mdi-google</v-icon>Googleアカウントでログイン
               </v-btn>
             </v-col>
-            <v-col cols="12" align="center">
-              <v-btn depressed dark color="MY_success" to="/about">
-                <v-icon class="mr-2">mdi-information-outline</v-icon>このアプリは何？
-              </v-btn>
-            </v-col>
-            <v-col align="center">
-              <h2 class="pb-2">このアプリを利用する際の注意事項</h2>
-              <p class="gray--text">このサービスは現在<strong class="white--text">ベータテスト中</strong>です。<br>
-                ログインしてタスクの追加や削除は行えますが、予告なく保存されたタスクデータ、ユーザーデータを削除する場合がございます。</p>
+            <v-col align="center" class="mt-2">
+              <h4 class="pb-2">このアプリを利用する際の注意事項</h4>
+              <p>このアプリを使用する際に使うGoogleアカウントの情報はこのアプリ内だけで利用します。それ以外の目的で使用することは一切ありません。</p>
+              <p>今後のアップデートにより過去のタスク内容が変更・削除される恐れがあります。ご了承の上ご利用ください。</p>
             </v-col>
           </v-row>
 
@@ -140,6 +147,7 @@ import Drawer from './component/navigation_drawer'
 import Drawer2 from './component/bottom_navigation'
 import Bar from './component/app_bar'
 import Logo from './component/logo'
+import Tutorial from './component/tutorial.vue'
 
 export default {
   name: 'App',
@@ -152,7 +160,8 @@ export default {
     Drawer,
     Drawer2,
     Bar,
-    Logo
+    Logo,
+    Tutorial
   },
 
   mounted() {
@@ -174,6 +183,9 @@ export default {
     },
     update() {
       return this.$store.getters.update
+    },
+    tutorial() {
+      return this.$store.getters.tutorial
     }
   },
 
@@ -189,6 +201,9 @@ export default {
     },
     reload() {
       this.$store.commit('updateChange', false)
+    },
+    tutorialChange(bool) {
+      this.$store.commit('tutorialChange', bool)
     }
   },
 

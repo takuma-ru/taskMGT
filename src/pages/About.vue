@@ -10,23 +10,8 @@
     <div class="pb-4">
       <h3 class="py-2">始め方</h3>
       <div class="px-4">
-        <ol>
-          <li>googleアカウントを使ってログインします。<br>
-            <v-btn
-              depressed
-              :disabled="isauth"
-              dark
-              color="MY_success"
-              class="my-2"
-              @click="signIn"
-            >
-              <v-icon small class="mx-2 my-2">mdi-google</v-icon>Googleアカウントでログイン
-            </v-btn>
-          </li>
-          <li>
-
-          </li>
-        </ol>
+        こちらのチュートリアルから使い方を確認できます。<br>
+        <Tutorial></Tutorial>
       </div>
     </div>
 
@@ -52,7 +37,14 @@
 </template>
 
 <script>
+import Tutorial from '../component/tutorial.vue'
+
 export default {
+
+  components: {
+    Tutorial
+  },
+
   computed: {
     isauth() {
       return this.$store.getters.isauth

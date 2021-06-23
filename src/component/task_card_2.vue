@@ -1,7 +1,8 @@
 <template>
   <v-container>
     <v-card
-      dark
+      :light="light"
+      :dark="!light"
       flat
       color="transparent"
       class="rounded-lg"
@@ -17,7 +18,8 @@
     <v-dialog
       v-model="dialog"
       persistent
-      :fullscreen="isphone"
+      :fullscreen="isphone"   
+      :transition="isphone? `dialog-bottom-transition` : `dialog-transition`"
       max-width="800px"
     >
       <v-card light :class="`card ${ isphone? null : 'rounded-lg' }`">
@@ -338,6 +340,10 @@ export default {
     sheet: false,
     tag_selected: [],
   }),
+
+  props: [
+    'light'
+  ],
 
   computed: {
     isphone() {

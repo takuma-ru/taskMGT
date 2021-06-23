@@ -58,6 +58,7 @@
       light
       v-model="dialog"
       :fullscreen="isphone"
+      :transition="isphone? `dialog-bottom-transition` : `dialog-transition`"
       max-width="800px"
     >
       <v-card light :class="`card${type} rounded-lg`">
