@@ -18,11 +18,17 @@
     <v-dialog
       v-model="dialog"
       persistent
-      :fullscreen="isphone"   
+      :fullscreen="isphone"
       :transition="isphone? `dialog-bottom-transition` : `dialog-transition`"
       max-width="800px"
     >
-      <v-card light :class="`card ${ isphone? null : 'rounded-lg' }`">
+      <v-card
+        light
+        v-touch="{
+          down: () => swipe()
+        }"
+        :class="`card ${ isphone? null : 'rounded-lg' }`"
+      >
         <div class="px-4 py-4">
           <div class="pb-2">
             <v-btn
@@ -379,6 +385,9 @@ export default {
   },
 
   methods: {
+    swipe() {
+      this.dialog = false
+    },
     DtoS(time){//UNIX時間 => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"

@@ -213,11 +213,16 @@ export default {
 <style>
   #app {
     font-family: 'Noto Sans JP', sans-serif;
+    -ms-overflow-style: none;
+    overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  ::-webkit-scrollbar {
-    width: 0px;
+  #app::-webkit-scrollbar {
+    display:none;
+    width: 0%;
   }
+
 
   .v-main__wrap {
     flex: 1 1 auto;

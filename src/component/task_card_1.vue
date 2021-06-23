@@ -61,7 +61,13 @@
       :transition="isphone? `dialog-bottom-transition` : `dialog-transition`"
       max-width="800px"
     >
-      <v-card light :class="`card${type} rounded-lg`">
+      <v-card
+        light
+        v-touch="{
+          down: () => swipe()
+        }"
+        :class="`card${type} rounded-lg`"
+      >
         <div class="px-4 py-4">
           <div class="pb-4">
             <v-btn
@@ -289,6 +295,9 @@ export default {
   methods: {
     Log(){
       console.log("bdclick")
+    },
+    swipe() {
+      this.dialog = false
     },
     Complete(){
       this.temporary_data.group = '完了'

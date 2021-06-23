@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: auto">
     <v-row v-if="isauth" align="start" justify="space-between">
       <div class="earth_group">
         <img
