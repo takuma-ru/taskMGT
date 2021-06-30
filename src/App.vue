@@ -92,6 +92,7 @@
         :value="app"
         dense
         dark
+        dismissible
         elevation="4"
         border="left"
         class="rounded-lg ml-4"
@@ -119,6 +120,7 @@
             >
               <span class="MY_yellow_dark--text">Playストアで入手</span>
             </v-btn>
+
           </v-col>
         </v-row>
       </v-alert>

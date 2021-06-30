@@ -17,7 +17,6 @@
 
     <v-dialog
       v-model="dialog"
-      persistent
       :fullscreen="isphone"
       :transition="isphone? `dialog-bottom-transition` : `dialog-transition`"
       max-width="800px"

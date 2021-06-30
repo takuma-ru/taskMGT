@@ -12,13 +12,13 @@
         @click="dialog = true"
       >
         <v-card-title class="py-2">
-          <div style="width: 100%; height: 3vh;">
+          <div class="py-1" style="width: 100%;">
             <v-chip
               v-for="item in data.tag"
               :key="item"
               dark
               :color="tags_group[item].color"
-              class="mr-2 py-1"
+              class="mr-2"
               style="height: 1vh; width: 2vw"
             >
             </v-chip>
