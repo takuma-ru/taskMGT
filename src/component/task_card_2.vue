@@ -345,11 +345,11 @@ export default {
     editingIndex: -1,
     tag_items: [
       {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
-      {name: 'やろうと思えば...', color: '#AC77FF', description: 'そんな難しくない'},
-      {name: '難しい', color: '#F077FF', description: 'これやるの大変'},
       {name: '優先度：高', color: 'MY_red', description: '至急完了させる必要がある'},
       {name: '優先度：中', color: 'MY_yellow_dark', description: 'やらなきゃいけないやつ'},
       {name: '優先度：低', color: 'MY_green_dark', description: '別に急ぐ必要はないはず'},
+      {name: 'やろうと思えば...', color: '#AC77FF', description: 'そんな難しくない'},
+      {name: '難しい', color: '#F077FF', description: 'これやるの大変'},
     ],
     tag_model: [],
     tag_search: null,
