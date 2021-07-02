@@ -24,17 +24,17 @@
             </v-chip>
           </div>
           <span>{{data.title}}</span>
-          <span v-if="data.group == '完了'" class="ml-4 gray--text text-subtitle-2">
-            <v-icon>
-              mdi-check
-            </v-icon>
-            完了済み
-          </span>
           <v-spacer/>
         </v-card-title>
         <v-card-actions class="pt-0">
+            <span v-if="data.group == '完了'" class="px-2 font-weight-bold" style="color: #79DFA1">
+              <v-icon class="pb-1" color="#79DFA1">
+                mdi-check
+              </v-icon>
+              完了済み
+            </span>
             <span
-              v-if="data.date_end.seconds == today"
+              v-else-if="data.date_end.seconds == today"
               class="px-2 font-weight-bold"
               style="color: #EF6786"
             >
