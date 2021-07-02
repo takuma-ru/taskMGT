@@ -44,6 +44,8 @@
 
               <v-divider class="mx-2" />
 
+              <Card02 v-if="item == '目標'" />
+
               <div v-for="item_2 in task" :key="item_2.id">
                 <Card01
                   v-if="item_2.group == item"
@@ -52,8 +54,6 @@
                   class="item"
                 ></Card01>
               </div>
-
-              <Card02 v-if="item == '目標'" />
 
             </v-card>
           </v-col>

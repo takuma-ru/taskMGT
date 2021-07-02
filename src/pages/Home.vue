@@ -81,7 +81,7 @@
         <div id="task_list">
           <v-card flat color="transparent">
             <v-card-title class="py-2">
-              <strong class="text-h5">今日までの目標</strong>
+              <strong class="text-h5">目標一覧</strong>
               <v-spacer />
               <v-tooltip bottom right>
                 <template v-slot:activator="{ on, attrs }">
@@ -101,6 +101,8 @@
             <v-divider class="mx-2" />
 
             <div style="max-height: 70vh; overflow:auto;">
+              <Card02 />
+
               <div v-for="item in task" :key="item.id">
                 <Card01
                   v-if="item.group == '目標'"
@@ -109,9 +111,6 @@
                   class="item"
                 ></Card01>
               </div>
-
-              <Card02 />
-
             </div>
           </v-card>
         </div>

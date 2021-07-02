@@ -75,47 +75,51 @@
           <v-divider class="mx-2"/>
 
           <v-card-text class="py-4 pb-0 black--text">
-            <v-dialog
-              ref="menu1"
-              v-model="menu1"
-              :return-value.sync="sd"
-              persistent
-              width="290px"
+            <v-bottom-sheet
+              light
+              v-model="sd_sheet"
+              inset
+              max-width="320px"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
                   v-model="sd"
                   color="MY_blue"
                   label="開始日"
-                  prepend-icon="mdi-calendar-start"
+                  prepend-icon="mdi-calendar-end"
                   readonly
                   v-bind="attrs"
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="sd" scrollable color="MY_blue" class="rounded-lg">
-                <v-btn
-                  dark
-                  depressed
-                  color="MY_red"
-                  @click="menu1 = false"
-                >とじる</v-btn>
-                <v-spacer />
-                <v-btn
-                  dark
-                  depressed
-                  color="MY_blue"
-                  @click="$refs.menu1.save(sd); StoD(sd)"
-                >OK</v-btn>
-              </v-date-picker>
-            </v-dialog>
+              <v-sheet
+                class="px-4 py-4 rounded-t-lg"
+              >
+                <div class="top_mark"></div>
+                <v-card-title class="font-weight-black">
+                  開始日
+                </v-card-title>
 
-            <v-dialog
-              ref="menu2"
-              v-model="menu2"
-              :return-value.sync="ed"
-              persistent
-              width="290px"
+                <v-divider class="mx-2 mb-4" />
+
+                <v-checkbox
+                  disabled
+                  v-model="sd"
+                  label="設定しない(実装中)"
+                  color="MY_blue"
+                  value="設定しない"
+                  hide-details
+                  class="py-2"
+                ></v-checkbox>
+                <v-date-picker light v-model="sd" scrollable color="MY_blue" />
+              </v-sheet>
+            </v-bottom-sheet>
+
+            <v-bottom-sheet
+              light
+              v-model="ed_sheet"
+              inset
+              max-width="320px"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
@@ -128,20 +132,28 @@
                   v-on="on"
                 ></v-text-field>
               </template>
-              <v-date-picker light v-model="ed" scrollable color="MY_blue" class="rounded-lg">
-                <v-btn
-                  dark
-                  depressed
-                  color="MY_red"
-                  @click="menu2 = false">とじる</v-btn>
-                <v-spacer />
-                <v-btn
-                  dark
-                  depressed
+              <v-sheet
+                class="px-4 py-4 rounded-t-lg"
+              >
+                <div class="top_mark"></div>
+                <v-card-title class="font-weight-black">
+                  終了日
+                </v-card-title>
+
+                <v-divider class="mx-2 mb-4" />
+
+                <v-checkbox
+                  disabled
+                  v-model="ed"
+                  label="設定しない(実装中)"
                   color="MY_blue"
-                  @click="$refs.menu2.save(ed); StoD(ed)">OK</v-btn>
-              </v-date-picker>
-            </v-dialog>
+                  value="設定しない"
+                  hide-details
+                  class="py-2"
+                ></v-checkbox>
+                <v-date-picker light v-model="ed" scrollable color="MY_blue" />
+              </v-sheet>
+            </v-bottom-sheet>
           </v-card-text>
 
           <v-divider class="mx-2"/>
@@ -180,9 +192,12 @@
               <v-sheet
                 class="px-4 py-4 rounded-t-lg"
               >
-                <v-card-title>
+                <div class="top_mark"></div>
+                <v-card-title class="font-weight-black">
                   タグの追加
                 </v-card-title>
+
+                <v-divider class="mx-2" />
 
                 <v-card-text>
                   <v-list rounded dense>
@@ -243,6 +258,7 @@
                 </v-card-text>
 
                 <v-divider class="mx-2 mb-4" />
+
                 <v-card-actions>
                   <v-spacer />
                   <v-btn
@@ -305,13 +321,6 @@
   </v-container>
 </template>
 
-<style>
-.card{
-  background-image: url("../assets/card-back2.svg");
-  background-position: top right;
-}
-</style>
-
 <script>
 export default {
   data: () => ({
@@ -324,6 +333,8 @@ export default {
     menu1: false,
     menu2: false,
     progress: null,
+    sd_sheet: false,
+    ed_sheet: false,
     sd: new Date().toISOString().substr(0, 10),
     ed: new Date().toISOString().substr(0, 10),
     type: null,
@@ -332,12 +343,10 @@ export default {
     colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
     editing: null,
     editingIndex: -1,
-    tag_items:[
-      {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
-      {name: '緊急', color: 'MY_red', description: '至急完了させる必要がある'},
-    ],
     tag_items: [
       {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
+      {name: 'やろうと思えば...', color: '#AC77FF', description: 'そんな難しくない'},
+      {name: '難しい', color: '#F077FF', description: 'これやるの大変'},
       {name: '優先度：高', color: 'MY_red', description: '至急完了させる必要がある'},
       {name: '優先度：中', color: 'MY_yellow_dark', description: 'やらなきゃいけないやつ'},
       {name: '優先度：低', color: 'MY_green_dark', description: '別に急ぐ必要はないはず'},
@@ -404,6 +413,7 @@ export default {
       this.text = ''
       this.sd = new Date().toISOString().substr(0, 10)
       this.ed = new Date().toISOString().substr(0, 10)
+      this.tag_selected = []
     },
     addTask(){
       this.StoD(this.sd)
@@ -428,3 +438,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.card{
+  background-image: url("../assets/card-back2.svg");
+  background-position: top right;
+}
+.top_mark {
+  width: 35px;
+  height: 0.7vh;
+  margin-left: calc(50% - 17.5px);
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px;
+}
+</style>

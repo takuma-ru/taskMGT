@@ -128,11 +128,20 @@
               width="400"
             >
               <v-card>
-                <v-img :src="require('../assets/card-back3.svg')" max-height="140px" position="left: 0">
+                <v-img
+                  :src="require('../assets/card-back2.svg')"
+                  max-height="180px"
+                  position="left: 0"
+                  class="px-4 py-4 rounded-lg"
+                  style="background-color: white"
+                >
                   <v-card-text class="black--text">
-                    <span class="mb-0 marker_red_futo">このタスクを削除しますか？</span><br>
+                    <span class="marker_red_futo">このタスクを削除しますか？</span><br>
                     ※削除すると元に戻すことはできません
                   </v-card-text>
+
+                  <v-divider light class="mx-2 mb-4" />
+
                   <v-card-actions>
                     <v-btn
                       dark
@@ -238,10 +247,12 @@ export default {
     dialog2: false,
     ex4: null,
     tags_group: [
-      {name: '簡単', color: 'MY_blue'},
-      {name: '優先度：高', color: 'MY_red'},
-      {name: '優先度：中', color: 'MY_yellow_dark'},
-      {name: '優先度：低', color: 'MY_green_dark'},
+      {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
+      {name: 'やろうと思えば...', color: '#AC77FF', description: 'そんな難しくない'},
+      {name: '難しい', color: '#F077FF', description: 'これやるの大変'},
+      {name: '優先度：高', color: 'MY_red', description: '至急完了させる必要がある'},
+      {name: '優先度：中', color: 'MY_yellow_dark', description: 'やらなきゃいけないやつ'},
+      {name: '優先度：低', color: 'MY_green_dark', description: '別に急ぐ必要はないはず'},
     ],
   }),
 
