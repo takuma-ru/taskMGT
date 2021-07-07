@@ -217,6 +217,7 @@ export default {
 
 <style>
   body {
+    overscroll-behavior-y: none;
     font-family: 'Noto Sans JP', sans-serif;
     -ms-overflow-style: none;
     overflow-scrolling: touch;
