@@ -216,8 +216,10 @@ export default {
 </script>
 
 <style>
-  body {
+  html {
     overscroll-behavior-y: none;
+  }
+  body {
     font-family: 'Noto Sans JP', sans-serif;
     -ms-overflow-style: none;
     scrollbar-width: none;
