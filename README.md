@@ -32,7 +32,15 @@ firebase `firebase deploy`<br>
 https://taskmgt-fd097.firebaseapp.com/<br>
 
 
-## Play Store
+## PlayStore
 **TWA**の技術を使いWebアプリをネイティブにしました。<br>
 **オープンベータテスト実施中**<br>
 https://play.google.com/store/apps/details?id=takumaru.nekoo.taskmgt
+
+## ScreenShot
+ホーム画面
+![CHISK 2021_07_12 14_02_13](https://user-images.githubusercontent.com/49429291/125233658-02c43500-e31a-11eb-860e-84093d1bba77.png)
+タスク詳細
+![CHISK 2021_07_12 14_03_23](https://user-images.githubusercontent.com/49429291/125233672-08217f80-e31a-11eb-988a-0e3a4e33e83a.png)
+タスク追加
+![CHISK 2021_07_12 14_02_24](https://user-images.githubusercontent.com/49429291/125233676-08ba1600-e31a-11eb-8362-5918598bc2db.png)
