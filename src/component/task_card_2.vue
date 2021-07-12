@@ -24,7 +24,7 @@
       <v-card
         light
         v-touch="{
-          down: () => swipe()
+
         }"
         :class="`card ${ isphone? null : 'rounded-lg' }`"
       >
