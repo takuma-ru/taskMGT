@@ -75,27 +75,24 @@
           <v-divider class="mx-2"/>
 
           <v-card-text class="py-4 pb-0 black--text">
-            <v-bottom-sheet
-              light
+
+            <v-text-field
+              v-model="sd"
+              @click="sd_sheet = true"
+              color="MY_blue"
+              label="開始日"
+              prepend-icon="mdi-calendar-end"
+              readonly
+            ></v-text-field>
+            <swipemodal
               v-model="sd_sheet"
-              inset
-              max-width="320px"
+              height="auto"
+              width="350px"
+              radius="10px"
             >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="sd"
-                  color="MY_blue"
-                  label="開始日"
-                  prepend-icon="mdi-calendar-end"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
-                ></v-text-field>
-              </template>
               <v-sheet
-                class="px-4 py-4 rounded-t-lg"
+                class="px-0 py-0 rounded-t-lg"
               >
-                <div class="top_mark"></div>
                 <v-card-title class="font-weight-black">
                   開始日
                 </v-card-title>
@@ -111,31 +108,33 @@
                   hide-details
                   class="py-2"
                 ></v-checkbox>
-                <v-date-picker light v-model="sd" scrollable color="MY_blue" />
-              </v-sheet>
-            </v-bottom-sheet>
-
-            <v-bottom-sheet
-              light
-              v-model="ed_sheet"
-              inset
-              max-width="320px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="ed"
+                <v-date-picker
+                  light
+                  v-model="sd"
+                  scrollable
                   color="MY_blue"
-                  label="終了日"
-                  prepend-icon="mdi-calendar-end"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
-                ></v-text-field>
-              </template>
+                  width="100%"
+                />
+              </v-sheet>
+            </swipemodal>
+
+            <v-text-field
+              v-model="ed"
+              @click="ed_sheet = true"
+              color="MY_blue"
+              label="終了日"
+              prepend-icon="mdi-calendar-end"
+              readonly
+            ></v-text-field>
+            <swipemodal
+              v-model="ed_sheet"
+              height="auto"
+              width="350px"
+              radius="10px"
+            >
               <v-sheet
-                class="px-4 py-4 rounded-t-lg"
+                class="px-0 py-0 rounded-t-lg"
               >
-                <div class="top_mark"></div>
                 <v-card-title class="font-weight-black">
                   終了日
                 </v-card-title>
@@ -151,9 +150,15 @@
                   hide-details
                   class="py-2"
                 ></v-checkbox>
-                <v-date-picker light v-model="ed" scrollable color="MY_blue" />
+                <v-date-picker
+                  light
+                  v-model="ed"
+                  scrollable
+                  color="MY_blue"
+                  width="100%"
+                />
               </v-sheet>
-            </v-bottom-sheet>
+            </swipemodal>
           </v-card-text>
 
           <v-divider class="mx-2"/>
@@ -169,30 +174,28 @@
             >
               {{ tag_items[item].name }}
             </v-chip>
-            <v-bottom-sheet
-              light
+
+            <v-btn
               v-model="sheet"
-              inset
-              max-width="800px"
+              @click="sheet = true"
+              rounded
+              depressed
+              dark
+              color="grey darken-2"
+              class="mx-1"
             >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  v-bind="attrs"
-                  v-on="on"
-                  rounded
-                  depressed
-                  dark
-                  color="grey darken-2"
-                  class="mx-1"
-                >
-                  <v-icon >mdi-plus</v-icon>
-                  <span>タグを追加</span>
-                </v-btn>
-              </template>
+              <v-icon >mdi-plus</v-icon>
+              <span>タグを追加</span>
+            </v-btn>
+            <swipemodal
+              v-model="sheet"
+              height="auto"
+              maxwidth="800px"
+              radius="10px"
+            >
               <v-sheet
                 class="px-4 py-4 rounded-t-lg"
               >
-                <div class="top_mark"></div>
                 <v-card-title class="font-weight-black">
                   タグの追加
                 </v-card-title>
@@ -271,7 +274,7 @@
                   </v-btn>
                 </v-card-actions>
               </v-sheet>
-            </v-bottom-sheet>
+            </swipemodal>
           </v-card-text>
 
           <v-divider class="mx-2 mb-4" />
@@ -322,6 +325,8 @@
 </template>
 
 <script>
+import swipemodal from '../component/Swipemodal.vue'
+
 export default {
   data: () => ({
     dialog: false,
@@ -356,6 +361,10 @@ export default {
     sheet: false,
     tag_selected: [],
   }),
+
+  components: {
+    swipemodal
+  },
 
   props: [
     'light'

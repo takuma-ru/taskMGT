@@ -8,5 +8,9 @@ module.exports = {
   pwa: {
     themeColor: '#6473EB',
     msTileColor: '#6473EB'
+  },
+
+  devServer: {
+    port: 3000
   }
 }
