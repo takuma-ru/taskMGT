@@ -23,9 +23,6 @@
     >
       <v-card
         light
-        v-touch="{
-
-        }"
         :class="`card ${ isphone? null : 'rounded-lg' }`"
       >
         <div class="px-4 py-4">
@@ -190,7 +187,8 @@
             <swipemodal
               v-model="sheet"
               height="auto"
-              maxwidth="800px"
+              width="800px"
+              maxwidth="100vw"
               radius="10px"
             >
               <v-sheet

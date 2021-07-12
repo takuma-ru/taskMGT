@@ -69,19 +69,19 @@ export default {
     fullscreen: Boolean,
     height: {
       type: String,
-      default: 'auto'
+      default: '100vh'
     },
     maxheight: {
       type: String,
-      default: '100vh'
+      default: null
     },
     width: {
       type: String,
-      default: 'auto'
+      default: '100vw'
     },
     maxwidth: {
       type: String,
-      default: '100vw'
+      default: null
     },
     color: {
       type: String,
@@ -326,8 +326,6 @@ body.modal-open {
 }
 
 #modal_contents {
-  width: 100%;
-  height: 100%;
   padding: 2vh 2vw;
 }
 
