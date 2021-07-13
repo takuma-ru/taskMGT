@@ -44,13 +44,18 @@
           </div>
           <v-card-title class="">
             <v-text-field
+              ref="title"
               v-model="title"
               label="タイトル"
-              placeholder="例).タスク01"
               color="MY_blue"
+              placeholder="例).タスク01"
               prepend-icon="mdi-format-title"
-              :counter="15"
+              :counter="30"
               class="pt-0"
+              :rules="[
+                () => !!title || '入力してください',
+                () => !!title && title.length <= 30 || '文字数制限(30文字)を超過しています',
+              ]"
             ></v-text-field>
           </v-card-title>
 
@@ -58,14 +63,19 @@
 
           <v-card-text class="">
             <v-textarea
+              ref="text"
               v-model="text"
               row-height="20"
-              rows="3"
-              :counter="150"
-              placeholder="例).何かする"
+              rows="4"
               color="MY_blue"
+              placeholder="例).何かする"
               prepend-icon="mdi-text"
+              :counter="150"
               label="詳細"
+              :rules="[
+                () => !!text || '入力してください',
+                () => !!text && text.length <= 150 || '文字数制限(150文字)を超過しています',
+              ]"
             />
           </v-card-text>
 
@@ -173,8 +183,8 @@
             </v-chip>
 
             <v-btn
-              v-model="sheet"
-              @click="sheet = true"
+              v-model="tag_sheet"
+              @click="tag_sheet = true"
               rounded
               depressed
               dark
@@ -185,10 +195,10 @@
               <span>タグを追加</span>
             </v-btn>
             <swipemodal
-              v-model="sheet"
+              v-model="tag_sheet"
               height="auto"
               width="800px"
-              maxwidth="100vw"
+              max-width="100vw"
               radius="10px"
             >
               <v-sheet
@@ -266,7 +276,7 @@
                     dark
                     depressed
                     color="MY_blue"
-                    @click="sheet = false"
+                    @click="tag_sheet = false"
                   >
                     <v-icon class="mr-1">mdi-check</v-icon>OK
                   </v-btn>
@@ -328,24 +338,14 @@ import swipemodal from '../component/Swipemodal.vue'
 export default {
   data: () => ({
     dialog: false,
+    formHasErrors: false,
+    group: '目標',
     title: null,
     text: null,
-    date_start: null,
-    date_end: null,
-    group: '目標',
-    menu1: false,
-    menu2: false,
-    progress: null,
     sd_sheet: false,
     ed_sheet: false,
     sd: new Date().toISOString().substr(0, 10),
     ed: new Date().toISOString().substr(0, 10),
-    type: null,
-    activator: null,
-    attach: null,
-    colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
-    editing: null,
-    editingIndex: -1,
     tag_items: [
       {name: '簡単', color: 'MY_blue', description: '簡単なタスク'},
       {name: '優先度：高', color: 'MY_red', description: '至急完了させる必要がある'},
@@ -354,9 +354,7 @@ export default {
       {name: 'やろうと思えば...', color: '#AC77FF', description: 'そんな難しくない'},
       {name: '難しい', color: '#F077FF', description: 'これやるの大変'},
     ],
-    tag_model: [],
-    tag_search: null,
-    sheet: false,
+    tag_sheet: false,
     tag_selected: [],
   }),
 
@@ -369,6 +367,13 @@ export default {
   ],
 
   computed: {
+    form() {
+      return {
+        title: this.title,
+        text: this.text,
+      }
+    },
+
     isphone() {
       return this.$store.getters.isphone
     },
@@ -381,36 +386,15 @@ export default {
   },
 
   watch: {
-    model (val, prev) {
-      if (val.length === prev.length) return
-
-      this.model = val.map(v => {
-        if (typeof v === 'string') {
-          v = {
-            text: v,
-            color: this.colors[this.nonce - 1],
-          }
-
-          this.items.push(v)
-
-          this.nonce++
-        }
-
-        return v
-      })
-    },
   },
 
   methods: {
-    swipe() {
-      this.dialog = false
-    },
-    DtoS(time){//UNIX時間 => YYYY年MM月DD日
+    DtoS(time){//UNIX => YYYY年MM月DD日
       var date = new Date(time * 1000)
       var date_s = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日"
       return date_s
     },
-    StoD(date){//YYYY年MM月DD日 => UNIX時間
+    StoD(date){//YYYY年MM月DD日 => UNIX
       date = Date.parse(date) * 0.001
       console.log("StoD", date)
       return date
@@ -423,9 +407,19 @@ export default {
       this.tag_selected = []
     },
     addTask(){
+      this.formHasErrors = false
+
+      Object.keys(this.form).forEach(f => {
+        if (!this.form[f]) this.formHasErrors = true
+
+        this.$refs[f].validate(true)
+      })
+
+      console.log(this.formHasErrors)
+
       this.StoD(this.sd)
       this.StoD(this.ed)
-      if(this.sd <= this.ed){
+      if(!this.formHasErrors && this.sd <= this.ed) {
         console.log("Adding data...")
         this.$store.dispatch('add_task', {
           end: this.ed,
