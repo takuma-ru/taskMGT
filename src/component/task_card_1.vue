@@ -109,18 +109,22 @@
             <v-spacer/>
 
             <v-btn
-              icon
-              class="mr-4"
+              rounded
+              depressed
+              color="#00000000"
+              class="mr-0"
               @click="editing = true; Edit()"
             >
-              <v-icon>mdi-pencil-outline</v-icon><!--<span class="ml-1 font-weight-bold text-subtitle-2">編集</span>-->
+              <v-icon>mdi-pencil-outline</v-icon><span class="ml-1 mt-1 text-subtitle-2">編集</span>
             </v-btn>
 
             <v-btn
-              icon
+              rounded
+              depressed
+              color="#00000000"
               @click="dialog2 = true"
             >
-              <v-icon>mdi-delete-outline</v-icon><!--<span class="ml-1 font-weight-bold text-subtitle-2">削除</span>-->
+              <v-icon>mdi-delete-outline</v-icon><span class="ml-1 mt-1 text-subtitle-2">削除</span>
             </v-btn>
 
             <v-dialog
