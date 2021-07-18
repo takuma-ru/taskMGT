@@ -103,13 +103,13 @@
             <div style="max-height: 70vh; overflow:auto;">
               <Card02 />
 
-              <div v-for="item in task" :key="item.id">
-                <Card01
+              <div v-for="(item, index) in task" :key="item.id">
+                <card01
+                  v-model="task[index]"
                   v-if="item.group == '目標'"
-                  :data="item"
                   :type="item.group == '目標' ? 1 : 2"
                   class="item"
-                ></Card01>
+                ></card01>
               </div>
             </div>
           </v-card>

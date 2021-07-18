@@ -14,6 +14,7 @@ export default new Vuex.Store({
     deleting: false,
     completing: false,
     isauth: false,
+    appdata: {},
     userdata: {},
     progressdata: {},
     planetdata: {},
@@ -61,6 +62,9 @@ export default new Vuex.Store({
     },
     tutorial(state) {
       return state.tutorial
+    },
+    appdata(state) {
+      return state.appdata
     }
   },
 
@@ -103,10 +107,31 @@ export default new Vuex.Store({
     },
     tutorialChange(state, bool) {
       state.tutorial = bool
+    },
+    appdataChange(state, data) {
+      state.appdata = data
     }
   },
 
   actions: {
+    get_appdata({ commit }){
+      firestore.collection("appdata").doc("app_data").collection("jp").get()
+      .then((querySnapshot) => {
+        if(!querySnapshot.empty) {
+          console.log(querySnapshot)
+          querySnapshot.forEach((doc) => {
+            commit('appdataChange', {
+              version: doc.data().version,
+              release_note: doc.data().release_note,
+            })
+          })
+          console.log('App Data GetSuccess')
+        }else{
+          console.error("Not found :_(")
+        }
+      })
+    },
+
     async init({ commit }) {
       firebase.initializeApp(firebase.firebaseConfig);
     },
@@ -249,7 +274,8 @@ export default new Vuex.Store({
 
     change_task({ dispatch, commit }, {data, type}){
       data.completed = firebase.firestore.Timestamp.fromDate(new Date(data.completed))
-      console.log(data.completed)
+      data.date_start = firebase.firestore.Timestamp.fromDate(new Date(data.date_start))
+      data.date_end = firebase.firestore.Timestamp.fromDate(new Date(data.date_end))
       commit('completeChange',true)
       console.log("Now changing data...", data)
       firebase.auth().onAuthStateChanged(user => {
@@ -274,7 +300,7 @@ export default new Vuex.Store({
                 });
                 break;
 
-              case 3: //
+              case 3: //タスク内容を変更した場合
                 break;
 
             }

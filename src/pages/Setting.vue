@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="px-0">
     <h1 class="pb-3">設定</h1>
-    <v-subheader>アプリバージョン： ver.{{ this.$version }}</v-subheader>
+    <v-subheader>アプリバージョン： ver.{{ appdata.version }}</v-subheader>
 
     <v-row>
       <v-col cols="12">
@@ -126,6 +126,9 @@ export default {
     userdata() {
       return this.$store.getters.userdata
     },
+    appdata() {
+      return this.$store.getters.appdata
+    }
   },
 
   methods: {

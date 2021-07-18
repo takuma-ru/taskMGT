@@ -42,7 +42,7 @@
           cols="12"
         >
           <strong>takuma-ru</strong> - {{ new Date().getFullYear() }}<br>
-          ver. {{ this.$version }}
+          ver. {{ appdata.version }}
         </v-col>
       </v-footer>
   </v-navigation-drawer>
@@ -74,6 +74,9 @@ export default {
     isphone() {
       return this.$store.getters.isphone
     },
+    appdata() {
+      return this.$store.getters.appdata
+    }
   },
   methods: {
   }

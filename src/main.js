@@ -9,7 +9,7 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
-Vue.prototype.$version = '1.3.0'
+Vue.prototype.$version = '1.4.0'
 /*version: A.B.C
   A: 0 - alpha,beta. 1> - product
   B: major update

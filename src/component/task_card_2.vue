@@ -50,6 +50,8 @@
               color="MY_blue"
               placeholder="例).タスク01"
               prepend-icon="mdi-format-title"
+              filled
+              shaped
               :counter="30"
               class="pt-0"
               :rules="[
@@ -70,6 +72,8 @@
               color="MY_blue"
               placeholder="例).何かする"
               prepend-icon="mdi-text"
+              filled
+              shaped
               :counter="150"
               label="詳細"
               :rules="[
@@ -82,7 +86,6 @@
           <v-divider class="mx-2"/>
 
           <v-card-text class="py-4 pb-0 black--text">
-
             <v-text-field
               v-model="sd"
               @click="sd_sheet = true"
@@ -90,6 +93,8 @@
               label="開始日"
               prepend-icon="mdi-calendar-end"
               readonly
+              filled
+              shaped
             ></v-text-field>
             <swipemodal
               v-model="sd_sheet"
@@ -132,6 +137,8 @@
               label="終了日"
               prepend-icon="mdi-calendar-end"
               readonly
+              filled
+              shaped
             ></v-text-field>
             <swipemodal
               v-model="ed_sheet"
@@ -396,7 +403,7 @@ export default {
     },
     StoD(date){//YYYY年MM月DD日 => UNIX
       date = Date.parse(date) * 0.001
-      console.log("StoD", date)
+      console.log("StoD:", date)
       return date
     },
     init(){

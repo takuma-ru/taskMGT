@@ -56,7 +56,7 @@
     </v-main>
 
     <div
-      style="position: fixed; right: 4vw; bottom: calc(64px + 0.5%)"
+      style="position: fixed; right: 3vw; bottom: calc(64px + 0.5%)"
     >
       <v-alert
         light
@@ -71,19 +71,22 @@
         style="transform-origin: center right;"
       >
         <v-row align="center">
-          <v-col class="grow">
-            新しいバージョンに更新されました！アプリを開きなおしてください。
+          <v-col cols="12" class="grow">
+            <h2>
+              {{appdata.version}}に更新しました！
+            </h2>
+            <v-divider class="mx-0 my-1"/>
           </v-col>
-          <v-col class="shrink">
-            <v-btn
-              dark
-              depressed
-              rounded
-              color="white"
-              @click="reload"
-            >
-              <span class="MY_success--text font-weight-bold">OK</span>
-            </v-btn>
+          <v-col cols="12" class="grow py-1">
+            <h4 class="text-decoration-underline">
+              ※更新を適用される為にアプリを開きなおしてしてください
+            </h4>
+            <v-card-text>
+              <p class="mb-2">
+                リリースノート<br>
+              </p>
+              <p v-html="appdata.release_note" class="ml-3 mb-0"></p>
+            </v-card-text>
           </v-col>
         </v-row>
       </v-alert>
@@ -157,7 +160,7 @@ import Tutorial from './component/tutorial.vue'
 export default {
   name: 'App',
   data: () => ({
-    app :true
+    app: false
   }),
 
   components: {
@@ -172,6 +175,7 @@ export default {
   mounted() {
     this.$store.commit('updateChange', false)
     this.onAuth()
+    this.$store.dispatch('get_appdata')
     this.$store.dispatch('isphone')
     this.$router.push({ name: 'Home' })
   },
@@ -191,6 +195,9 @@ export default {
     },
     tutorial() {
       return this.$store.getters.tutorial
+    },
+    appdata() {
+      return this.$store.getters.appdata
     }
   },
 
