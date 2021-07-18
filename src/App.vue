@@ -83,7 +83,7 @@
             </h4>
             <v-card-text>
               <p class="mb-2">
-                リリースノート<br>
+                直近のリリースノート<br>
               </p>
               <p v-html="appdata.release_note" class="ml-3 mb-0"></p>
             </v-card-text>

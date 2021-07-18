@@ -274,8 +274,10 @@ export default new Vuex.Store({
 
     change_task({ dispatch, commit }, {data, type}){
       data.completed = firebase.firestore.Timestamp.fromDate(new Date(data.completed))
-      data.date_start = firebase.firestore.Timestamp.fromDate(new Date(data.date_start))
-      data.date_end = firebase.firestore.Timestamp.fromDate(new Date(data.date_end))
+      if(type == 3){
+        data.date_start = firebase.firestore.Timestamp.fromDate(new Date(data.date_start))
+        data.date_end = firebase.firestore.Timestamp.fromDate(new Date(data.date_end))
+      }
       commit('completeChange',true)
       console.log("Now changing data...", data)
       firebase.auth().onAuthStateChanged(user => {

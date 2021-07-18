@@ -659,9 +659,10 @@ export default {
     ChangeTask(type){
       console.log(this.temporary_data)
       this.StoD(this.temporary_data.completed)
-      this.temporary_data.date_start = this.StoD(this.sd) * 1000
-      this.temporary_data.date_end = this.StoD(this.ed) * 1000
-      console.log(this.temporary_data)
+      if(type == 3){
+        this.temporary_data.date_start = this.StoD(this.sd) * 1000
+        this.temporary_data.date_end = this.StoD(this.ed) * 1000
+      }
 
       if(this.temporary_data.date_start <= this.temporary_data.date_end){
         console.log("Changing data...")
