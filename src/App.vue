@@ -79,7 +79,7 @@
           </v-col>
           <v-col cols="12" class="grow py-1">
             <h4 class="text-decoration-underline">
-              ※更新を適用される為にアプリを開きなおしてしてください
+              ※更新を適用させる為にアプリを開きなおしてしてください
             </h4>
             <v-card-text>
               <p class="mb-2">

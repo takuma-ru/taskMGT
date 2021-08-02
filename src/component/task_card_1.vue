@@ -535,7 +535,8 @@
 </template>
 
 <script>
-import swipemodal from '../component/Swipemodal.vue'
+import swipemodal from 'nekoo_vue_swipemodal'
+import 'nekoo_vue_swipemodal/dist/swipemodal.css'
 
 export default {
   data: () => ({
