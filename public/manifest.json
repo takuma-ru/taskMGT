@@ -26,5 +26,28 @@
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#6473EB",
-  "theme_color": "#6473EB"
+  "theme_color": "#6473EB",
+  "screenshots": [
+    {
+     "src": "./img/screenshots/Screenshot_03.png",
+      "sizes": "1080 x 2400",
+      "type": "image/gif"
+    },
+    {
+      "src": "./img/screenshots/Screenshot_02.png",
+       "sizes": "1080 x 2400",
+       "type": "image/gif"
+     },
+     {
+      "src": "./img/screenshots/Screenshot_01.png",
+       "sizes": "1080 x 2400",
+       "type": "image/gif"
+     },
+     {
+      "src": "./img/screenshots/Screenshot_04.png",
+       "sizes": "1080 x 2400",
+       "type": "image/gif"
+     }
+  ],
+  "description": "楽しくタスクをこなしたい人向けのタスク管理アプリ。タスクをこなすごとにペンギンが増えていきます！"
 }
