@@ -30,22 +30,22 @@
   "screenshots": [
     {
      "src": "./img/screenshots/Screenshot_03.png",
-      "sizes": "1080 x 2400",
+      "sizes": "1080x2400",
       "type": "image/gif"
     },
     {
       "src": "./img/screenshots/Screenshot_02.png",
-       "sizes": "1080 x 2400",
+       "sizes": "1080x2400",
        "type": "image/gif"
      },
      {
       "src": "./img/screenshots/Screenshot_01.png",
-       "sizes": "1080 x 2400",
+       "sizes": "1080x2400",
        "type": "image/gif"
      },
      {
       "src": "./img/screenshots/Screenshot_04.png",
-       "sizes": "1080 x 2400",
+       "sizes": "1080x2400",
        "type": "image/gif"
      }
   ],
