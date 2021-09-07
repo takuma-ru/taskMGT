@@ -25,8 +25,8 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#6473EB",
-  "theme_color": "#6473EB",
+  "background_color": "#7786FF",
+  "theme_color": "#7786FF",
   "screenshots": [
     {
      "src": "./img/screenshots/Screenshot_03.png",
