@@ -50,6 +50,7 @@
      }
   ],
   "description": "楽しくタスクをこなしたい人向けのタスク管理アプリ。タスクをこなすごとにペンギンが増えていきます！",
+  "prefer_related_applications": true,
   "related_applications": [
     {
       "platform": "play",
