@@ -49,5 +49,11 @@
        "type": "image/gif"
      }
   ],
-  "description": "楽しくタスクをこなしたい人向けのタスク管理アプリ。タスクをこなすごとにペンギンが増えていきます！"
+  "description": "楽しくタスクをこなしたい人向けのタスク管理アプリ。タスクをこなすごとにペンギンが増えていきます！",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "takumaru.nekoo.taskmgt"
+    }
+  ]
 }
