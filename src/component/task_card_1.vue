@@ -195,7 +195,7 @@
           <v-card-text class="py-4">
             <span class="subtitle--text"><v-icon class="mb-1 mr-1">mdi-text</v-icon>詳細</span>
             <br>
-            {{data.text}}
+            <span v-html="data.text"></span>
           </v-card-text>
 
           <v-divider class="mx-2"/>
