@@ -23,7 +23,7 @@
     >
       <v-card
         light
-        :class="`card ${ isphone? null : 'rounded-xl' }`"
+        :class="`card rounded-xl`"
       >
         <div class="px-4 py-4">
           <div class="pb-4 text-center">
