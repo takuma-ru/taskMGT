@@ -5,7 +5,7 @@
       :dark="!light"
       flat
       color="transparent"
-      class="rounded-lg"
+      class="rounded-xl"
       @click="dialog = true"
     >
       <v-col>
@@ -23,7 +23,7 @@
     >
       <v-card
         light
-        :class="`card ${ isphone? null : 'rounded-lg' }`"
+        :class="`card ${ isphone? null : 'rounded-xl' }`"
       >
         <div class="px-4 py-4">
           <div class="pb-4 text-center">
@@ -51,7 +51,7 @@
               placeholder="例).タスク01"
               prepend-icon="mdi-format-title"
               filled
-              shaped
+              rounded
               :counter="30"
               class="pt-0"
               :rules="[
@@ -73,7 +73,7 @@
               placeholder="例).何かする"
               prepend-icon="mdi-text"
               filled
-              shaped
+              rounded
               :counter="150"
               label="詳細"
               :rules="[
@@ -91,10 +91,10 @@
               @click="sd_sheet = true"
               color="MY_blue"
               label="開始日"
-              prepend-icon="mdi-calendar-end"
+              prepend-icon="mdi-calendar-today"
               readonly
               filled
-              shaped
+              rounded
             ></v-text-field>
             <swipemodal
               v-model="sd_sheet"
@@ -103,7 +103,7 @@
               radius="10px"
             >
               <v-sheet
-                class="px-0 py-0 rounded-t-lg"
+                class="px-4 py-4 rounded-t-lg"
               >
                 <v-card-title class="font-weight-black">
                   開始日
@@ -126,6 +126,7 @@
                   scrollable
                   color="MY_blue"
                   width="100%"
+                  class="rounded-lg"
                 />
               </v-sheet>
             </swipemodal>
@@ -135,10 +136,10 @@
               @click="ed_sheet = true"
               color="MY_blue"
               label="終了日"
-              prepend-icon="mdi-calendar-end"
+              prepend-icon="mdi-calendar"
               readonly
               filled
-              shaped
+              rounded
             ></v-text-field>
             <swipemodal
               v-model="ed_sheet"
@@ -147,7 +148,7 @@
               radius="10px"
             >
               <v-sheet
-                class="px-0 py-0 rounded-t-lg"
+                class="px-4 py-4 rounded-t-lg"
               >
                 <v-card-title class="font-weight-black">
                   終了日
@@ -170,6 +171,7 @@
                   scrollable
                   color="MY_blue"
                   width="100%"
+                  class="rounded-lg"
                 />
               </v-sheet>
             </swipemodal>
@@ -301,6 +303,7 @@
               depressed
               color="MY_red"
               @click="dialog = false"
+              class="rounded-xl"
             >
               <v-icon class="mr-1">mdi-chevron-left</v-icon>やめる
             </v-btn>
@@ -310,6 +313,7 @@
               depressed
               color="MY_blue"
               @click="addTask"
+              class="rounded-xl"
             >
               <v-icon class="mr-1">mdi-plus</v-icon>追加する
             </v-btn>

@@ -25,7 +25,7 @@
       <v-col lg="4" md="4" sm="0" cols="0">
         <v-card
           flat
-          class="rounded-lg"
+          class="rounded-xl"
           color="transparent"
         >
           <v-card-title class="py-2">

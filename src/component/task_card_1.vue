@@ -8,7 +8,7 @@
       <v-card
         light
         :class="`elevation-${hover ? 9 : 1} card${type}`"
-        class="transition-swing rounded-lg"
+        class="transition-swing rounded-xl"
         @click="dialog = true"
       >
         <v-card-title class="py-2">
@@ -68,7 +68,7 @@
         v-touch="{
           down: () => swipe()
         }"
-        :class="`card${type} rounded-lg`"
+        :class="`card${type} rounded-xl`"
       >
         <div class="px-4 py-4">
           <div class="pb-4 text-center">
@@ -216,6 +216,7 @@
               depressed
               color="MY_red"
               @click="dialog = false"
+              class="rounded-xl"
             >
               <v-icon class="mr-1">mdi-chevron-left</v-icon>とじる
             </v-btn>
@@ -226,6 +227,7 @@
               depressed
               color="MY_blue"
               @click="Complete"
+              class="rounded-xl"
             >
               <v-icon class="mr-1">mdi-check</v-icon>完了！
             </v-btn>
