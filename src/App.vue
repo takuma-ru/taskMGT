@@ -174,7 +174,7 @@ export default {
 
   created() {
     window.open('https://next-taskmgt.web.app/')
-  }
+  },
 
   mounted() {
     this.$store.commit('updateChange', false)
