@@ -1,4 +1,4 @@
-# CHISK
+# CHISK(Archived)
 
 ![new_logo_192](https://user-images.githubusercontent.com/49429291/124390286-d1e66d80-dd25-11eb-9bc9-bfaf86b46637.png)
 
