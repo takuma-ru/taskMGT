@@ -14,6 +14,13 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "https://taskmgt.takumaru.dev/",
+        "type": 301
+      }
     ]
   }
 }
